@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artefak Pembelajaran - Nashrul Bahri</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --navy: #0B192C; --slate: #3C3D37; --emerald: #10B981; --bg-light: #F8FAFC; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-light); color: #333; margin: 0; padding: 20px; line-height: 1.6; }
+        .container { max-width: 900px; margin: auto; background: #fff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); overflow: hidden; border-top: 5px solid var(--navy); }
+        .header { background: linear-gradient(135deg, var(--navy), var(--slate)); color: white; padding: 40px 30px; text-align: center; }
+        .header h1 { margin: 0; color: var(--emerald); font-size: 2em; }
+        .content { padding: 30px; }
+        .module-card { background: #f1f5f9; border-left: 4px solid var(--emerald); padding: 20px; margin-bottom: 20px; border-radius: 6px; }
+        .module-card h3 { margin-top: 0; color: var(--navy); border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+        
+        /* Accordion */
+        .accordion-btn { background-color: var(--navy); color: white; cursor: pointer; padding: 15px 20px; width: 100%; text-align: left; border: none; transition: 0.3s; font-size: 1em; font-weight: 600; border-radius: 8px; display: flex; justify-content: space-between; margin-bottom: 5px; }
+        .accordion-btn:hover { background-color: var(--slate); }
+        .accordion-content { padding: 0 20px; background-color: white; max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; border-left: 2px solid var(--navy); border-right: 2px solid var(--navy); border-bottom: 2px solid var(--navy); border-radius: 0 0 8px 8px; margin-top: -5px; margin-bottom: 20px; }
+        
+        .star-box { background: rgba(16, 185, 129, 0.1); border: 1px solid var(--emerald); padding: 15px; border-radius: 6px; margin: 10px 0; }
+        .star-box strong { color: var(--emerald); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>The Masterpiece Collection</h1>
+            <p>Evolusi Perangkat Ajar & Integrasi Industri di Ruang Kelas</p>
+        </div>
+        
+        <div class="content">
+            <div class="module-card">
+                <h3>📦 [Semester Ganjil] Modul Ajar 1-6: Network Architect & IP Engineering</h3>
+                <p>Modul ini adalah fondasi logis. Sebelum siswa SMK N 1 Surabaya mengelola trafik, mereka harus menjadi "Arsitek Jaringan" yang handal. Fokus utama pada perhitungan biner, VLSM Subnetting, dan perancangan topologi dasar.</p>
+                <button class="accordion-btn">
+                    <span>Klik untuk Analisis Pedagogik Modul 1-6</span>
+                    <span>▼</span>
+                </button>
+                <div class="accordion-content">
+                    <p><strong>Kendala:</strong> Siswa seringkali memandang jaringan hanya sebagai "kabel yang tersambung ke internet", mengabaikan logika matematika (biner) di baliknya.<br>
+                    <strong>Solusi Pedagogik:</strong> Saya menerapkan <em>Scaffolding Kurikuler</em>, membawa visualisasi konkret bagaimana data mengalir dari bit ke infrastruktur berskala luas (VLAN & OSPF).</p>
+                </div>
+            </div>
+
+            <div class="module-card" style="border-left-color: var(--navy);">
+                <h3>🚀 [Semester Genap] Modul Ajar 7: Traffic Management & Gateway Control</h3>
+                <p>Ini adalah <strong>Masterpiece</strong> pembelajaran saya. Siswa dihadapkan pada studi kasus nyata pengelolaan <em>Bandwidth</em> (PCQ) dan <em>Load Balancing</em> (PCC) dengan menggunakan perangkat RouterOS Mikrotik dan PRTG Network Monitor.</p>
+                <button class="accordion-btn" style="background-color: var(--emerald);">
+                    <span>Klik untuk Bedah Refleksi Kasus (Metode STAR)</span>
+                    <span>▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="star-box">
+                        <p><strong>S (Situation):</strong> Materi Load Balancing PCC membutuhkan pemahaman jalur dual-WAN yang sangat abstrak bagi siswa Fase F. Jika salah konfigurasi, koneksi akan <em>looping</em> atau RTO.</p>
+                        <p><strong>T (Task):</strong> Mengarahkan siswa untuk membagi trafik secara adil dan menerapkan kebijakan pemblokiran (UU ITE) tanpa menurunkan performa router.</p>
+                        <p><strong>A (Action):</strong> Menerapkan <em>Challenge-Based Learning</em> dengan pertanyaan pemantik HOTS. Saya juga menstandarisasi warna kabel fisik (kuning untuk WAN 2) agar siswa tidak bingung saat praktik fisik.</p>
+                        <p><strong>R (Result):</strong> Evaluasi menunjukkan 100% kelompok berhasil melakukan <em>failover otomatis</em>, dan terbentuknya <em>Growth Mindset</em> di mana siswa sadar akan peran mereka sebagai penjaga keamanan siber sekolah.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.querySelectorAll('.accordion-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('span:last-child');
+                if (content.style.maxHeight) { content.style.maxHeight = null; icon.textContent = '▼'; } 
+                else { content.style.maxHeight = content.scrollHeight + "px"; icon.textContent = '▲'; }
+            });
+        });
+    </script>
+</body>
+</html>
