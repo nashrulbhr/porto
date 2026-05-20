@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pendidik - Nashrul Bahri</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0B192C;
+            --slate: #3C3D37;
+            --emerald: #10B981;
+            --bg-light: #F8FAFC;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .header-profile {
+            background: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80') center/cover;
+            position: relative;
+            padding: 60px 30px;
+            text-align: center;
+            color: white;
+        }
+        .header-profile::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(11, 25, 44, 0.85); /* Navy Overlay */
+            z-index: 1;
+        }
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        .header-content h1 { margin: 0; font-size: 2.2em; color: var(--emerald); }
+        
+        .content { padding: 30px; }
+        
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: #f8fafc;
+            border-left: 4px solid var(--navy);
+            padding: 20px;
+            border-radius: 6px;
+        }
+        .card h3 { margin-top: 0; color: var(--navy); display: flex; align-items: center; gap: 10px;}
+        
+        .accordion-btn {
+            background-color: var(--emerald);
+            color: white;
+            cursor: pointer;
+            padding: 15px 20px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.3s;
+            font-size: 1.05em;
+            font-weight: 700;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .accordion-btn:hover { background-color: #0d9668; }
+        .accordion-content {
+            padding: 0 20px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            border: 2px solid var(--emerald);
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            margin-top: -5px;
+        }
+        .tag {
+            background: var(--navy);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-profile">
+            <div class="header-content">
+                <h1>Transformasi Pedagogis & Profil Pendidik</h1>
+                <p>Dari Inovasi Industri menuju Inspirasi Ruang Kelas</p>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="story-grid">
+                <div class="card">
+                    <h3>🌍 Akar Budaya & Filosofi Hidup</h3>
+                    <p>Lahir dan besar di <strong>Panti, Jember, Jawa Timur</strong>, sebuah daerah yang kaya akan pesona agraris dan kehutanan. Lingkungan ini menanamkan kecintaan saya yang mendalam terhadap kelestarian alam. Filosofi hidup saya berakar pada <strong>"Eco-Tech Pedagogi"</strong>—keyakinan bahwa teknologi mutakhir (seperti jaringan komputer dan IoT) tidak diciptakan untuk merusak alam, melainkan untuk melestarikannya melalui efisiensi daya, manajemen sumber daya digital, dan pemantauan lingkungan.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>💡 The Turning Point (Panggilan Jiwa)</h3>
+                    <p>Karir saya didominasi oleh riset <em>Machine Learning</em> dan <em>UAV</em> di Yogyakarta dan Pasuruan. Namun, benih pendidikan telah tertanam sejak tahun 2017 ketika saya menjadi <strong>Mentor Robotika</strong> untuk anak-anak SD hingga SMA. Melihat mata mereka berbinar saat koding yang mereka ketik berhasil menggerakkan sebuah robot, memberikan saya epifani: <em>Membangun infrastruktur mesin memang hebat, tetapi membangun struktur berpikir generasi muda jauh lebih berdampak abadi.</em> Hal inilah yang membulatkan tekad saya menempuh PPG di Universitas Negeri Surabaya (Unesa).</p>
+                </div>
+            </div>
+
+            <button class="accordion-btn">
+                <span>🔍 Bedah Nilai Hidup & Visi Guru Profesional (Matrix Kompetensi)</span>
+                <span>▼</span>
+            </button>
+            <div class="accordion-content">
+                <div style="padding: 20px 0;">
+                    <p>Sebagai calon guru profesional, saya membawa nilai-nilai industri untuk membentuk karakter siswa vokasi (SMK):</p>
+                    
+                    <h4 style="color: var(--navy); border-bottom: 1px solid #ccc; padding-bottom: 5px;">1. Attention to Detail (Ketelitian Tingkat Tinggi)</h4>
+                    <p>Di dunia R&D dan <em>Network Architect</em>, satu kesalahan pengalamatan biner atau konfigurasi port dapat melumpuhkan sistem. Saya melatih siswa untuk bekerja tidak hanya cepat, tetapi presisi dan taat pada Standar Operasional Prosedur (SOP) Industri.</p>
+
+                    <h4 style="color: var(--navy); border-bottom: 1px solid #ccc; padding-bottom: 5px;">2. Future-Ready Skills via KKA</h4>
+                    <p>Berbekal <strong>Sertifikasi Koding dan Kecerdasan Artifisial (KKA)</strong>, saya menyisipkan kurikulum masa depan (komputasi awan, dasar AI, dan skrip otomasi) di sela-sela materi Administrasi Infrastruktur Jaringan agar lulusan SMK tidak tergilas oleh otomatisasi industri.</p>
+
+                    <h4 style="color: var(--navy); border-bottom: 1px solid #ccc; padding-bottom: 5px;">3. Target Pengembangan Diri</h4>
+                    <div>
+                        <span class="tag">Sertifikasi MikroTik Academy</span>
+                        <span class="tag">Pengembangan Lab IoT di SMK</span>
+                        <span class="tag">Publikasi Riset Pendidikan Vokasi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.accordion-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('span:last-child');
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.textContent = '▼';
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.textContent = '▲';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
