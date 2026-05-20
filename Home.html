@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Utama - Nashrul Bahri</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0B192C;
+            --slate: #3C3D37;
+            --emerald: #10B981;
+            --bg-light: #F8FAFC;
+            --text-dark: #1E293B;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border-top: 5px solid var(--emerald);
+        }
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--slate) 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .hero img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--emerald);
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+        .hero h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 800;
+        }
+        .hero h2 {
+            margin: 10px 0;
+            font-size: 1.1em;
+            font-weight: 400;
+            color: #cbd5e1;
+        }
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        .badge {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--emerald);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            border: 1px solid var(--emerald);
+        }
+        .content {
+            padding: 30px;
+        }
+        .quote-box {
+            border-left: 4px solid var(--emerald);
+            background: #f1f5f9;
+            padding: 20px;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 30px;
+            color: var(--slate);
+        }
+        /* Timeline */
+        .timeline {
+            border-left: 2px solid var(--emerald);
+            padding-left: 20px;
+            margin-left: 10px;
+            margin-bottom: 30px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--emerald);
+            border-radius: 50%;
+        }
+        .timeline-date { font-weight: 600; color: var(--navy); }
+        .timeline-title { font-weight: 800; color: var(--text-dark); }
+        /* Accordion */
+        .accordion-btn {
+            background-color: var(--navy);
+            color: white;
+            cursor: pointer;
+            padding: 15px 20px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.3s;
+            font-size: 1em;
+            font-weight: 600;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .accordion-btn:hover { background-color: var(--slate); }
+        .accordion-content {
+            padding: 0 20px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            border-left: 2px solid var(--navy);
+            border-right: 2px solid var(--navy);
+            border-bottom: 2px solid var(--navy);
+            border-radius: 0 0 8px 8px;
+            margin-top: -5px;
+        }
+        .pub-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <img src="https://via.placeholder.com/150/0B192C/10B981?text=Foto+Nashrul" alt="Nashrul Bahri">
+            <h1>Nashrul Bahri, S.Kom.</h1>
+            <h2>Jembatan Inovasi Industri R&D dan Edukasi Vokasi Masa Depan</h2>
+            <div class="badges">
+                <span class="badge">🏅 Tersertifikasi KKA (Koding & Kecerdasan Artifisial)</span>
+                <span class="badge">⚙️ IoT & UAV Engineer</span>
+                <span class="badge">🎓 Calon Guru Profesional TJKT</span>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="quote-box">
+                "Seorang administrator jaringan bukan sekadar pengonfigurasi kabel dan kode, melainkan pembuat keadilan di dunia digital; membagi akses informasi secara merata, aman, dan bertanggung jawab demi kemaslahatan bersama."
+            </div>
+
+            <h3 style="color: var(--navy);">Lini Masa Akademik Multigelar</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2026 - Sekarang</div>
+                    <div class="timeline-title">Pendidikan Profesi Guru (PPG) Prajabatan</div>
+                    <div>Universitas Negeri Surabaya (Unesa) - Bidang Studi TJKT</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-title">S1 Sistem dan Teknologi Informasi</div>
+                    <div>ITB Yadika Pasuruan</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022</div>
+                    <div class="timeline-title">S1 Informatika</div>
+                    <div>Universitas Mercu Buana Yogyakarta (UMBY)</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2018</div>
+                    <div class="timeline-title">D3 Teknik Komputer</div>
+                    <div>Politeknik Negeri Jember (Polije)</div>
+                </div>
+            </div>
+
+            <button class="accordion-btn">
+                <span>🚀 Klik untuk Jelajahi Rekam Jejak Industri & Portofolio R&D</span>
+                <span>+</span>
+            </button>
+            <div class="accordion-content">
+                <div style="padding: 20px 0;">
+                    <h4 style="color: var(--navy); margin-top: 0;">Pengalaman Industri</h4>
+                    <ul>
+                        <li><strong>UAV Staff & R&D Engineer</strong> - PT Techno GIS Indonesia (Yogyakarta). Terlibat dalam otomasi dan pembelajaran mesin (Machine Learning) untuk sistem nirawak.</li>
+                        <li><strong>Freelance IoT Developer</strong> - Mengembangkan sistem tata ruang terpadu dan otomatisasi sensor.</li>
+                        <li><strong>Mentor Robotika (2017)</strong> - Mengajar dan membimbing siswa SD hingga SMA dalam logika pemrograman dan rakitan robot, yang menjadi cikal bakal panggilan jiwa sebagai pendidik.</li>
+                    </ul>
+
+                    <h4 style="color: var(--navy);">Publikasi Ilmiah Unggulan</h4>
+                    <div class="pub-box">
+                        <strong>2024:</strong> "Implementasi Internet of Things untuk Monitoring dan Pengendalian Pencemaran Udara Studi Kasus Sensor Gas" (Diterbitkan oleh ITB Yadika Pasuruan).
+                    </div>
+                    <div class="pub-box">
+                        <strong>2018:</strong> "Pengembangan Sistem Internet of Things untuk Pemantauan dan Informasi Kualitas Udara di Lingkungan Hunian" (Diterbitkan oleh Politeknik Negeri Jember).
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.accordion-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('span:last-child');
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.textContent = '+';
+                    button.style.backgroundColor = 'var(--navy)';
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.textContent = '−';
+                    button.style.backgroundColor = 'var(--emerald)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
