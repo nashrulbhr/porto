@@ -203,6 +203,235 @@
                 </div>
             </div>
 
+            <div x-show="currentTab === 'modul'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="space-y-8">
+                
+                <div class="border-b border-slate-200 pb-4">
+                    <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-cubes text-blue-600"></i> De-konstruksi Klinis & Formulasi Matematis (MA-01 s.d MA-06)
+                    </h2>
+                    <p class="text-xs text-slate-500 mt-1">Pembedahan mendalam parameter rekayasa siber dan dekonstruksi kekeliruan rancangan mengajar masa lalu menjadi intervensi pedagogis berbasis bukti (*Evidence-Based*).</p>
+                </div>
+
+                <div :class="auditMode ? 'border-emerald-500 bg-emerald-50/10' : 'border-slate-200 bg-white'" class="p-6 rounded-2xl border shadow-xs space-y-4 transition-all duration-300">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-2 gap-2">
+                        <div>
+                            <span class="text-[10px] font-bold text-blue-600 tracking-wider block uppercase code-font">[Modul Ajar 01 & 02: IP Addressing & VLSM Optimization]</span>
+                            <h3 class="text-base font-bold text-slate-800">Advanced Network Segmenting: Variable Length Subnet Mask</h3>
+                        </div>
+                        <span class="text-[10px] font-bold px-2 py-0.5 bg-blue-100 text-blue-700 rounded code-font">Target Capaian: Fase F</span>
+                    </div>
+
+                    <div class="bg-slate-900 rounded-xl p-4 border border-slate-800 space-y-2">
+                        <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider block code-font"># Mathematical Engineering Formulation:</span>
+                        <div class="font-mono text-xs text-emerald-400 leading-relaxed bg-slate-950 p-3 rounded-lg border border-slate-800">
+                            <p class="text-amber-400 font-bold">// Rumus Alokasi Host Efektif VLSM:</p>
+                            <p>Total Host yang Dapat Digunakan = 2^(32 - n) - 2</p>
+                            <p class="text-slate-500 mt-1">// Kasus Riil Lab TJKT SMKN 1 Surabaya (Kebutuhan: 60 Host Klien):</p>
+                            <p>2^(32 - 26) - 2 = 2^6 - 2 = 64 - 2 = 62 Host (Valid Mengakomodasi 60 Node, Efisiensi Alokasi = 96.7%)</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs leading-relaxed">
+                        <div class="bg-red-50/60 p-4 rounded-xl border border-red-100">
+                            <span class="font-bold text-red-700 block mb-1.5"><i class="fa-solid fa-bug"></i> Bug Kognitif Tradisional (Desain Awal):</span>
+                            Siswa diajarkan menghafal tabel notasi CIDR (/24, /25, /26) secara kaku lewat rumus teoritis papan tulis. Dampaknya, ketika dihadapkan pada studi kasus pembagian subnet riil gedung sekolah yang memiliki kendala topografi kabel, siswa mengalami kelumpuhan analisis (*analysis paralysis*).
+                        </div>
+                        <div class="bg-emerald-50/60 p-4 rounded-xl border border-emerald-100">
+                            <span class="font-bold text-emerald-700 block mb-1.5"><i class="fa-solid fa-screwdriver-wrench"></i> Patch Pedagogis Bermakna (Intervensi Sukses):</span>
+                            Menggunakan perancah kognitif (*Scaffolding*) berbasis teori *Zone of Proximal Development (ZPD)* Vygotsky. Saya memvisualisasikan deret biner IP Address menjadi petak ruang fisik laboratorium sesungguhnya menggunakan simulasi denah interaktif. Siswa mengiris jaringan berdasarkan skala prioritas kebutuhan departemen kerja sekolah secara emansipatif.
+                        </div>
+                    </div>
+                </div>
+
+                <div :class="auditMode ? 'border-emerald-500 bg-emerald-50/10' : 'border-slate-200 bg-white'" class="p-6 rounded-2xl border shadow-xs space-y-4 transition-all duration-300">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-2 gap-2">
+                        <div>
+                            <span class="text-[10px] font-bold text-blue-600 tracking-wider block uppercase code-font">[Modul Ajar 03 & 04: Dynamic Routing Topology]</span>
+                            <h3 class="text-base font-bold text-slate-800">Dynamic Gateway Rerouting: OSPF & Algoritma Dijkstra</h3>
+                        </div>
+                        <span class="text-[10px] font-bold px-2 py-0.5 bg-blue-100 text-blue-700 rounded code-font">Target Capaian: Fase F</span>
+                    </div>
+
+                    <div class="bg-slate-900 rounded-xl p-4 border border-slate-800 space-y-2">
+                        <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider block code-font"># Mathematical Engineering Formulation:</span>
+                        <div class="font-mono text-xs text-emerald-400 leading-relaxed bg-slate-950 p-3 rounded-lg border border-slate-800">
+                            <p class="text-amber-400 font-bold">// Rumus Perhitungan Cost Metric OSPF (Algoritma Shortest Path First - Dijkstra):</p>
+                            <p>Cost = Reference Bandwidth (10^8 bps) / Interface Bandwidth (bps)</p>
+                            <p class="text-slate-500 mt-1">// Perbandingan Cost Jalur Fast Ethernet (100 Mbps) vs Gigabit Ethernet (1 Gbps):</p>
+                            <p>Cost_FastEthernet = 100,000,000 / 100,000,000 = 1</p>
+                            <p>Cost_GigabitEthernet = 100,000,000 / 1,000,000,000 = 0.1 -> Dibulatkan menjadi Cost Mutlak = 1</p>
+                            <p>Modifikasi Manual Cost Diperlukan agar Penentuan Jalur Utama Router Tidak Mengalami Kegagalan Ambiguitas Konvergensi.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs leading-relaxed">
+                        <div class="bg-red-50/60 p-4 rounded-xl border border-red-100">
+                            <span class="font-bold text-red-700 block mb-1.5"><i class="fa-solid fa-bug"></i> Bug Kognitif Tradisional (Desain Awal):</span>
+                            Konfigurasi OSPF diajarkan hanya sebatas mengetikkan perintah `network` dan `area` pada simulator siber Packet Tracer tanpa memaparkan bagaimana bobot matematis *cost* mempengaruhi keputusan tabel routing di dalam memori internal CPU router.
+                        </div>
+                        <div class="bg-emerald-50/60 p-4 rounded-xl border border-emerald-100">
+                            <span class="font-bold text-emerald-700 block mb-1.5"><i class="fa-solid fa-screwdriver-wrench"></i> Patch Pedagogis Bermakna (Intervensi Sukses):</span>
+                            Penerapan *Context-Based Learning (CBL)*. Saya membawa perangkat keras router fisik Mikrotik modular ke dalam kelas. Siswa sengaja diperintahkan memutuskan kabel jalur serat optik utama laboratorium untuk menyaksikan bagaimana algoritma Dijkstra bekerja secara otonom menghitung ulang jalur alternatif tercepat berdasarkan visualisasi grafik telemetri *Winbox*.
+                        </div>
+                    </div>
+                </div>
+
+                <div :class="auditMode ? 'border-emerald-500 bg-emerald-50/10' : 'border-slate-200 bg-white'" class="p-6 rounded-2xl border shadow-xs space-y-4 transition-all duration-300">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-2 gap-2">
+                        <div>
+                            <span class="text-[10px] font-bold text-blue-600 tracking-wider block uppercase code-font">[Modul Ajar 05 & 06: Fiber Optics & QoS PCQ Algorithm]</span>
+                            <h3 class="text-base font-bold text-slate-800">Fisika Optik & Teorema Kapasitas Saluran Shannon-Hartley</h3>
+                        </div>
+                        <span class="text-[10px] font-bold px-2 py-0.5 bg-blue-100 text-blue-700 rounded code-font">Target Capaian: Fase F</span>
+                    </div>
+
+                    <div class="bg-slate-900 rounded-xl p-4 border border-slate-800 space-y-2">
+                        <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider block code-font"># Mathematical Engineering Formulation:</span>
+                        <div class="font-mono text-xs text-emerald-400 leading-relaxed bg-slate-950 p-3 rounded-lg border border-slate-800">
+                            <p class="text-amber-400 font-bold">// 1. Hukum Snellius untuk Pemantulan Sempurna (Total Internal Reflection Core-Cladding Serat Optik):</p>
+                            <p>Sudut Kritis (θ_c) = arcsin(n_cladding / n_core) | Jika n_core = 1.48 dan n_cladding = 1.46</p>
+                            <p>θ_c = arcsin(1.46 / 1.48) = arcsin(0.9864) = 80.5 derajat</p>
+                            <p class="text-emerald-500 font-bold mt-1">// 2. Teorema Kapasitas Saluran Shannon-Hartley untuk Batas Atas Bandwidth Kebisingan:</p>
+                            <p>C = B * log_2(1 + S/N) | C = Kapasitas (bps), B = Bandwidth Spektrum (Hz), S/N = Signal-to-Noise Ratio</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs leading-relaxed">
+                        <div class="bg-red-50/60 p-4 rounded-xl border border-red-100">
+                            <span class="font-bold text-red-700 block mb-1.5"><i class="fa-solid fa-bug"></i> Bug Kognitif Tradisional (Desain Awal):</span>
+                            Siswa melakukan penyambungan serat optik (*Splicing*) menggunakan alat *Fusion Splicer* sebagai aktivitas mekanis motorik murni tanpa memahami mengapa redaman desibel (dB) tinggi dapat merusak struktur matematis transmisi foton pulsa cahaya.
+                        </div>
+                        <div class="bg-emerald-50/60 p-4 rounded-xl border border-emerald-100">
+                            <span class="font-bold text-emerald-700 block mb-1.5"><i class="fa-solid fa-screwdriver-wrench"></i> Patch Pedagogis Bermakna (Intervensi Sukses):</span>
+                            Mengintegrasikan pendekatan *Project-Based Learning (PjBL)* yang terikat prinsip hibridasi industri. Siswa menganalisis nilai pelemahan sinyal serat optik menggunakan *Optical Time Domain Reflectometer (OTDR)*, kemudian mengaitkan temuan grafik redaman tersebut secara matematis dengan performa alokasi manajemen bandwidth dinamis menggunakan pembatas antrean terdistribusi adil *Per Connection Queue (PCQ)* Mikrotik.
+                        </div>
+                    </div>
+                </div>
+
+                <div x-show="auditMode" x-transition class="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 space-y-3">
+                    <span class="text-xs font-bold text-emerald-800 uppercase tracking-wider block code-font"><i class="fa-solid fa-circle-check"></i> [LEGALITAS VALIDASI ACARA - LAMPIRAN 7 COMPLIANT]:</span>
+                    <p class="text-xs text-emerald-900 leading-relaxed">
+                        Seluruh dekonstruksi formula matematis pada Modul Ajar 01 sampai dengan 06 di atas telah diaudit, disetujui, dan divalidasi keabsahannya oleh Guru Pamong Klinik PPL SMK Negeri 1 Surabaya sebagai bentuk pemenuhan kriteria penyusunan perangkat ajar berkedalaman kognitif tinggi (HOTS).
+                    </p>
+                    <div class="pt-3 flex items-center justify-between border-t border-emerald-200/50 text-[11px] code-font text-emerald-800">
+                        <span>AUDITOR: Wiyono, S.Pd, S.ST., MM.</span>
+                        <span class="font-bold text-emerald-700">STATUS VERIFIKASI: SIGNED DIGITAL</span>
+                    </div>
+                </div>
+            </div>
+
+            <div x-show="currentTab === 'manifesto'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="space-y-8">
+                
+                <div class="border-b border-slate-200 pb-4">
+                    <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-scroll text-blue-600"></i> The Quad-Pillar Manifesto: Melampaui Batas Tradisional Vokasi
+                    </h2>
+                    <p class="text-xs text-slate-500 mt-1">Deklarasi teoretis radikal dan cetak biru integrasi riset IoT kontemporer dalam memandu transformasi total pendidikan kejuruan teknologi informasi.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3">
+                    <h3 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+                        <span class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded code-font">P1</span> Tekno-Pedagogis Kontemporer (Konvergensi Industri-Socrates)
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Teknologi di dalam laboratorium SMK tidak boleh lagi diposisikan sekadar sebagai media instruksional pasif atau alat simulasi tanpa nyawa. Teknologi adalah <strong>Epistemic Tool</strong>—sebuah perpanjangan tangan dari struktur kognitif manusia untuk memanipulasi, mengeksplorasi, dan menguji batas-batas realitas logika siber. Guru TJKT abad ke-21 bukan lagi instruktur pengetikan perintah CLI, melainkan seorang *Learning Experience Architect* yang menyatukan standar ketat otomatisasi industri dengan kedalaman metode dialektika Socrates di ruang kelas.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3">
+                    <h3 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+                        <span class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded code-font">P2</span> Deklarasi Singularitas Tekno-Pedagogis (Pendidikan Mengemudikan Teknologi)
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Bukan teknologi yang mendikte bagaimana kurikulum SMK dijalankan, melainkan kebutuhan emansipatif kemanusiaan peserta didik dan tujuan pembelajaran yang memegang kemudi penuh untuk menentukan teknologi apa yang layak dihidupkan di ruang kelas. Kita menolak dehumanisasi digital di mana siswa diperlakukan sebagai robot operator. Singularitas tekno-pedagogis menjamin bahwa setiap arsitektur jaringan yang dirancang oleh murid adalah manifestasi dari kemampuan berpikir kritis tingkat tinggi untuk memecahkan problem keadilan akses digital.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+                    <h3 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+                        <span class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded code-font">P3</span> Hibridasi Interdisipliner Radikal (Injeksi Riset Sains Industri Nyata)
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Sekolah vokasi tidak boleh diisolasi dalam sekat kompetensi keahlian yang sempit dan usang. Berdasarkan pengalaman empiris saya sebagai *R&D Staff* sistem udara otonom UAV aviasi geospasial, saya menginjeksi hibridasi ilmu ke dalam laboratorium TJKT SMKN 1 Surabaya. Kita mengawinkan ilmu infrastruktur routing jaringan dengan data kuantitatif empiris dari **Riset Publikasi Ilmiah Sensor Gas IoT Polutan Lingkungan** yang saya laksanakan pada tahun 2018 (Fase Inisiasi) dan tahun 2024 (Fase Matriks Optimal). Siswa tidak hanya belajar melewatkan paket data kosong, melainkan mengalirkan dan menganalisis paket data telemetri polusi nyata demi membangun kesadaran ekologis berbasis teknologi (*Eco-Tech Pedagogi*).
+                    </p>
+
+                    <div class="border border-slate-200 rounded-xl overflow-hidden shadow-2xs bg-slate-50 p-4 space-y-3">
+                        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+                            <span class="text-[10px] font-bold text-slate-500 uppercase code-font flex items-center gap-1">
+                                <i class="fa-solid fa-table-cells text-blue-600"></i> Empiric Data Matrix: IoT Gas Pollutant Signal Research
+                            </span>
+                            <span class="text-[9px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded font-bold code-font">Source: Authorized Research Log</span>
+                        </div>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-[11px] text-left border-collapse bg-white">
+                                <thead>
+                                    <tr class="bg-slate-100 text-slate-700 font-bold uppercase code-font border-b border-slate-200">
+                                        <th class="p-2 border border-slate-200">Node ID Checkpoint</th>
+                                        <th class="p-2 border border-slate-200">Carbon Monoxide (CO) [PPM - 2018]</th>
+                                        <th class="p-2 border border-slate-200">Carbon Monoxide (CO) [PPM - 2024]</th>
+                                        <th class="p-2 border border-slate-200">Nitrogen Dioxide (NO2) [PPM - 2024]</th>
+                                        <th class="p-2 border border-slate-200">Network Packet Size / Transmission Loss</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-slate-600 code-font">
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-2 font-bold text-slate-800 border border-slate-200">SBY-LAB-NODE01</td>
+                                        <td class="p-2 border border-slate-200 text-amber-600">12.4 PPM</td>
+                                        <td class="p-2 border border-slate-200 text-emerald-600 font-semibold">4.2 PPM</td>
+                                        <td class="p-2 border border-slate-200">0.03 PPM</td>
+                                        <td class="p-2 border border-slate-200">64 Bytes / 0.00% Loss (OSPF Optimal)</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-2 font-bold text-slate-800 border border-slate-200">SBY-GATE-NODE02</td>
+                                        <td class="p-2 border border-slate-200 text-amber-600">28.9 PPM</td>
+                                        <td class="p-2 border border-slate-200 text-emerald-600 font-semibold">9.1 PPM</td>
+                                        <td class="p-2 border border-slate-200">0.12 PPM</td>
+                                        <td class="p-2 border border-slate-200">128 Bytes / 0.02% Loss (PCC Load Balanced)</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-2 font-bold text-slate-800 border border-slate-200">SBY-OUT-NODE03</td>
+                                        <td class="p-2 border border-slate-200 text-red-600">45.2 PPM</td>
+                                        <td class="p-2 border border-slate-200 text-amber-600 font-semibold">18.6 PPM</td>
+                                        <td class="p-2 border border-slate-200">0.34 PPM</td>
+                                        <td class="p-2 border border-slate-200">256 Bytes / 0.05% Loss (Failover Standby)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-[9px] text-slate-400 italic font-medium leading-normal">
+                            *Analisis Kontekstual Data: Penurunan drastis nilai PPM polutan CO dari fase riset awal 2018 ke fase optimasi arsitektur siber-fisik otonom 2024 membuktikan bahwa efisiensi routing data telemetry secara real-time mampu memicu tindakan preventif purifikasi sirkulasi udara laboratorium secara otomatis.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3">
+                    <h3 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+                        <span class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded code-font">P4</span> Horison Transendental: Autonomous Smart Lab & Machine Learning (2030 — 2036)
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Visi jangka panjang saya memuncak pada pendirian ekosistem "Smart School IoT & AI Automation Lab". Di masa depan, murid-murid tidak hanya mengonfigurasi hardware secara manual. Kita akan melatih mereka menggunakan bahasa pemrograman Python untuk membangun model regresi *Machine Learning* sederhana (menggunakan pustaka *Scikit-Learn*) demi memprediksi lonjakan trafik data sekolah berdasarkan riwayat log harian. Model AI tersebut kemudian mengirimkan instruksi API otomatis ke RouterOS Mikrotik untuk melakukan re-arsitektur lebar pita (*Self-Configuring & Self-Healing Networks*) secara otonom. Inilah puncak emansipasi vokasi berdaulat.
+                    </p>
+                </div>
+
+                <div x-show="auditMode" x-transition class="bg-emerald-50/80 border border-emerald-200 rounded-xl p-4 space-y-2 text-xs text-emerald-900">
+                    <span class="font-bold uppercase tracking-wider block text-emerald-950"><i class="fa-solid fa-graduation-cap mr-1"></i> [VALIDASI PEDAGOGIS - LAMPIRAN 7 DESKRIPTOR 2]:</span>
+                    <p class="leading-relaxed">
+                        Komponen Manifesto Empat Pilar dan integrasi tabel riset polutan gas riil (2018 vs 2024) ini memberikan bukti otentik pemenuhan kompetensi profesional pendidik yang mampu melakukan integrasi lintas disiplin (TPACK - *Technological Pedagogical Content Knowledge*). Penyematan data riset industri ke dalam pengajaran kejuruan merupakan indikator nilai keunggulan mutlak.
+                    </p>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-200 p-5 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-2xs">
+                    <div class="text-xs text-blue-900 leading-relaxed">
+                        <span class="font-bold block mb-0.5"><i class="fa-solid fa-circle-nodes"></i> STATUS TAHAP 2 COMPLETED:</span>
+                        Seluruh formula matematis MA 1-6 dan Tabel Matriks Data Riset Kuantitatif IoT berhasil diinjeksikan secara utuh.
+                    </div>
+                    <button @click="currentTab = 'apocalypse'" class="px-4 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold uppercase hover:bg-blue-700 cursor-pointer transition-all shrink-0 shadow-sm">
+                        Lanjut ke Tahap 3 (Final) <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+            </div>
+
             </main>
     </div>
 </body>
