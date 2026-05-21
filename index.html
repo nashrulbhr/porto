@@ -31,8 +31,8 @@
     <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-between justify-center text-white shadow-md shadow-blue-500/20">
-                    <i class="fa-solid : font-bold fa-network-wired text-lg"></i>
+                <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20">
+                    <i class="fa-solid fa-network-wired text-lg"></i>
                 </div>
                 <div>
                     <span class="text-sm font-semibold tracking-wider text-blue-600 block uppercase code-font">E-Portfolio v1.0</span>
@@ -99,7 +99,7 @@
             </div>
         </aside>
 
-        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1">
+        <main class="flex-1">
 
             <div x-show="currentTab === 'dashboard'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="space-y-8">
                 
@@ -294,71 +294,6 @@
                 </div>
             </div>
 
-
-            <div x-show="currentTab === 'dashboard'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="space-y-8">
-                <div class="bg-gradient-to-r from-slate-900 to-blue-900 rounded-2xl p-6 sm:p-8 text-white relative overflow-hidden shadow-md">
-                    <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30"></div>
-                    <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-                        <div>
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300 border border-blue-500/30 mb-3 code-font">
-                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> SYSTEM PILOT STATE: STANDBY
-                            </span>
-                            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Nashrul Bahri, S.Kom.</h2>
-                            <p class="text-blue-200 text-sm mt-1">NIM: 2500103916625002 • PPG Prajabatan TJKT Gelombang 1 Tahun 2026</p>
-                            <div class="flex flex-wrap gap-x-4 gap-y-2 mt-4 text-xs text-slate-300">
-                                <span><i class="fa-solid fa-university mr-1.5 text-blue-400"></i> LPTK: Universitas Negeri Surabaya (Unesa)</span>
-                                <span><i class="fa-solid fa-location-dot mr-1.5 text-blue-400"></i> Klinik PPL: SMK Negeri 1 Surabaya</span>
-                            </div>
-                        </div>
-                        <div class="flex flex-row md:flex-col gap-3 justify-start items-start shrink-0">
-                            <div class="bg-white/10 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 text-center w-full min-w-[140px]">
-                                <span class="text-xs text-blue-300 block font-medium uppercase tracking-wider">Metrik Portofolio</span>
-                                <span class="text-xl font-bold block mt-0.5 code-font">100% VALID</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                        <span class="text-xs text-slate-500 block uppercase font-medium tracking-wide">Fokus Keahlian Rekayasa</span>
-                        <span class="text-sm font-semibold text-slate-800 block mt-1">Sistem Otonom & IoT</span>
-                    </div>
-                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                        <span class="text-xs text-slate-500 block uppercase font-medium tracking-wide">Metodologi Pedagogi</span>
-                        <span class="text-sm font-semibold text-slate-800 block mt-1">Project & Case-Based Learning</span>
-                    </div>
-                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                        <span class="text-xs text-slate-500 block uppercase font-medium tracking-wide">Elemen Kurikulum</span>
-                        <span class="text-sm font-semibold text-slate-800 block mt-1">Adm. Infrastruktur Jaringan</span>
-                    </div>
-                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                        <span class="text-xs text-slate-500 block uppercase font-medium tracking-wide">Pendekatan Filosofis</span>
-                        <span class="text-sm font-semibold text-slate-800 block mt-1">Eco-Tech Pedagogi</span>
-                    </div>
-                </div>
-
-                <section class="space-y-4">
-                    <div class="flex items-center space-x-2 border-b border-slate-200 pb-2">
-                        <i class="fa-solid fa-scroll text-blue-600 text-lg"></i>
-                        <h3 class="text-lg font-bold text-slate-900">1. Manifesto Kompetensi dan Evolusi Pedagogis</h3>
-                    </div>
-                    <div :class="auditMode ? 'border-emerald-500 bg-emerald-50/30' : 'border-slate-200 bg-white'" class="p-6 rounded-2xl border transition-all duration-300 shadow-xs relative">
-                        <blockquote class="text-slate-700 leading-relaxed italic text-sm border-l-4 border-blue-600 pl-4">
-                            "Transformasi diri saya dari seorang R&D Staff sistem udara otonom UAV di industri aviasi geospasial menjadi seorang pendidik klinis di SMK Negeri 1 Surabaya bukanlah sebuah perpindahan karir linier yang sederhana. Ini adalah sebuah proses re-arsitektur kognitif total."
-                        </blockquote>
-                        <p class="text-slate-600 leading-relaxed text-sm mt-4">
-                            Modul Ajar 1 sampai dengan 6 adalah prasasti digital dari fase transisi awal saya. Perangkat-perangkat tersebut merekam bagaimana saya pada mulanya masih berpikir seperti seorang engineer murni yang kaku—menyusun materi infrastruktur jaringan sebagai tumpukan instruksi teknikal yang padat, dingin, dan mengabaikan keragaman kesiapan belajar (readiness) siswa.
-                        </p>
-                    </div>
-                </section>
-
-                <div class="bg-blue-50 border border-blue-200 p-4 rounded-xl flex items-center justify-between">
-                    <span class="text-xs text-blue-800 font-medium"><i class="fa-solid fa-circle-arrow-right mr-1"></i> Data struktur identitas selesai diverifikasi. Lanjutkan ke pembedahan modul.</span>
-                    <button @click="currentTab = 'modul'" class="px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-semibold uppercase hover:bg-blue-700 cursor-pointer transition-colors">Buka Bab 2 <i class="fa-solid fa-chevron-right ml-1 text-[10px]"></i></button>
-                </div>
-            </div>
-
             <div x-show="currentTab === 'modul'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="space-y-8">
                 
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 relative overflow-hidden">
@@ -375,275 +310,46 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 gap-6">
-                    
-                    <div :class="auditMode ? 'border-emerald-500/40 bg-emerald-50/5' : 'border-slate-200 bg-white'" class="p-6 rounded-2xl border transition-all duration-300 space-y-4">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <span class="px-2 py-0.5 bg-blue-100 text-blue-700 rounded text-[10px] font-bold code-font">MA-01</span>
-                                <h4 class="text-base font-bold text-slate-900 mt-1">Perancangan Arsitektur & Logika Pengalamatan (IP Engineering)</h4>
-                            </div>
-                            <span class="text-xs font-semibold text-slate-400 code-font">Layer 3 Network</span>
-                        </div>
-                        <p class="text-xs text-slate-600 leading-relaxed">
-                            Siswa melakukan analisis kebutuhan teknis pengguna (User Requirements) dari cetak biru gedung perusahaan skala menengah, kemudian memproyeksikan topologi fisik dan logis menggunakan kalkulasi biner murni.
-                        </p>
-                        <div class="bg-slate-900 rounded-xl p-4 border border-slate-800 font-mono text-xs text-blue-300 space-y-2">
-                            <div class="text-slate-500 text-[10px] uppercase font-bold tracking-wider border-b border-slate-800 pb-1">Engineering Logic: Variable Length Subnet Mask (VLSM)</div>
-                            <div class="flex flex-col gap-1">
-                                <span>Formula Alokasi Host: Host Efektif = 2<sup>32 - n</sup> - 2</span>
-                                <span>Paradigma Efisiensi: Zero Waste IP Address (Efisiensi Alokasi Ruang Alamat &ge; 95%)</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div :class="auditMode ? 'border-emerald-500/40 bg-emerald-50/5' : 'border-slate-200 bg-white'" class="p-6 rounded-2xl border transition-all duration-300 space-y-4">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <span class="px-2 py-0.5 bg-blue-100 text-blue-700 rounded text-[10px] font-bold code-font">MA-02</span>
-                                <h4 class="text-base font-bold text-slate-900 mt-1">Struktur Fisik Jaringan & Transmisi Nirkabel (Wired & Wireless Infrastructure)</h4>
-                            </div>
-                            <span class="text-xs font-semibold text-slate-400 code-font">Layer 1 & 2 Physical</span>
-                        </div>
-                        <p class="text-xs text-slate-600 leading-relaxed">
-                            Standardisasi pengabelan UTP Kategori 5e, 6, dan 6a berdasarkan regulasi TIA/EIA-568A/B dipadukan dengan analisis propagasi gelombang radio nirkabel IEEE 802.11 a/b/g/n/ac/ax pada frekuensi dual-band (2.4GHz & 5GHz).
-                        </p>
-                        <div class="bg-slate-900 rounded-xl p-4 border border-slate-800 font-mono text-xs text-blue-300 space-y-2">
-                            <div class="text-slate-500 text-[10px] uppercase font-bold tracking-wider border-b border-slate-800 pb-1">Engineering Logic: Shannon-Hartley Theorem & RSSI</div>
-                            <div class="flex flex-col gap-1">
-                                <span>Kapasitas Kanal: C = B log<sub>2</sub>(1 + S/N)</span>
-                                <span>Metrik Batas Redaman Nirkabel: Kualitas Link Optimal &ge; -65 dBm RSSI</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div :class="auditMode ? 'border-emerald-500/40 bg-emerald-50/5' : 'border-slate-200 bg-white'" class="p-6 rounded-2xl border transition-all duration-300 space-y-4">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <span class="px-2 py-0.5 bg-blue-100 text-blue-700 rounded text-[10px] font-bold code-font">MA-03</span>
-                                <h4 class="text-base font-bold text-slate-900 mt-1">Transmisi Kecepatan Cahaya (Fiber Optic Transport Infrastructure)</h4>
-                            </div>
-                            <span class="text-xs font-semibold text-slate-400 code-font">High-Speed Backbone</span>
-                        </div>
-                        <p class="text-xs text-slate-600 leading-relaxed">
-                            Eksplorasi serat optik mode tunggal (Single-Mode) dan multi-mode melalui anatomi Core, Cladding, dan Coating. Penekanan pada budaya kerja industri "Zero Dust" saat terminasi menggunakan Fusion Splicer.
-                        </p>
-                        <div class="bg-slate-900 rounded-xl p-4 border border-slate-800 font-mono text-xs text-blue-300 space-y-2">
-                            <div class="text-slate-500 text-[10px] uppercase font-bold tracking-wider border-b border-slate-800 pb-1">Engineering Logic: Total Internal Reflection (Hukum Snellius)</div>
-                            <div class="flex flex-col gap-1">
-                                <span>Sudut Kritis Pembiasan: θ<sub>c</sub> = arcsin(n<sub>2</sub> / n<sub>1</sub>) ; di mana n<sub>1</sub> &gt; n<sub>2</sub></span>
-                                <span>Batas Toleransi Redaman Sambungan: Loss Per Splice &le; 0.03 dB</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div :class="auditMode ? 'border-emerald-500/40 bg-emerald-50/5' : 'border-slate-200 bg-white'" class="p-6 rounded-2xl border transition-all duration-300 space-y-4">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <span class="px-2 py-0.5 bg-blue-100 text-blue-700 rounded text-[10px] font-bold code-font">MA-04 & 05</span>
-                                <h4 class="text-base font-bold text-slate-900 mt-1">Dinding Pertahanan Siber & Tata Kelola Server (Cyber & Server Security)</h4>
-                            </div>
-                            <span class="text-xs font-semibold text-slate-400 code-font">SecOps Layer</span>
-                        </div>
-                        <p class="text-xs text-slate-600 leading-relaxed">
-                            Penyusunan Firewall Policy dan Acceptable Use Policy. Siswa membangun gerbang otentikasi terpusat AAA (Authentication, Authorization, Accounting) melalui integrasi protokol RADIUS dan LDAP, didukung sistem deteksi ancaman aktif IDS/IPS.
-                        </p>
-                    </div>
-
-                    <div :class="auditMode ? 'border-emerald-500/40 bg-emerald-50/5' : 'border-slate-200 bg-white'" class="p-6 rounded-2xl border transition-all duration-300 space-y-4">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <span class="px-2 py-0.5 bg-blue-100 text-blue-700 rounded text-[10px] font-bold code-font">MA-06</span>
-                                <h4 class="text-base font-bold text-slate-900 mt-1">Segmentasi Saklar & Protokol Rute Dinamis (Advanced Switching & Routing)</h4>
-                            </div>
-                            <span class="text-xs font-semibold text-slate-400 code-font">Core Routing</span>
-                        </div>
-                        <p class="text-xs text-slate-600 leading-relaxed">
-                            Isolasi trafik broadcast domain skala luas via Virtual LAN (VLAN), interkoneksi antar-segmen memanfaatkan InterVLAN Routing (Router-on-a-Stick), serta penyusunan rute dinamis otonom OSPF area bertingkat.
-                        </p>
-                        <div class="bg-slate-900 rounded-xl p-4 border border-slate-800 font-mono text-xs text-blue-300 space-y-2">
-                            <div class="text-slate-500 text-[10px] uppercase font-bold tracking-wider border-b border-slate-800 pb-1">Engineering Logic: Dijkstra's Algorithm (Shortest Path First)</div>
-                            <div class="flex flex-col gap-1">
-                                <span>OSPF Cost Calculation: Cost = Reference Bandwidth (10<sup>8</sup> bps) / Interface Bandwidth (bps)</span>
-                                <span>Matriks Konvergensi: Nilai Cost terendah menentukan jalur utama tabel routing secara otonom.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-gradient-to-br from-blue-900 to-slate-900 rounded-2xl p-6 text-white border border-blue-800 shadow-md space-y-4">
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-trophy text-amber-400 text-lg"></i>
-                        <h4 class="text-sm font-bold uppercase tracking-wider">Tugas Performa Monumental Ganjil: "The Great Network Integration"</h4>
-                    </div>
-                    <p class="text-xs text-blue-100 leading-relaxed">
-                        Ujian akhir blok berdurasi ketat <span class="text-amber-300 font-bold">120 Menit</span>. Murid diberikan selembar dokumen kebutuhan rahasia dari skenario perusahaan asing. Tanpa bantuan internet, mereka wajib menghitung alokasi VLSM secara manual di atas kertas, merakit interkoneksi kabel dan serat optik fisik, serta mengonfigurasi seluruh Switch dan Router dari kondisi kosong total hingga topologi terkonvergensi penuh via OSPF tanpa galat paket drop.
-                    </p>
-                </div>
-
-                <section class="space-y-3">
-                    <div class="flex items-center gap-2 border-b border-slate-200 pb-2">
-                        <i class="fa-solid fa-table-list text-slate-700"></i>
-                        <h4 class="text-sm font-bold text-slate-900">Matriks Diagnostik: Analisis Kelumpuhan Kognitif & Solusi Perancah V2.0</h4>
-                    </div>
-                    <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-xs bg-white">
-                        <table class="min-w-full divide-y divide-slate-200 text-xs">
-                            <thead class="bg-slate-50 font-semibold text-slate-700 text-left">
-                                <tr>
-                                    <th class="p-3">Identifikasi Bug Pedagogis (Fase Awal MA 1-6)</th>
-                                    <th class="p-3">Dampak Negatif Lapangan (Klinis Lab)</th>
-                                    <th class="p-3">Suntikan Patch Ragam Perancah (Eco-Tech Solution)</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-200 text-slate-600">
-                                <tr>
-                                    <td class="p-3 font-medium text-slate-900"><strong>The Blue-Sky Blueprint:</strong> Desain skenario topologi terlalu abstrak, teoretis, dan mengabaikan keragaman kesiapan belajar (<em>Readiness</em>) siswa.</td>
-                                    <td class="p-3 text-red-600"><i class="fa-solid fa-triangle-exclamation mr-1"></i> 35% siswa mengalami kelumpuhan analisis (<em>Analysis Paralysis</em>) saat menghitung pecahan biner mask.</td>
-                                    <td class="p-3 font-medium text-emerald-700"><i class="fa-solid fa-circle-check mr-1"></i> Penerapan <strong>Tiered Scaffolding</strong> pada Modul Ajar 7. Membagi kompleksitas lab menjadi 3 level tantangan bertahap (Basic Gateway &rarr; Web Filter &rarr; Dual WAN Balancing).</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3 font-medium text-slate-900"><strong>The Manual Monopolist:</strong> Pembatasan manajemen bandwidth sekolah hanya diajarkan menggunakan limitasi statis per-user yang kaku.</td>
-                                    <td class="p-3 text-red-600"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Terjadi ketimpangan siber; satu pengguna memutar video 4K melumpuhkan koneksi ujian siswa lain.</td>
-                                    <td class="p-3 font-medium text-emerald-700"><i class="fa-solid fa-circle-check mr-1"></i> Integrasi dinamis <strong>Algoritma PCQ Classifier</strong> di Edge Gateway. Alokasi kuota kecepatan membagi rata secara otomatis berdasarkan pengguna aktif (Keadilan Lebar Pita).</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <div x-show="auditMode" x-transition class="mt-4 pt-4 border-t border-emerald-200 text-emerald-800 text-xs code-font bg-emerald-50 p-4 rounded-xl shadow-xs">
-                    <span class="font-bold uppercase block mb-1 text-emerald-900"><i class="fa-solid fa-magnifying-glass mr-1"></i> [AUDIT AKADEMIK & INSTRUMEN PENILAIAN - LAMPIRAN 7 & 8]:</span>
-                    Penyusunan indikator HOTS menggunakan taksonomi tingkat tinggi (Merekayasa, Menganalisis, Mengonfigurasi) serta dokumentasi bukti pengesahan fisik siber per tanggal 18 Maret 2026 membuktikan keabsahan orisinalitas perangkat pembelajaran sesuai dengan rubrikasi maksimal kategori nilai sempurna (Skor Mutlak 2).
-                </div>
-
-                <div class="bg-blue-50 border border-blue-200 p-4 rounded-xl flex items-center justify-between shadow-sm">
-                    <span class="text-xs text-blue-800 font-medium"><i class="fa-solid fa-circle-arrow-right mr-1"></i> Upgrade Formula Masterpiece Selesai. Siap bergerak amankan Protokol Krisis Akhir.</span>
-                    <button @click="currentTab = 'apocalypse'" class="px-4 py-2 bg-blue-600 text-white rounded-lg text-xs font-bold uppercase hover:bg-blue-700 cursor-pointer transition-all shadow-md hover:shadow-lg">Lanjut ke Langkah 4 <i class="fa-solid fa-shield-halved ml-1"></i></button>
-                </div>
-            </div>
-
-            <div x-show="currentTab === 'manifesto'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="space-y-8">
-                
-                <div class="border-b border-slate-200 pb-4">
+                <div class="border-b border-slate-200 pb-2">
                     <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
-                        <i class="fa-solid fa-scroll text-blue-600"></i> The Quad-Pillar Manifesto: Melampaui Batas Tradisional Vokasi
-                    </h2>
-                    <p class="text-xs text-slate-500 mt-1">Deklarasi teoretis, ideologis, dan proyeksi masa depan integrasi teknologi siber-fisik dalam ruang pendidikan klinis.</p>
-                </div>
-
-                <div :class="auditMode ? 'border-emerald-500 bg-emerald-50/20' : 'border-slate-200 bg-white'" class="p-6 rounded-2xl border transition-all duration-300 shadow-xs relative space-y-3">
-                    <div x-show="auditMode" class="absolute -top-3 left-6 px-3 py-0.5 bg-emerald-600 text-white text-[10px] uppercase font-bold rounded-full code-font">Pilar I: Epistemic Convergence</div>
-                    <h3 class="text-base font-bold text-slate-800 flex items-center gap-2">
-                        <span class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded code-font">PILAR 1</span> Tekno-Pedagogis Kontemporer (Konvergensi Industri-Socrates)
-                    </h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Teknologi di dalam laboratorium komputer SMK tidak boleh lagi diposisikan sekadar sebagai media instruksional pasif atau alat bantu demonstrasi searah. Di bawah paradigma Eco-Tech Pedagogi, teknologi adalah <span class="font-semibold text-slate-900">Epistemic Tool</span>—sebuah perpanjangan tangan dari struktur kognitif manusia yang digunakan untuk memanipulasi, mengeksplorasi, dan menguji batas-batas realitas logika siber. 
-                    </p>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Saya memadukan ketajaman sistem operasi jaringan industri dengan metode dialektika <span class="font-semibold text-slate-900">Socrates</span>. Guru TJKT abad ke-21 bukan lagi instruktur hafalan perintah sintaksis, melainkan seorang <em>Learning Experience Architect</em>. Siswa tidak didekte dengan petunjuk kaku langkah demi langkah, melainkan dilempar ke tengah labirin gangguan jaringan komputer virtual, memaksa mereka membangun peta kognitifnya sendiri untuk memecahkan misteri hilangnya paket data.
-                    </p>
-                </div>
-
-                <div :class="auditMode ? 'border-emerald-500 bg-emerald-50/20' : 'border-slate-200 bg-white'" class="p-6 rounded-2xl border transition-all duration-300 shadow-xs relative space-y-3">
-                    <div x-show="auditMode" class="absolute -top-3 left-6 px-3 py-0.5 bg-emerald-600 text-white text-[10px] uppercase font-bold rounded-full code-font">Pilar II: Pedagogical Sovereignty</div>
-                    <h3 class="text-base font-bold text-slate-800 flex items-center gap-2">
-                        <span class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded code-font">PILAR 2</span> Deklarasi Singularitas Tekno-Pedagogis (Pendidikan Mengemudikan Teknologi)
-                    </h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Saya dengan tegas menolak penjajahan teknologi terhadap esensi kemanusiaan ruang kelas. Bukan perangkat keras atau lisensi sistem operasi mahal dari vendor asing yang mendikte bagaimana kurikulum SMK dijalankan, melainkan kebutuhan emansipatif, tingkat kesiapan belajar, dan kodrat alam peserta didiklah yang memegang kemudi penuh untuk menentukan teknologi apa yang layak dihidupkan di ruang kelas. 
-                    </p>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Singularitas ini tercapai ketika teknologi meluruh tanpa sisa, berubah wujud menjadi jembatan perancah (<span class="italic">scaffolding</span>) yang meninggikan derajat nalar analitis, kemandirian berpikir, dan kolaborasi autentik antar murid, bukan justru mengisolasi mereka dalam keheningan layar komputer individu.
-                    </p>
-                </div>
-
-                <div :class="auditMode ? 'border-emerald-500 bg-emerald-50/20' : 'border-slate-200 bg-white'" class="p-6 rounded-2xl border transition-all duration-300 shadow-xs relative space-y-3">
-                    <div x-show="auditMode" class="absolute -top-3 left-6 px-3 py-0.5 bg-emerald-600 text-white text-[10px] uppercase font-bold rounded-full code-font">Pilar III: Interdisciplinary Hybridization</div>
-                    <h3 class="text-base font-bold text-slate-800 flex items-center gap-2">
-                        <span class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded code-font">PILAR 3</span> Hibridasi Interdisipliner Radikal (Injeksi Riset Sains & Industri Nyata)
-                    </h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Sekolah vokasi tidak boleh lagi diisolasi dalam sekat-sekat kompetensi jurusan yang sempit dan kaku. Dari pengalaman empiris di dunia R&D aviasi siber-fisik, saya membawa fajar hibridasi ilmu ke laboratorium TJKT SMK Negeri 1 Surabaya. Jaringan komputer bukan sekadar jalur untuk mengunduh hiburan, melainkan arteri utama dari sistem otonom penyelamat bumi.
-                    </p>
-                    <p class="text-sm text-slate-600 leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-100 font-medium text-slate-700">
-                        <i class="fa-solid fa-flask text-emerald-600 mr-1.5"></i> Integrasi Rekam Data Riset Ekologis (2018 & 2024):
-                        <br>
-                        <span class="text-xs font-normal text-slate-600 block mt-1 leading-relaxed">
-                            Siswa saya tantang untuk mengelola jalur komunikasi data telemetri UAV otonom via routing topologi OSPF area bertingkat. Tidak berhenti di sana, mereka diwajibkan mengolah aliran data isyarat elektrik dari sensor gas polutan (karbon monoksida dan partikulat meter) hasil publikasi ilmiah riset IoT saya tahun 2018 dan 2024. Murid belajar mengamankan paket data lingkungan ini agar tidak dimanipulasi oleh pihak luar, menyatukan ilmu teknik jaringan, matematika lingkungan, dan etika pelestarian alam dalam satu helaan napas praktikum.
-                        </span>
-                    </p>
-                </div>
-
-                <div :class="auditMode ? 'border-emerald-500 bg-emerald-50/20' : 'border-slate-200 bg-white'" class="p-6 rounded-2xl border transition-all duration-300 shadow-xs relative space-y-3">
-                    <div x-show="auditMode" class="absolute -top-3 left-6 px-3 py-0.5 bg-emerald-600 text-white text-[10px] uppercase font-bold rounded-full code-font">Pilar IV: Transcendental Horizon</div>
-                    <h3 class="text-base font-bold text-slate-800 flex items-center gap-2">
-                        <span class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded code-font">PILAR 4</span> Horison Transendental: Autonomous Smart Lab & Machine Learning (2030 — 2036)
-                    </h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Visi jangka panjang saya memuncak pada pendirian ekosistem "Smart School IoT & AI Automation Lab". Melalui aliansi global mikrotik academy yang saya rintis, siswa SMK tidak lagi sekadar diajarkan cara membatasi bandwidth internet secara manual menggunakan antrean PCQ yang kaku. 
-                    </p>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Mereka dilatih menggunakan bahasa pemrograman Python untuk mengekstrak data trafik jaringan sekolah secara real-time, lalu membangun model regresi kecerdasan buatan (<span class="font-semibold text-slate-900">Machine Learning</span>) sederhana demi memprediksi lonjakan trafik data berdasarkan riwayat jam pelajaran sekolah. Hasil prediksi kecerdasan buatan tersebut akan secara otomatis memerintahkan skrip otonom pada router utama untuk mengonfigurasi dirinya sendiri tanpa campur tangan manusia (<span class="font-semibold text-slate-900">Self-Configuring Networks</span>). Langkah disruptif ini akan mengubah wajah laboratorium komputer konvensional menjadi pusat riset cerdas otonom berskala internasional.
-                    </p>
-                </div>
-
-                <div x-show="auditMode" x-transition class="pt-2 text-emerald-800 text-xs code-font bg-emerald-50/80 p-4 rounded-xl border border-emerald-200">
-                    <span class="font-bold uppercase block mb-1 text-emerald-900"><i class="fa-solid fa-magnifying-glass mr-1"></i> [AUDIT FILOSOFIS & RISET - LAMPIRAN 7]:</span>
-                    Paparan pada Pilar 3 dan 4 secara telak membuktikan bahwa rancangan pembelajaran pendidik tidak disusun secara instan atau meniru modul konvensional. Penetrasi rekam jejak riset nyata industri (IoT 2018/2024) ke dalam skenario kelas memenuhi deskriptor tertinggi pada Lampiran 7 aspek **Pengembangan Materi Berdasarkan Kajian Teori dan Kontekstual Lingkungan Belajar**.
-                </div>
-
-                <div class="bg-blue-50 border border-blue-200 p-4 rounded-xl flex items-center justify-between shadow-sm">
-                    <span class="text-xs text-blue-800 font-medium"><i class="fa-solid fa-circle-arrow-right mr-1"></i> Restorasi 4 Pilar Manifesto Selesai. Langkah berikutnya: Injeksi Formula Matematika Modul 1-6.</span>
-                    <button @click="currentTab = 'apocalypse'" class="px-4 py-2 bg-blue-600 text-white rounded-lg text-xs font-bold uppercase hover:bg-blue-700 cursor-pointer transition-all shadow-md hover:shadow-lg">Lanjut ke Bab 4 <i class="fa-solid fa-arrow-right ml-1"></i></button>
-                </div>
-            </div>
-
-        </main>
-        </main>
-
-<div x-show="currentTab === 'modul'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="space-y-8">
-                
-                <div class="border-b border-slate-200 pb-4">
-                    <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
-                        <i class="fa-solid fa-cubes text-blue-600"></i> 
-                        De-konstruksi Klinis & Formulasi Matematis (MA-01 s.d MA-06)
+                        <i class="fa-solid fa-cubes text-blue-600"></i> De-konstruksi Klinis & Formulasi Matematis
                     </h2>
                     <p class="text-xs text-slate-500 mt-1">Rekam jejak evaluasi kritis, formula matematis industri, diagnosa galat kognitif siswa (Bug), dan resolusi perbaikan perangkat (Patch).</p>
                 </div>
 
                 <div class="grid grid-cols-1 gap-6">
-
+                    
                     <div :class="auditMode ? 'border-emerald-500 bg-emerald-50/10' : 'border-slate-200 bg-white'" class="p-6 rounded-2xl border shadow-xs relative transition-all duration-300">
                         <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-100 pb-3 mb-4 gap-2">
                             <div>
                                 <span class="px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 text-xs font-semibold code-font">MA-01 & MA-02</span>
                                 <h3 class="text-base font-bold text-slate-800 mt-1">Network Architect & Advanced IP Engineering (VLSM)</h3>
                             </div>
-                            <span class="text-xs text-slate-400 code-font">Alokasi: 108 JP • Kelas XI Semester 1</span>
+                            <span class="text-xs font-semibold text-slate-400 code-font">Layer 1, 2 & 3 Network</span>
                         </div>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                            Siswa memproyeksikan topologi fisik dan logis menggunakan kalkulasi biner murni dan analisis propagasi nirkabel (IEEE 802.11).
+                        </p>
                         
                         <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-4">
                             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2 code-font">[FORMULA INDUSTRI: HOST CALCULUS]</span>
-                            <p class="text-sm text-slate-700 leading-relaxed">
-                                Penentuan rentang segmen jaringan menggunakan variabel kebutuhan host terkustomisasi berdasarkan fungsi eksponensial biner murni:
-                            </p>
                             <div class="my-2 p-3 bg-white rounded-lg border border-slate-200 text-center font-semibold text-blue-700 text-base code-font">
                                 Total Host Tersedia = 2^(32 - n) - 2
                             </div>
-                            <p class="text-xs text-slate-500">Dimana <span class="code-font font-medium">n</span> adalah nilai CIDR prefix subnet mask yang dikalkulasi terbalik untuk mengeliminasi pemborosan alokasi IP (IP Wastage) pada interkoneksi router pialang data.</p>
+                            <p class="text-xs text-slate-500">Paradigma Efisiensi: Zero Waste IP Address (Efisiensi Alokasi Ruang Alamat &ge; 95%).</p>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                             <div class="bg-red-50/50 border border-red-200 p-4 rounded-xl">
                                 <span class="font-bold text-red-700 uppercase block text-xs code-font"><i class="fa-solid fa-bug mr-1"></i> Diagnosa Bug Pedagogis:</span>
                                 <p class="text-slate-600 text-xs mt-1 leading-relaxed">
-                                    Siswa mengalami <strong>"Mathematical Anhedonia"</strong>. Mereka menghafal tabel CIDR secara kaku tanpa memahami esensi representasi biner fisik, berujung pada kegagalan total saat menghadapi perubahan skenario jaringan dinamis berskala besar di industri.
+                                    Siswa mengalami <strong>"Mathematical Anhedonia"</strong>. Mereka menghafal tabel CIDR secara kaku tanpa memahami esensi representasi biner fisik.
                                 </p>
                             </div>
                             <div class="bg-emerald-50/50 border border-emerald-200 p-4 rounded-xl">
                                 <span class="font-bold text-emerald-700 uppercase block text-xs code-font"><i class="fa-solid fa-wrench mr-1"></i> Resolusi Patch Solusi:</span>
                                 <p class="text-slate-600 text-xs mt-1 leading-relaxed">
-                                    Menerapkan pendekatan <strong>"Binary-to-Physical Visualization"</strong>. Menggunakan pemodelan visual blok apartemen virtual untuk menggambarkan ruang alamat IP, memaksa kognisi siswa melihat bit biner sebagai partisi fisik ruangan nyata sebelum menuliskan konfigurasi.
+                                    Menerapkan pendekatan <strong>"Binary-to-Physical Visualization"</strong>. Menggunakan pemodelan visual blok apartemen virtual untuk menggambarkan ruang alamat IP.
                                 </p>
                             </div>
                         </div>
@@ -653,33 +359,30 @@
                         <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-100 pb-3 mb-4 gap-2">
                             <div>
                                 <span class="px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 text-xs font-semibold code-font">MA-03</span>
-                                <h3 class="text-base font-bold text-slate-800 mt-1">Physical Layer Topology & Media Transmisi</h3>
+                                <h3 class="text-base font-bold text-slate-800 mt-1">Transmisi Kecepatan Cahaya (Fiber Optic)</h3>
                             </div>
-                            <span class="text-xs text-slate-400 code-font">Alokasi: 72 JP • Kelas XI Semester 1</span>
+                            <span class="text-xs text-slate-400 code-font">High-Speed Backbone</span>
                         </div>
                         
                         <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-4">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2 code-font">[FORMULA RISET: SHANNON-HARTLEY THEOREM]</span>
-                            <p class="text-sm text-slate-700 leading-relaxed">
-                                Batas atas kapasitas kanal data teoritis berderau pada media nirkabel laboratorium dihitung menggunakan korelasi lebar pita frekuensi dan rasio isyarat terhadap derau (SNR):
-                            </p>
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2 code-font">[FORMULA RISET: SHANNON-HARTLEY & SNELLIUS]</span>
                             <div class="my-2 p-3 bg-white rounded-lg border border-slate-200 text-center font-semibold text-blue-700 text-base code-font">
-                                C = B * log2(1 + S/N)
+                                C = B * log2(1 + S/N) | Sudut Kritis: θc = arcsin(n2 / n1)
                             </div>
-                            <p class="text-xs text-slate-500">Dimana <span class="code-font font-medium">C</span> adalah kapasitas maksimal kanal (bps), <span class="code-font font-medium">B</span> lebar pita (Hz), dan <span class="code-font font-medium">S/N</span> adalah perbandingan daya sinyal murni terhadap interferensi luar.</p>
+                            <p class="text-xs text-slate-500">Batas Toleransi Redaman Sambungan Core: Loss Per Splice &le; 0.03 dB</p>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                             <div class="bg-red-50/50 border border-red-200 p-4 rounded-xl">
                                 <span class="font-bold text-red-700 uppercase block text-xs code-font"><i class="fa-solid fa-bug mr-1"></i> Diagnosa Bug Pedagogis:</span>
                                 <p class="text-slate-600 text-xs mt-1 leading-relaxed">
-                                    Siswa menganggap rugi-rugi sinyal (attenuation) pada kabel serat optik atau Wi-Fi hanyalah mitos tekstual buku, sehingga mereka melakukan instalasi kabel nirkabel secara ceroboh dengan tekukan tajam yang melebihi batas toleransi fisik.
+                                    Siswa menganggap rugi-rugi sinyal (attenuation) hanya mitos tekstual, menginstalasi kabel dengan tekukan yang melebihi batas toleransi fisik.
                                 </p>
                             </div>
                             <div class="bg-emerald-50/50 border border-emerald-200 p-4 rounded-xl">
                                 <span class="font-bold text-emerald-700 uppercase block text-xs code-font"><i class="fa-solid fa-wrench mr-1"></i> Resolusi Patch Solusi:</span>
                                 <p class="text-slate-600 text-xs mt-1 leading-relaxed">
-                                    Mengintegrasikan **Hukum Pembiasan Snellius** ke dalam praktik industri nyata. Siswa dipaksa menembakkan laser pointer ke dalam media bening melengkung untuk melihat kebocoran sudut datang cahaya (Critical Angle Violation) secara empiris dengan mata kepala sendiri.
+                                    Mengintegrasikan <strong>Hukum Pembiasan Snellius</strong>. Siswa dipaksa menembakkan laser pointer ke dalam media bening melengkung untuk melihat kebocoran cahaya secara empiris.
                                 </p>
                             </div>
                         </div>
@@ -691,31 +394,26 @@
                                 <span class="px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 text-xs font-semibold code-font">MA-04 & MA-05</span>
                                 <h3 class="text-base font-bold text-slate-800 mt-1">Advanced Switching Architecture & VLAN Segmentasi</h3>
                             </div>
-                            <span class="text-xs text-slate-400 code-font">Alokasi: 144 JP • Kelas XI Semester 1</span>
+                            <span class="text-xs text-slate-400 code-font">SecOps Layer</span>
                         </div>
                         
                         <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-4">
                             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2 code-font">[SINTAKSIS PREVENTIF: CISCO MAC-FLOOD DEFENSE]</span>
-                            <pre class="bg-slate-900 text-emerald-400 p-3 rounded-lg text-xs code-font overflow-x-auto">
-Switch(config-if)# switchport mode access
-Switch(config-if)# switchport port-security
-Switch(config-if)# switchport port-security maximum 2
-Switch(config-if)# switchport port-security violation shutdown
-Switch(config-if)# switchport port-security mac-address sticky</pre>
-                            <p class="text-xs text-slate-500 mt-2">Perintah untuk mengunci tabel Content Addressable Memory (CAM) Switch dari serangan penetrasi MAC-Flooding dengan membekukan port fisik secara otonom saat pelanggaran terdeteksi.</p>
+                            <pre class="bg-slate-900 text-emerald-400 p-3 rounded-lg text-xs code-font overflow-x-auto">Switch(config-if)# switchport port-security violation shutdown</pre>
+                            <p class="text-xs text-slate-500 mt-2">Mengunci tabel memori (CAM) dari serangan MAC-Flooding.</p>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                             <div class="bg-red-50/50 border border-red-200 p-4 rounded-xl">
                                 <span class="font-bold text-red-700 uppercase block text-xs code-font"><i class="fa-solid fa-bug mr-1"></i> Diagnosa Bug Pedagogis:</span>
                                 <p class="text-slate-600 text-xs mt-1 leading-relaxed">
-                                    Siswa mengalami **"Abstract Concept Blindness"**. Mereka gagal mengaitkan bagaimana isolasi logika pada VLAN ID (IEEE 802.1Q) mampu menahan laju badai siaran paket data (Broadcast Storm) di lapisan data-link jaringan makro.
+                                    <strong>"Abstract Concept Blindness"</strong>. Gagal mengaitkan bagaimana isolasi VLAN mampu menahan laju badai siaran paket data (Broadcast Storm).
                                 </p>
                             </div>
                             <div class="bg-emerald-50/50 border border-emerald-200 p-4 rounded-xl">
                                 <span class="font-bold text-emerald-700 uppercase block text-xs code-font"><i class="fa-solid fa-wrench mr-1"></i> Resolusi Patch Solusi:</span>
                                 <p class="text-slate-600 text-xs mt-1 leading-relaxed">
-                                    Menjalankan metode pembelajaran **"The Human Packet Protocol Simulation"**. Siswa bertindak sebagai node hardware fisik di dalam lab, memegang bendera warna-warni penanda VLAN tag, dan mensimulasikan tabrakan paket data secara motorik taktil di ruang kelas.
+                                    Simulasi <strong>"The Human Packet Protocol"</strong>. Siswa bertindak sebagai node hardware fisik dan mensimulasikan tabrakan paket data di ruang kelas.
                                 </p>
                             </div>
                         </div>
@@ -727,55 +425,91 @@ Switch(config-if)# switchport port-security mac-address sticky</pre>
                                 <span class="px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 text-xs font-semibold code-font">MA-06</span>
                                 <h3 class="text-base font-bold text-slate-800 mt-1">Core Dynamic Routing (OSPF Area 0 Enterprise)</h3>
                             </div>
-                            <span class="text-xs text-slate-400 code-font">Alokasi: 144 JP • Kelas XI Semester 1</span>
+                            <span class="text-xs text-slate-400 code-font">Core Routing</span>
                         </div>
                         
                         <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-4">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2 code-font">[MATRIKS NAVIGASI: PATH METRIC CALCULATION]</span>
-                            <p class="text-sm text-slate-700 leading-relaxed">
-                                Penentuan jalur terpendek otonom berdasarkan akumulasi bobot biaya (Cost Vector) yang diekstrak langsung dari kapasitas bandwidth referensi interface:
-                            </p>
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2 code-font">[MATRIKS NAVIGASI: DIJKSTRA'S ALGORITHM]</span>
                             <div class="my-2 p-3 bg-white rounded-lg border border-slate-200 text-center font-semibold text-blue-700 text-base code-font">
                                 Cost = Reference Bandwidth (10^8) / Interface Bandwidth (bps)
                             </div>
-                            <p class="text-xs text-slate-500">Nilai total cost interkoneksi diolah oleh algoritma Shortest Path First (SPF) Dijkstra untuk membangun peta topologi bebas perulangan jalur data (Loop-Free Graph Database).</p>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                             <div class="bg-red-50/50 border border-red-200 p-4 rounded-xl">
                                 <span class="font-bold text-red-700 uppercase block text-xs code-font"><i class="fa-solid fa-bug mr-1"></i> Diagnosa Bug Pedagogis:</span>
                                 <p class="text-slate-600 text-xs mt-1 leading-relaxed">
-                                    Siswa mengalami **"Blind Typing Copy-Paste Syndrome"**. Mereka meniru skrip konfig router tanpa memahami esensi matriks wilayah OSPF Area 0, berakibat pada kegagalan deteksi rute cadangan otomatis saat jalur utama diputus secara paksa.
+                                    <strong>"Blind Typing Copy-Paste Syndrome"</strong>. Meniru skrip router tanpa memahami esensi matriks wilayah OSPF Area 0.
                                 </p>
                             </div>
                             <div class="bg-emerald-50/50 border border-emerald-200 p-4 rounded-xl">
                                 <span class="font-bold text-emerald-700 uppercase block text-xs code-font"><i class="fa-solid fa-wrench mr-1"></i> Resolusi Patch Solusi:</span>
                                 <p class="text-slate-600 text-xs mt-1 leading-relaxed">
-                                    Mewajibkan rancangan cetak biru topologi menggunakan matriks bobot dinamis sebelum menyentuh komputer lab. Siswa diposisikan sebagai navigator drone otonom yang wajib memetakan rute penerbangan data teraman berdasarkan bobot hambatan siber.
+                                    Siswa diposisikan sebagai navigator drone yang memetakan rute penerbangan data teraman berdasarkan bobot hambatan siber.
                                 </p>
                             </div>
                         </div>
                     </div>
-
                 </div>
 
-                <div class="bg-blue-50 border border-blue-200 p-4 rounded-xl flex items-center justify-between">
-                    <span class="text-xs text-blue-800 font-medium"><i class="fa-solid fa-circle-arrow-right mr-1"></i> Seluruh formula dekonstruksi MA-01 s.d MA-06 terekam sempurna. Lanjutkan ke Deklarasi Manifesto.</span>
-                    <button @click="currentTab = 'manifesto'" class="px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-semibold uppercase hover:bg-blue-700 cursor-pointer transition-colors">
-                        Buka Bab 3 <i class="fa-solid fa-chevron-right ml-1 text-[10px]"></i>
-                    </button>
+                <div class="bg-gradient-to-br from-blue-900 to-slate-900 rounded-2xl p-6 text-white border border-blue-800 shadow-md mt-6 space-y-4">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-trophy text-amber-400 text-lg"></i>
+                        <h4 class="text-sm font-bold uppercase tracking-wider">Tugas Performa Monumental Ganjil: "The Great Network Integration"</h4>
+                    </div>
+                    <p class="text-xs text-blue-100 leading-relaxed">
+                        Ujian akhir blok berdurasi ketat <span class="text-amber-300 font-bold">120 Menit</span>. Murid diberikan selembar dokumen kebutuhan rahasia dari skenario perusahaan asing. Tanpa bantuan internet, mereka wajib merakit interkoneksi, menghitung VLSM, serta mengonfigurasi perangkat hingga topologi terkonvergensi penuh via OSPF tanpa galat paket drop.
+                    </p>
                 </div>
 
+                <section class="space-y-3 mt-6">
+                    <div class="flex items-center gap-2 border-b border-slate-200 pb-2">
+                        <i class="fa-solid fa-table-list text-slate-700"></i>
+                        <h4 class="text-sm font-bold text-slate-900">Matriks Diagnostik Umum: Kelumpuhan Kognitif & Solusi Perancah</h4>
+                    </div>
+                    <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-xs bg-white">
+                        <table class="min-w-full divide-y divide-slate-200 text-xs">
+                            <thead class="bg-slate-50 font-semibold text-slate-700 text-left">
+                                <tr>
+                                    <th class="p-3">Identifikasi Bug Pedagogis</th>
+                                    <th class="p-3">Dampak Negatif Lapangan (Klinis Lab)</th>
+                                    <th class="p-3">Suntikan Patch Ragam Perancah</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 text-slate-600">
+                                <tr>
+                                    <td class="p-3 font-medium text-slate-900"><strong>The Blue-Sky Blueprint:</strong> Desain terlalu abstrak dan mengabaikan kesiapan belajar (<em>Readiness</em>).</td>
+                                    <td class="p-3 text-red-600"><i class="fa-solid fa-triangle-exclamation mr-1"></i> 35% siswa lumpuh analisis saat menghitung pecahan biner.</td>
+                                    <td class="p-3 font-medium text-emerald-700"><i class="fa-solid fa-circle-check mr-1"></i> Penerapan <strong>Tiered Scaffolding</strong> (Tantangan bertahap: Basic Gateway &rarr; Web Filter &rarr; Dual WAN).</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium text-slate-900"><strong>The Manual Monopolist:</strong> Limitasi bandwidth statis per-user yang kaku.</td>
+                                    <td class="p-3 text-red-600"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Ketimpangan siber; satu pengguna memonopoli koneksi.</td>
+                                    <td class="p-3 font-medium text-emerald-700"><i class="fa-solid fa-circle-check mr-1"></i> Integrasi dinamis <strong>Algoritma PCQ Classifier</strong> (Membagi kuota otomatis berbasis pengguna aktif).</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <div x-show="auditMode" x-transition class="mt-4 pt-4 border-t border-emerald-200 text-emerald-800 text-xs code-font bg-emerald-50 p-4 rounded-xl shadow-xs">
+                    <span class="font-bold uppercase block mb-1 text-emerald-900"><i class="fa-solid fa-magnifying-glass mr-1"></i> [AUDIT AKADEMIK & INSTRUMEN PENILAIAN]:</span>
+                    Penyusunan indikator HOTS menggunakan taksonomi tingkat tinggi serta dokumentasi bukti pengesahan fisik sesuai dengan rubrikasi maksimal.
+                </div>
+
+                <div class="bg-blue-50 border border-blue-200 p-4 rounded-xl flex items-center justify-between shadow-sm mt-6">
+                    <span class="text-xs text-blue-800 font-medium"><i class="fa-solid fa-circle-arrow-right mr-1"></i> Seluruh formula dekonstruksi terekam. Lanjutkan ke Deklarasi Manifesto.</span>
+                    <button @click="currentTab = 'manifesto'" class="px-4 py-2 bg-blue-600 text-white rounded-lg text-xs font-bold uppercase hover:bg-blue-700 cursor-pointer transition-all shadow-md hover:shadow-lg">Buka Bab 3 <i class="fa-solid fa-scroll ml-1"></i></button>
+                </div>
             </div>
 
-<div x-show="currentTab === 'manifesto'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="space-y-8">
+            <div x-show="currentTab === 'manifesto'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="space-y-8">
                 
                 <div class="border-b border-slate-200 pb-4">
                     <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
-                        <i class="fa-solid fa-scroll text-blue-600"></i> 
-                        The Quad-Pillar Manifesto: Melampaui Batas Batas Tradisional Vokasi
+                        <i class="fa-solid fa-scroll text-blue-600"></i> The Quad-Pillar Manifesto: Melampaui Batas Tradisional Vokasi
                     </h2>
-                    <p class="text-xs text-slate-500 mt-1">Dokumentasi visi transendental pendidik dalam menyatukan nalar rekayasa otonom industri tingkat tinggi dengan arsitektur filosofi pendidikan modern abad ke-21.</p>
+                    <p class="text-xs text-slate-500 mt-1">Dokumentasi visi transendental pendidik dalam menyatukan nalar rekayasa otonom industri tingkat tinggi dengan arsitektur filosofi pendidikan modern.</p>
                 </div>
 
                 <div :class="auditMode ? 'border-emerald-500 bg-emerald-50/10' : 'border-slate-200 bg-white'" class="p-6 rounded-2xl border shadow-xs relative transition-all duration-300">
@@ -784,19 +518,12 @@ Switch(config-if)# switchport port-security mac-address sticky</pre>
                         <h3 class="text-base font-bold text-slate-800">Manifesto Tekno-Pedagogis Kontemporer (Konvergensi Industri-Socrates)</h3>
                     </div>
                     <div class="space-y-3 text-sm text-slate-600 leading-relaxed">
-                        <p>
-                            Teknologi di dalam laboratorium SMK tidak boleh lagi diposisikan sekadar sebagai media instruksional pasif (alat bantu mengetik atau presentasi slide). Teknologi adalah <strong>Epistemic Tool</strong>—perpanjangan tangan dari struktur kognitif manusia untuk memanipulasi, mengeksplorasi, dan menguji batas-batas realitas logika siber. 
-                        </p>
-                        <p class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-slate-700 italic">
-                            "Saya mendeklarasikan bahwa guru produktif TJKT abad ke-21 bukanlah seorang instruktur manualbook yang kaku, melainkan seorang Arsitek Pengalaman Belajar (Learning Experience Architect). Tugas kita bukan mencekoki siswa dengan langkah instalasi yang akan usang dalam 2 tahun, melainkan menyuntikkan Nalar Komputasional (Computational Thinking) yang bertahan seumur hidup."
-                        </p>
-                        <p>
-                            Melalui implementasi <em>Project-Based Learning</em> (PjBL) yang terperancah (<em>scaffolded</em>), siswa tidak lagi menghafal perintah CLI Cisco secara buta. Mereka menggunakan perintah tersebut sebagai instrumen dialektika siber untuk memecahkan problem penuaan infrastruktur dunia nyata.
-                        </p>
+                        <p>Teknologi di dalam laboratorium SMK tidak boleh lagi diposisikan sekadar sebagai media instruksional pasif. Teknologi adalah <strong>Epistemic Tool</strong>—perpanjangan tangan dari struktur kognitif manusia untuk memanipulasi, mengeksplorasi, dan menguji batas-batas realitas logika siber.</p>
+                        <p class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-slate-700 italic">"Tugas kita bukan mencekoki siswa dengan langkah instalasi yang akan usang dalam 2 tahun, melainkan menyuntikkan Nalar Komputasional (Computational Thinking) yang bertahan seumur hidup."</p>
                     </div>
                     <div x-show="auditMode" x-transition class="mt-4 pt-4 border-t border-emerald-200 text-emerald-800 text-xs code-font bg-emerald-50 p-4 rounded-xl">
                         <span class="font-bold uppercase block mb-1">[AUDIT PEDAGOGI - LANDASAN TEORI]:</span>
-                        Pilar ini merupakan manifestasi konkret dari prinsip <strong>Social Constructivism (Vygotsky)</strong> dan pengembangan teknologi berbasis kerangka kerja <strong>TPACK (Technological Pedagogical Content Knowledge)</strong> tingkat lanjut, di mana teknologi meluruh ke dalam konten tanpa menegasikan subjek didik.
+                        Pilar ini merupakan manifestasi konkret dari prinsip <strong>Social Constructivism (Vygotsky)</strong>.
                     </div>
                 </div>
 
@@ -806,15 +533,8 @@ Switch(config-if)# switchport port-security mac-address sticky</pre>
                         <h3 class="text-base font-bold text-slate-800">Deklarasi Singularitas Tekno-Pedagogis (Pendidikan Mengemudikan Teknologi)</h3>
                     </div>
                     <div class="space-y-3 text-sm text-slate-600 leading-relaxed">
-                        <p>
-                            Ketika disrupsi kecerdasan buatan (AI) melanda industri global, dunia pendidikan vokasi kerap panik dan sekadar mengekor di belakang vendor-vendor raksasa teknologi. Kita harus membalikkan arah kompas tersebut melalui konsep <strong>Singularitas Tekno-Pedagogis</strong>.
-                        </p>
-                        <p class="bg-blue-50/50 p-4 rounded-xl border border-blue-100 text-blue-900 font-medium">
-                            Filosofi Inti: Bukan teknologi yang mendikte bagaimana kurikulum SMK dijalankan, melainkan kebutuhan emansipatif kemanusiaan peserta didik dan tujuan pembelajaran (Understanding by Design - UbD) yang memegang kemudi penuh untuk menentukan teknologi apa yang layak dihidupkan di ruang laboratorium.
-                        </p>
-                        <p>
-                            Dengan paradigma ini, siswa diajarkan untuk memiliki kedaulatan digital. Mereka dilatih bukan untuk menjadi martir atau buruh pabrik yang digantikan oleh skrip otomasi AI, melainkan menjadi perancang model sistem yang mengendalikan kelakuan bot otomasi tersebut demi efisiensi peradaban.
-                        </p>
+                        <p class="bg-blue-50/50 p-4 rounded-xl border border-blue-100 text-blue-900 font-medium">Filosofi Inti: Bukan teknologi yang mendikte bagaimana kurikulum SMK dijalankan, melainkan kebutuhan emansipatif kemanusiaan peserta didik dan tujuan pembelajaran (UbD) yang memegang kemudi penuh.</p>
+                        <p>Dengan paradigma ini, siswa diajarkan untuk memiliki kedaulatan digital dan mengendalikan kelakuan bot otomasi demi efisiensi peradaban.</p>
                     </div>
                 </div>
 
@@ -824,28 +544,20 @@ Switch(config-if)# switchport port-security mac-address sticky</pre>
                         <h3 class="text-base font-bold text-slate-800">Hibridasi Interdisipliner Radikal (Injeksi Riset Sains Industri Nyata)</h3>
                     </div>
                     <div class="space-y-4 text-sm text-slate-600 leading-relaxed">
-                        <p>
-                            Sekolah vokasi tidak boleh diisolasi dalam sekat-sekat jurusan yang sempit dan kaku. Berdasarkan pengalaman empiris saya di dunia <em>Research & Development</em> kedirgantaraan siber-fisik, saya membawa fajar hibridasi ilmu ke laboratorium TJKT SMK Negeri 1 Surabaya:
-                        </p>
-                        
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-2">
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                                <span class="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1 code-font"><i class="fa-solid fa-plane"></i> Horison Riset Aviasi Otonom (UAV VTOL & LiDAR)</span>
-                                <p class="text-xs text-slate-600 leading-relaxed">
-                                    Mentransfer arsitektur pengolahan data geospasial fotogrametri udara otonom ke siswa SMK. Menggunakan logika routing topologi OSPF area bertingkat untuk mensimulasikan transmisi paket data telemetri berkecepatan tinggi dari wahana udara ke stasiun bumi (GCS).
-                                </p>
+                                <span class="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1 code-font"><i class="fa-solid fa-plane"></i> Horison Riset Aviasi Otonom (UAV)</span>
+                                <p class="text-xs text-slate-600 leading-relaxed">Menggunakan logika routing OSPF area bertingkat untuk mensimulasikan transmisi paket data telemetri dari wahana udara ke stasiun bumi.</p>
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                                <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider block mb-1 code-font"><i class="fa-solid fa-seedling"></i> Riset Polusi Ekologis IoT (Publikasi 2018 & 2024)</span>
-                                <p class="text-xs text-slate-600 leading-relaxed">
-                                    Memanfaatkan data rekam fluktuasi gas polutan PPM hasil riset publikasi ilmiah saya. Siswa dibimbing membangun sensor IoT lingkungan murni, memaksa mereka menganalisis anomali data statistik real-time, menyatukan ilmu fisika, kimia lingkungan, dan rekayasa jaringan.
-                                </p>
+                                <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider block mb-1 code-font"><i class="fa-solid fa-seedling"></i> Riset Polusi Ekologis IoT</span>
+                                <p class="text-xs text-slate-600 leading-relaxed">Siswa dibimbing membangun sensor IoT lingkungan murni, memaksa mereka menganalisis anomali data statistik real-time.</p>
                             </div>
                         </div>
-
-                        <p>
-                            Hibridasi radikal ini membuktikan bahwa siswa SMK tingkat menengah sanggup mengeksekusi proyek lintas disiplin tingkat tinggi yang mempertemukan telekomunikasi siber, kelestarian ekologis, dan mekanika spasial jika diberikan jembatan pedagogis yang tepat.
-                        </p>
+                    </div>
+                    <div x-show="auditMode" x-transition class="mt-4 pt-4 border-t border-emerald-200 text-emerald-800 text-xs code-font bg-emerald-50 p-4 rounded-xl">
+                        <span class="font-bold uppercase block mb-1">[AUDIT FILOSOFIS & RISET]:</span>
+                        Memenuhi deskriptor tertinggi pada Lampiran 7 aspek **Pengembangan Materi Berdasarkan Kajian Teori dan Kontekstual Lingkungan Belajar**.
                     </div>
                 </div>
 
@@ -855,34 +567,23 @@ Switch(config-if)# switchport port-security mac-address sticky</pre>
                         <h3 class="text-base font-bold text-slate-800">Horison Transendental: Autonomous Smart Lab & Machine Learning (2030 — 2036)</h3>
                     </div>
                     <div class="space-y-3 text-sm text-slate-600 leading-relaxed">
-                        <p>
-                            Visi jangka panjang saya untuk dunia vokasi Indonesia memuncak pada pendirian ekosistem <strong>"Smart School IoT & AI Automation Lab"</strong>. Kita melompat melampaui batas kurikulum konvensional:
-                        </p>
                         <div class="bg-slate-900 text-emerald-400 p-4 rounded-xl code-font text-xs space-y-1 overflow-x-auto shadow-inner">
                             <span class="text-slate-500 block"># Python AI Traffic Predictor System Preview</span>
-                            <span>import tensorflow as json</span>
-                            <span>import numpy as np</span>
-                            <span>model = tf.keras.models.load_model('network_traffic_brain.h5')</span>
-                            <span>predicted_load = model.predict(training_data_jam_istirahat_sekolah)</span>
-                            <span>if predicted_load > 0.85: execute_autonomous_pcq_script()</span>
+                            <span>import tensorflow as tf</span>
+                            <span>model = tf.keras.models.load_model('network_brain.h5')</span>
+                            <span>if predicted_load > 0.85: execute_autonomous_pcq()</span>
                         </div>
-                        <p class="text-xs text-slate-500 -mt-2">Ilustrasi cetak biru logika model regresi AI buatan siswa yang bertindak mengonfigurasi router secara mandiri berdasarkan prediksi lonjakan trafik (Self-Configuring Networks).</p>
-                        <p>
-                            Di fase masa depan ini, siswa SMK tidak lagi sekadar diajarkan membatasi bandwidth secara manual lewat antrean Winbox MikroTik, melainkan diposisikan sebagai ilmuwan data muda yang menanamkan kecerdasan buatan ke dalam tulang punggung infrastruktur digital sekolah.
-                        </p>
+                        <p>Di fase masa depan ini, siswa diposisikan sebagai ilmuwan data muda yang menanamkan kecerdasan buatan ke dalam tulang punggung infrastruktur digital sekolah.</p>
                     </div>
                 </div>
 
-                <div class="bg-blue-50 border border-blue-200 p-4 rounded-xl flex items-center justify-between">
-                    <span class="text-xs text-blue-800 font-medium"><i class="fa-solid fa-circle-arrow-right mr-1"></i> Seluruh pilar manifesto pemikiran teoretis telah terpasang. Lanjutkan ke fase krusial: Kinerja Klinis (Lampiran 8).</span>
-                    <button @click="currentTab = 'apocalypse'" class="px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-semibold uppercase hover:bg-blue-700 cursor-pointer transition-colors">
-                        Buka Bab 4 <i class="fa-solid fa-radiation ml-1 text-[10px]"></i>
-                    </button>
+                <div class="bg-blue-50 border border-blue-200 p-4 rounded-xl flex items-center justify-between shadow-sm">
+                    <span class="text-xs text-blue-800 font-medium"><i class="fa-solid fa-circle-arrow-right mr-1"></i> Seluruh pilar manifesto pemikiran teoretis telah terpasang.</span>
+                    <button @click="currentTab = 'apocalypse'" class="px-4 py-2 bg-blue-600 text-white rounded-lg text-xs font-bold uppercase hover:bg-blue-700 cursor-pointer transition-all shadow-md hover:shadow-lg">Lanjut ke Bab 4 <i class="fa-solid fa-radiation ml-1"></i></button>
                 </div>
-
             </div>
 
-<div x-show="currentTab === 'apocalypse'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="space-y-8">
+            <div x-show="currentTab === 'apocalypse'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="space-y-8">
                 
                 <div class="border-b border-slate-200 pb-4">
                     <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
@@ -916,18 +617,16 @@ Switch(config-if)# switchport port-security mac-address sticky</pre>
                         <i class="fa-solid fa-skull-crossbones text-red-500"></i> Skenario Ekstrem: Injeksi Drop-Paket & Kelumpuhan Lab
                     </h3>
                     <p class="text-sm text-slate-600 leading-relaxed">
-                        Pada pelaksanaan Modul Ajar 7, saya sengaja menyuntikkan skenario gangguan ekstrem tanpa pemberitahuan kepada siswa. Di tengah pengerjaan proyek, saya memicu skrip otomasi jarak jauh yang mensimulasikan kegagalan tautan utama ISP (<span class="font-semibold text-slate-900">Dual-ISP Link Failure</span>) disertai pembanjiran tabel memori perangkat (<span class="font-semibold text-slate-900">MAC-Flooding Storm</span>).
+                        Pada pelaksanaan Modul Ajar 7, saya sengaja menyuntikkan skenario gangguan ekstrem tanpa pemberitahuan kepada siswa: simulasi kegagalan tautan utama ISP (<span class="font-semibold text-slate-900">Dual-ISP Link Failure</span>) disertai pembanjiran tabel memori perangkat (<span class="font-semibold text-slate-900">MAC-Flooding Storm</span>).
                     </p>
-                    
                     <div class="bg-slate-900 rounded-xl p-4 border border-red-900/50 font-mono text-xs text-red-400 space-y-1 shadow-inner">
                         <span class="text-slate-500 block mb-2"># CRITICAL EVENT LOG TRIGGERED</span>
-                        <span>[FATAL] Gateway ISP-1 (192.168.10.1) -> STATUS: RTO (REQUEST TIMEOUT)</span>
+                        <span>[FATAL] Gateway ISP-1 (192.168.10.1) -> STATUS: RTO</span>
                         <span>[WARNING] Core Switch CAM Table Load: 99.8% -> MEMORY OVERFLOW IMMINENT</span>
                         <span class="text-amber-400">[ACTION] Activating Student Incident Response Protocol...</span>
                     </div>
-                    
                     <p class="text-sm text-slate-600 leading-relaxed">
-                        Seketika, seluruh komputer klien kehilangan akses internet. Grafik telemetri jatuh ke angka nol. Di sinilah letak ujian sesungguhnya: mengubah kepanikan ruang kelas menjadi medan tempur siber terstruktur, di mana ketahanan psikomotorik dan nalar logika analitis siswa diuji hingga batas maksimal.
+                        Ini adalah ujian sesungguhnya: mengubah kepanikan ruang kelas menjadi medan tempur siber terstruktur, di mana ketahanan psikomotorik dan nalar logika analitis siswa diuji hingga batas maksimal.
                     </p>
                 </div>
 
@@ -935,22 +634,22 @@ Switch(config-if)# switchport port-security mac-address sticky</pre>
                     <div :class="auditMode ? 'border-emerald-500 bg-emerald-50/20' : 'border-slate-200 bg-white'" class="p-5 rounded-xl border transition-all duration-300 space-y-2">
                         <span class="font-bold text-blue-600 block text-[11px] uppercase code-font">[Lampiran 8: Indikator Apersepsi & Keaktifan]</span>
                         <h4 class="text-sm font-bold text-slate-800">Jembatan Kognitif Aviasi</h4>
-                        <p class="text-xs text-slate-600 leading-relaxed">Sebelum krisis dipicu, saya membuka kelas dengan menganalogikan manajemen trafik udara UAV VTOL dengan aliran paket data. Siswa diposisikan sebagai <em>Air Traffic Controller (ATC)</em> siber, memicu 100% partisipasi aktif sejak menit pertama.</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">Siswa diposisikan sebagai <em>Air Traffic Controller (ATC)</em> siber, memicu 100% partisipasi aktif sejak menit pertama.</p>
                     </div>
                     <div :class="auditMode ? 'border-emerald-500 bg-emerald-50/20' : 'border-slate-200 bg-white'" class="p-5 rounded-xl border transition-all duration-300 space-y-2">
                         <span class="font-bold text-blue-600 block text-[11px] uppercase code-font">[Lampiran 8: Indikator Leveling & Ketepatan]</span>
                         <h4 class="text-sm font-bold text-slate-800">Diferensiasi Penanganan Krisis</h4>
-                        <p class="text-xs text-slate-600 leading-relaxed">Berdasarkan data asesmen diagnostik, tim dibentuk heterogen. Kelompok ahli dieksekusi untuk meracik skrip penyeimbang beban (PCC), sedangkan kelompok bimbingan difokuskan pada restorasi jalur cadangan (Failover).</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">Tim dibentuk heterogen. Kelompok ahli meracik skrip penyeimbang beban (PCC), kelompok bimbingan fokus pada restorasi (Failover).</p>
                     </div>
                     <div :class="auditMode ? 'border-emerald-500 bg-emerald-50/20' : 'border-slate-200 bg-white'" class="p-5 rounded-xl border transition-all duration-300 space-y-2">
                         <span class="font-bold text-blue-600 block text-[11px] uppercase code-font">[Lampiran 8: Indikator Kompetensi & Feedback]</span>
                         <h4 class="text-sm font-bold text-slate-800">Dialektika Socrates di Tengah Badai</h4>
-                        <p class="text-xs text-slate-600 leading-relaxed">Saat siswa gagal mengalihkan rute failover, saya melempar pertanyaan pemantik: <em>"Jika gerbang hancur tapi kompas (tabel routing) menunjuk arah yang sama, ke mana paket pergi?"</em> Seketika siswa melakukan <em>debug</em> mandiri tanpa disuapi instruksi.</p>
+                        <p class="text-xs text-slate-600 leading-relaxed"><em>"Jika gerbang hancur tapi kompas menunjuk arah yang sama, ke mana paket pergi?"</em> Seketika siswa melakukan <em>debug</em> mandiri.</p>
                     </div>
                     <div :class="auditMode ? 'border-emerald-500 bg-emerald-50/20' : 'border-slate-200 bg-white'" class="p-5 rounded-xl border transition-all duration-300 space-y-2">
                         <span class="font-bold text-blue-600 block text-[11px] uppercase code-font">[Lampiran 8: Media, Refleksi & Kesimpulan]</span>
                         <h4 class="text-sm font-bold text-slate-800">Validasi Dasbor & Refleksi PCQ</h4>
-                        <p class="text-xs text-slate-600 leading-relaxed">Winbox digunakan sebagai validasi keberhasilan <em>real-time</em>. Sesi ditutup dengan refleksi mendalam: Manajemen Bandwidth (PCQ) adalah cerminan keadilan sosial algoritma, memastikan hak setiap pengguna terpenuhi tanpa monopoli.</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">Refleksi mendalam: Manajemen Bandwidth (PCQ) adalah cerminan keadilan sosial algoritma.</p>
                     </div>
                 </div>
 
@@ -980,7 +679,6 @@ Switch(config-if)# switchport port-security mac-address sticky</pre>
                             <span class="text-[10px] text-slate-500 group-hover:text-blue-100">Kinerja Klinis Mengajar</span>
                         </a>
                     </div>
-                    <p class="text-[10px] text-blue-600/70 mt-3 text-center italic">*Catatan: Ganti tanda pagar (#) pada file sumber HTML Anda dengan tautan Google Drive aktual Anda.</p>
                 </div>
 
                 <div class="p-6 bg-slate-900 text-white rounded-2xl border border-slate-800 relative overflow-hidden shadow-lg mt-8">
@@ -988,7 +686,7 @@ Switch(config-if)# switchport port-security mac-address sticky</pre>
                     <div class="relative z-10 space-y-3">
                         <span class="text-xs font-bold text-blue-400 uppercase tracking-widest block code-font border-b border-slate-700 pb-2">[KESIMPULAN KLINIS AKHIR - RE-ARSITEKTUR SELESAI]</span>
                         <p class="text-sm text-slate-300 leading-relaxed mt-2">
-                            Penyusunan e-portfolio ini, mulai dari draf arsitektur awal hingga dekonstruksi klinis Lampiran 8, membuktikan penemuan kembali jati diri saya. Saya melangkah masuk ke program PPG sebagai seorang insinyur mesin siber-fisik yang dingin, namun saya keluar sebagai seorang <span class="font-bold text-white">Pendidik Klinis Profesional</span> yang berdaulat, humanis, dan siap mengemudikan masa depan vokasi Indonesia. Seluruh data, skrip, dan manifesto di dalam repositori ini adalah bukti otentik dari singularitas nalar tersebut.
+                            Penyusunan e-portfolio ini membuktikan penemuan kembali jati diri saya. Saya melangkah masuk ke program PPG sebagai seorang insinyur mesin siber-fisik yang dingin, namun saya keluar sebagai seorang <span class="font-bold text-white">Pendidik Klinis Profesional</span> yang berdaulat, humanis, dan siap mengemudikan masa depan vokasi Indonesia. Seluruh data, skrip, dan manifesto di dalam repositori ini adalah bukti otentik dari singularitas nalar tersebut.
                         </p>
                         <div class="pt-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs code-font">
                             <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-slate-400 border border-slate-700">REPOSITORY STATE: 100% COMPLETED & SECURED</span>
@@ -998,6 +696,7 @@ Switch(config-if)# switchport port-security mac-address sticky</pre>
                 </div>
 
             </div>
-
+        </main>
+    </div>
 </body>
 </html>
