@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Portfolio Premium v2.0 | Nashrul Bahri, S.Kom. - Cyber-Pedagogical Dashboard</title>
+    <title>E-Portfolio | Nashrul Bahri, S.Kom. - Cyber-Pedagogical Dashboard</title>
     
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -52,11 +52,13 @@
     selectedArtifact: null,
     showModal: false,
     artifacts: [
-        { id: 1, title: 'RPP Modul VLSM Advanced', type: 'RPP', category: 'modul', image: '📄', desc: 'Rencana Pelaksanaan Pembelajaran untuk topik Variable Length Subnet Mask', link: 'https://drive.google.com/file/d/1ty51WMs3Qqjl6HncO345GO9tTsAuJVR8' },
-        { id: 2, title: 'Media Pembelajaran Interaktif OSPF', type: 'Media', category: 'media', image: '🎥', desc: 'Video demonstrasi konfigurasi OSPF dengan perangkat mikrotik', link: 'https://drive.google.com/file/d/1QmAmYAU_T3mI5d8vyB2GsLxEBAPg2BQp' },
-        { id: 3, title: 'Hasil Kerja Siswa - Network Topology', type: 'Karya Siswa', category: 'karya', image: '🖼️', desc: 'Dokumentasi desain topologi jaringan enterprise oleh siswa', link: 'https://drive.google.com/file/d/1aRD23krxh5TEjt2IqZyVqbq4lXArDj_j' },
-        { id: 4, title: 'Video Demonstrasi Lab Fiber Optic', type: 'Video', category: 'video', image: '🎬', desc: 'Rekaman praktik penyambungan serat optik menggunakan fusion splicer', link: 'https://drive.google.com/file/d/1l4-fNeAROPfw_KTgDZFe-oCAYQOde5_Y' },
-        { id: 5, title: 'Lembar Kerja Siswa & Evaluasi', type: 'Evaluasi', category: 'evaluasi', image: '✅', desc: 'Kumpulan lembar kerja dan hasil penilaian pembelajaran siswa', link: 'https://drive.google.com/file/d/1uiy8Vz01Mgc_2_A2c79x9rOBQWHrw8fl' }
+        { id: 1, title: 'Modul Ajar 1-6', type: 'RPP', category: 'modul', image: '📑', desc: 'Modul Pembelajaran versi awal belum dinilai', link: 'https://drive.google.com/file/d/1ty51WMs3Qqjl6HncO345GO9tTsAuJVR8' },
+        { id: 2, title: 'Modul Ajar 7', type: 'RPP', category: 'modul', image: '📄', desc: 'Modul Pembelajaran versi terbaru setelah dinilai dari koreksi dan revisi', link: 'https://drive.google.com/file/d/1QmAmYAU_T3mI5d8vyB2GsLxEBAPg2BQp' },
+        { id: 3, title: 'Lampiran 7', type: 'Penilaian', category: 'instrumen', image: '📝', desc: 'Rencana Pelaksanaan Pembelajaran untuk topik Variable Length Subnet Mask', link: 'https://drive.google.com/file/d/1aRD23krxh5TEjt2IqZyVqbq4lXArDj_j' },
+        { id: 4, title: 'Lampiran 8', type: 'Penilaian', category: 'instrumen', image: '📝', desc: 'Rencana Pelaksanaan Pembelajaran untuk topik Variable Length Subnet Mask', link: 'https://drive.google.com/file/d/1l4-fNeAROPfw_KTgDZFe-oCAYQOde5_Y' },
+        { id: 5, title: 'Media Pembelajaran Interaktif', type: 'Media', category: 'media', image: '🎬', desc: 'Video pemahaman dasar gateway, routing, dan manajemen jaringan', link: 'https://youtu.be/X5D1hF2tuYw' },
+        { id: 6, title: 'Hasil Kerja Murid - NAT Cisco', type: 'Karya Murid', category: 'karya', image: '🖼️', desc: 'Dokumentasi desain topologi jaringan enterprise oleh murid', link: 'https://drive.google.com/file/d/1NAYbkljOoqvophpxSOXPY85ZHpKmJreJ' },
+        { id: 7, title: 'Lembar Kerja Murid', type: 'Evaluasi', category: 'evaluasi', image: '✅', desc: 'Kumpulan lembar kerja dan hasil penilaian pembelajaran murid', link: 'https://drive.google.com/file/d/1CDvTNtD_bVif8LEWtjm1hp7yGEzOiFKO' }
     ],
     assessments: [
         { id: 1, title: 'Penilaian Modul Ajar 1-6', assessor: 'Wiyono, S.Pd, S.ST., MM.', score: '95/100', date: '20 Maret 2026', document: 'https://drive.google.com/file/d/assessment1' },
@@ -66,7 +68,7 @@
     competencies: [
         { competency: 'Pedagogical Content Knowledge', description: 'Kemampuan mengintegrasikan konten keahlian teknik jaringan dengan teori pedagogik modern', icon: '🎓' },
         { competency: 'Technology Integration', description: 'Penguasaan dalam mengintegrasikan perangkat keras/lunak terkini ke dalam pembelajaran', icon: '⚙️' },
-        { competency: 'Student-Centered Learning', description: 'Prinsip pembelajaran yang berpusat pada kebutuhan dan perkembangan siswa', icon: '👥' },
+        { competency: 'Student-Centered Learning', description: 'Prinsip pembelajaran yang berpusat pada kebutuhan dan perkembangan murid', icon: '👥' },
         { competency: 'Eco-Tech Philosophy', description: 'Pendekatan holistik yang menggabungkan teknologi dengan kesadaran lingkungan', icon: '🌍' },
         { competency: 'Research & Innovation', description: 'Kemampuan melakukan riset pendidikan dan mengembangkan solusi inovatif', icon: '🔬' },
         { competency: 'Professional Ethics', description: 'Komitmen terhadap kode etik profesi guru dan pengembangan berkelanjutan', icon: '⚖️' }
@@ -90,7 +92,7 @@
                 </div>
                 <div>
                     <div class="flex items-center gap-2">
-                        <span class="text-xs font-bold tracking-widest text-blue-600 uppercase code-font bg-blue-50 px-2 py-0.5 rounded border border-blue-100">E-Portfolio v2.0 Perfect-Grade</span>
+                        <span class="text-xs font-bold tracking-widest text-blue-600 uppercase code-font bg-blue-50 px-2 py-0.5 rounded border border-blue-100">E-Portfolio</span>
                     </div>
                     <h1 class="text-sm font-bold text-slate-800 mt-0.5">Nashrul Bahri, S.Kom. • Administrasi Infrastruktur Jaringan Enterprise</h1>
                 </div>
@@ -157,6 +159,23 @@
                             <i class="fa-solid fa-star text-sm w-4 text-center"></i>
                             <span>5. Model Guru Dituju</span>
                         </button>
+
+                        <!-- TAMBAHAN BARU UNTUK E-PORTFOLIO 2 -->
+                        <button @click="currentTab = 'reflection-ppl'" 
+                            :class="currentTab === 'reflection-ppl' ? 'text-blue-600 font-bold bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'"
+                            class="w-full text-left pl-10 pr-4 py-3 rounded-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center space-x-3 cursor-pointer">
+                            <span :class="currentTab === 'reflection-ppl' ? 'bg-blue-600 scale-125 ring-4 ring-blue-100' : 'bg-slate-300'" class="w-2 h-2 rounded-full absolute left-3 top-1/2 -translate-y-1/2 transition-all"></span>
+                            <i class="fa-solid fa-comments-dollar text-sm w-4 text-center"></i>
+                            <span>6. Refleksi Akhir PPL</span>
+                        </button>
+
+                        <button @click="currentTab = 'teaching-philosophy'" 
+                            :class="currentTab === 'teaching-philosophy' ? 'text-blue-600 font-bold bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'"
+                            class="w-full text-left pl-10 pr-4 py-3 rounded-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center space-x-3 cursor-pointer">
+                            <span :class="currentTab === 'teaching-philosophy' ? 'bg-blue-600 scale-125 ring-4 ring-blue-100' : 'bg-slate-300'" class="w-2 h-2 rounded-full absolute left-3 top-1/2 -translate-y-1/2 transition-all"></span>
+                            <i class="fa-solid fa-brain text-sm w-4 text-center"></i>
+                            <span>7. Filosofi Mengajar</span>
+                        </button>
                     </nav>
                 </div>
 
@@ -164,6 +183,17 @@
                     <div class="flex justify-between"><span>LPTK AUTHORITY:</span> <span class="text-slate-800 font-bold">UNESA</span></div>
                     <div class="flex justify-between"><span>CLINICAL SITE:</span> <span class="text-slate-800 font-bold">SMKN 1 SBY</span></div>
                     <div class="flex justify-between"><span>PORTFOLIO STATE:</span> <span class="text-emerald-600 font-bold">COMPILED</span></div>
+                    <div class="flex justify-between">
+                      <span>LinkedIn:</span>
+                      <a 
+                        href="https://www.linkedin.com/in/nashrulbhr" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="text-emerald-600 font-bold hover:underline"
+                      >
+                        Klik => NASHRUL
+                      </a>
+                    </div>
                 </div>
             </div>
         </aside>
@@ -210,11 +240,11 @@
                     </div>
                     <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
                         <span class="text-[10px] text-slate-400 block uppercase font-bold tracking-wider code-font">Curriculum Focus</span>
-                        <span class="text-xs font-bold text-slate-800 block mt-1">Struktur Infrastruktur Enterprise Mikrotik</span>
+                        <span class="text-xs font-bold text-slate-800 block mt-1">Struktur Infrastruktur Jaringan Enterprise</span>
                     </div>
                     <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
                         <span class="text-[10px] text-slate-400 block uppercase font-bold tracking-wider code-font">Eco-Tech Core</span>
-                        <span class="text-xs font-bold text-slate-800 block mt-1">Hibridasi Analisis Sensor Polutan IoT</span>
+                        <span class="text-xs font-bold text-slate-800 block mt-1">Internet of Things (IoT)</span>
                     </div>
                 </div>
 
@@ -273,7 +303,7 @@
                                     <span class="text-[9px] font-bold bg-amber-50 text-amber-700 px-1.5 py-0.5 rounded code-font">Inovasi</span>
                                 </div>
                                 <p class="text-[11px] text-slate-600 leading-relaxed">
-                                    Mentransfer pengalaman riset industri untuk memberdayakan siswa vokasi dengan keterampilan abad 21 yang relevan secara langsung dengan dunia kerja.
+                                    Mentransfer pengalaman riset industri untuk memberdayakan murid vokasi dengan keterampilan abad 21 yang relevan secara langsung dengan dunia kerja.
                                 </p>
                             </div>
 
@@ -293,7 +323,7 @@
                                     <span class="text-[9px] font-bold bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded code-font">Perubahan</span>
                                 </div>
                                 <p class="text-[11px] text-slate-600 leading-relaxed">
-                                    Membangun model pembelajaran yang berpusat pada siswa, berbasis proyek nyata, dan berorientasi pada pengembangan karakter profesional sejati.
+                                    Membangun model pembelajaran yang berpusat pada murid, berbasis proyek nyata, dan berorientasi pada pengembangan karakter profesional sejati.
                                 </p>
                             </div>
                         </div>
@@ -352,7 +382,7 @@
             <h4 class="text-sm font-bold text-slate-900">S1 Informatika (2021)</h4>
             <span class="text-xs text-slate-400 font-semibold code-font block mt-0.5">Universitas Mercu Buana Yogyakarta (UMBY)</span>
             <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-                Pendalaman algoritma, pemrograman, rekayasa perangkat lunak, serta analisis dan optimisasi sistem berbasis data untuk berbagai aplikasi digital.
+                Pendalaman algoritma, pemrograman, rekayasa perangkat lunak, serta analisis dan optimisasi sistem berbasis data untuk berbagai application digital.
             </p>
         </div>
         
@@ -376,7 +406,7 @@
                     <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
                         <i class="fa-solid fa-cubes text-blue-600"></i> Koleksi Artefak Pembelajaran
                     </h2>
-                    <p class="text-xs text-slate-500 mt-1">RPP, Media Pembelajaran, Hasil Karya Siswa, Video Demonstrasi, dan Instrumen Evaluasi</p>
+                    <p class="text-xs text-slate-500 mt-1">Modul Ajar, Media Pembelajaran, Hasil Karya Murid, dan Instrumen Evaluasi</p>
                 </div>
 
                 <div class="flex gap-2 mb-6 flex-wrap">
@@ -428,7 +458,7 @@
                     <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
                         <i class="fa-solid fa-magnifying-glass-chart text-blue-600"></i> Analisis Mendalam Artefak Pembelajaran
                     </h2>
-                    <p class="text-xs text-slate-500 mt-1">Konteks, Tujuan, Kelebihan, Kekurangan, dan Teori Pedagogis yang Mendasari</p>
+                    <p class="text-xs text-slate-500 mt-1">Konieks, Tujuan, Kelebihan, Kekurangan, dan Teori Pedagogis yang Mendasari</p>
                 </div>
 
                 <div class="space-y-6">
@@ -445,7 +475,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
                                 <h4 class="text-xs font-bold text-slate-900 mb-2"><i class="fa-solid fa-flag-checkered text-blue-600 mr-1"></i> Konteks & Tujuan</h4>
-                                <p class="text-xs text-slate-600 leading-relaxed">Topik VLSM merupakan fondasi kritis dalam administrasi jaringan enterprise. Pembelajaran ini dirancang untuk mengembangkan kemampuan siswa dalam mengalokasikan alamat IP secara efisien sesuai kebutuhan subnet heterogen. Tujuan utama adalah mengubah pemahaman siswa dari level hapalan menjadi level analisis dan aplikasi kontekstual.</p>
+                                <p class="text-xs text-slate-600 leading-relaxed">Topik VLSM merupakan fondasi kritis dalam administrasi jaringan enterprise. Pembelajaran ini dirancang untuk mengembangkan kemampuan murid dalam mengalokasikan alamat IP secara efisien sesuai kebutuhan subnet heterogen. Tujuan utama adalah mengubah pemahaman murid dari level hapalan menjadi level analisis dan aplikasi kontekstual.</p>
                             </div>
 
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
@@ -468,7 +498,7 @@
                             <div class="bg-red-50/60 p-4 rounded-xl border border-red-100">
                                 <span class="font-bold text-red-700 block mb-1.5"><i class="fa-solid fa-triangle-exclamation"></i> Tantangan & Perbaikan</span>
                                 <ul class="space-y-1 text-red-900">
-                                    <li>• Beberapa siswa masih kesulitan konversi biner cepat</li>
+                                    <li>• Beberapa murid masih kesulitan konversi biner cepat</li>
                                     <li>• Waktu alokasi lab terbatas untuk eksperimen mendalam</li>
                                     <li>• Diperlukan penambahan media drill interaktif online</li>
                                     <li>• Perlu kolaborasi dengan industri untuk studi kasus real</li>
@@ -490,12 +520,12 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
                                 <h4 class="text-xs font-bold text-slate-900 mb-2"><i class="fa-solid fa-film text-purple-600 mr-1"></i> Format Media</h4>
-                                <p class="text-xs text-slate-600 leading-relaxed">Kombinasi video demonstrasi (15 menit) dengan simulasi interaktif di Packet Tracer dan Mikrotik RouterOS. Video menampilkan langkah demi langkah konfigurasi dengan penjelasan konsep matematis cost metric secara paralel. Simulasi memungkinkan siswa melakukan eksperimen perubahan topologi secara real-time.</p>
+                                <p class="text-xs text-slate-600 leading-relaxed">Kombinasi video demonstrasi (15 menit) dengan simulasi interaktif di Packet Tracer dan Mikrotik RouterOS. Video menampilkan langkah demi langkah konfigurasi dengan penjelasan konsep matematis cost metric secara paralel. Simulasi memungkinkan murid melakukan eksperimen perubahan topologi secara real-time.</p>
                             </div>
 
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
                                 <h4 class="text-xs font-bold text-slate-900 mb-2"><i class="fa-solid fa-target text-orange-600 mr-1"></i> Outcome Pembelajaran</h4>
-                                <p class="text-xs text-slate-600 leading-relaxed">Setelah mempelajari media ini, siswa mampu: (1) Memahami algoritma Dijkstra dan aplikasinya dalam OSPF, (2) Menghitung cost metric berdasarkan bandwidth interface, (3) Mengkonfigurasi OSPF di lab fisik dengan modifikasi manual cost, (4) Troubleshooting masalah konvergensi routing dinamis.</p>
+                                <p class="text-xs text-slate-600 leading-relaxed">Setelah mempelajari media ini, murid mampu: (1) Memahami algoritma Dijkstra dan aplikasinya dalam OSPF, (2) Menghitung cost metric berdasarkan bandwidth interface, (3) Mengkonfigurasi OSPF di lab fisik dengan modifikasi manual cost, (4) Troubleshooting masalah konvergensi routing dinamis.</p>
                             </div>
                         </div>
 
@@ -515,7 +545,7 @@
                                 <ul class="space-y-1 text-amber-900">
                                     <li>• Update konten sesuai rilisan terbaru RouterOS</li>
                                     <li>• Tambahan skenario failover otomatis (BFD)</li>
-                                    <li>• Integrasi dengan lab fisik siswa untuk capstone</li>
+                                    <li>• Integrasi dengan lab fisik murid untuk capstone</li>
                                     <li>• Repository GitHub untuk versi komunitas terbuka</li>
                                 </ul>
                             </div>
@@ -535,12 +565,12 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
                                 <h4 class="text-xs font-bold text-slate-900 mb-2"><i class="fa-solid fa-flask text-indigo-600 mr-1"></i> Desain Praktik</h4>
-                                <p class="text-xs text-slate-600 leading-relaxed">Praktik ini dirancang sebagai pembelajaran terintegrasi yang menghubungkan fisika optik (Hukum Snellius, Total Internal Reflection) dengan teknik praktis splicing. Siswa tidak hanya melakukan penyambungan, tetapi juga memahami fenomena fisik di balik proses tersebut melalui analisis nilai pelayangan sinyal.</p>
+                                <p class="text-xs text-slate-600 leading-relaxed">Praktik ini dirancang sebagai pembelajaran terintegrasi yang menghubungkan fisika optik (Hukum Snellius, Total Internal Reflection) dengan teknik praktis splicing. Murid tidak hanya melakukan penyambungan, tetapi juga memahami fenomena fisik di balik proses tersebut melalui analisis nilai pelayangan sinyal.</p>
                             </div>
 
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
                                 <h4 class="text-xs font-bold text-slate-900 mb-2"><i class="fa-solid fa-brain text-pink-600 mr-1"></i> Konstruksi Kognitif</h4>
-                                <p class="text-xs text-slate-600 leading-relaxed">Menggunakan pendekatan <strong>Project-Based Learning (PjBL)</strong> yang terikat pada prinsip hibridasi industri-akademik. Siswa menganalisis data pelemahan sinyal real dari jaringan SMKN 1, kemudian mengaplikasikan pengetahuan untuk optimasi maintenance preventif jaringan sekolah.</p>
+                                <p class="text-xs text-slate-600 leading-relaxed">Menggunakan pendekatan <strong>Project-Based Learning (PjBL)</strong> yang terikat pada prinsip hibridasi industri-akademik. Murid menganalisis data pelemahan sinyal real dari jaringan SMKN 1, kemudian mengaplikasikan pengetahuan untuk optimasi maintenance preventif jaringan sekolah.</p>
                             </div>
                         </div>
 
@@ -558,9 +588,9 @@
                             <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-100">
                                 <span class="font-bold text-slate-700 block mb-1.5"><i class="fa-solid fa-chart-line"></i> Metrik Pencapaian</span>
                                 <ul class="space-y-1 text-slate-900">
-                                    <li>• 95% siswa berhasil splicing dengan loss &lt; 0.3 dB</li>
+                                    <li>• 95% murid berhasil splicing dengan loss &lt; 0.3 dB</li>
                                     <li>• Rata-rata waktu splicing turun dari 12 menit menjadi 4 menit</li>
-                                    <li>• 88% siswa mampu menjelaskan Hukum Snellius secara verbal</li>
+                                    <li>• 88% murid mampu menjelaskan Hukum Snellius secara verbal</li>
                                     <li>• Portfolio foto praktik dokumentasi 100% lengkap</li>
                                 </ul>
                             </div>
@@ -634,7 +664,7 @@
                             <div>
                                 <h4 class="text-sm font-bold text-amber-900">Area Pengembangan</h4>
                                 <p class="text-xs text-amber-800 mt-1 leading-relaxed">
-                                    Perlu meningkatkan strategi diferensiasi untuk siswa dengan pemahaman kurang cepat. Rekomendasi: (1) Kembangkan lebih banyak media audio/visual interaktif, (2) Implementasikan sistem tutor sebaya yang terstruktur, (3) Kolaborasi dengan DI/DU untuk studi kasus industri real-time.
+                                    Perlu meningkatkan strategi diferensiasi untuk murid dengan pemahaman kurang cepat. Rekomendasi: (1) Kembangkan lebih banyak media audio/visual interaktif, (2) Implementasikan sistem tutor sebaya yang terstruktur, (3) Kolaborasi dengan DI/DU untuk studi kasus industri real-time.
                                 </p>
                             </div>
                         </div>
@@ -699,7 +729,7 @@
                             <i class="fa-solid fa-bullseye text-xl"></i> MISI UTAMA
                         </h3>
                         <p class="text-sm leading-relaxed">
-                            (1) Mengembangkan kurikulum berbasis proyek riil yang menghubungkan SMK dengan industri, (2) Memberdayakan siswa dengan keterampilan digital abad 21 dan mindset entrepreneur, (3) Membangun ekosistem "Smart Lab" terintegrasi IoT dan AI untuk pembelajaran eksperimental, (4) Menciptakan komunitas profesional guru vokasi yang kolaboratif dan inovatif.
+                            (1) Mengembangkan kurikulum berbasis proyek riil yang menghubungkan SMK dengan industri, (2) Memberdayakan murid dengan keterampilan digital abad 21 dan mindset entrepreneur, (3) Membangun ekosistem "Smart Lab" terintegrasi IoT dan AI untuk pembelajaran eksperimental, (4) Menciptakan komunitas profesional guru vokasi yang kolaboratif dan inovatif.
                         </p>
                     </div>
                 </div>
@@ -738,7 +768,7 @@
                             <ul class="text-xs text-slate-600 space-y-2 leading-relaxed">
                                 <li>• Berkomitmen pada pembelajaran berkelanjutan dan umpan balik yang tulus</li>
                                 <li>• Menjunjung tinggi kode etik profesi guru dan transparansi akademik</li>
-                                <li>• Mengutamakan kesejahteraan dan pengembangan siswa di atas ambisi personal</li>
+                                <li>• Mengutamakan kesejahteraan dan pengembangan murid di atas ambisi personal</li>
                                 <li>• Konsisten dalam prinsip namun fleksibel dalam metode pembelajaran</li>
                             </ul>
                         </div>
@@ -749,7 +779,7 @@
                             </h4>
                             <ul class="text-xs text-slate-600 space-y-2 leading-relaxed">
                                 <li>• Mengintegrasikan kesadaran sustainability dalam setiap pembelajaran teknis</li>
-                                <li>• Memberdayakan siswa untuk menjadi agent of change dalam komunitas mereka</li>
+                                <li>• Memberdayakan murid untuk menjadi agent of change dalam komunitas mereka</li>
                                 <li>• Menggunakan teknologi sebagai alat untuk solusi masalah sosial dan ekologi</li>
                                 <li>• Membangun partnership dengan stakeholder lokal untuk dampak positif maksimal</li>
                             </ul>
@@ -772,8 +802,8 @@
                                 <i class="fa-solid fa-handshake text-blue-600"></i> Kepemimpinan & Empati
                             </h4>
                             <ul class="text-xs text-slate-600 space-y-2 leading-relaxed">
-                                <li>• Menginspirasi siswa untuk meraih potensi maksimal mereka</li>
-                                <li>• Menunjukkan empati mendalam terhadap kebutuhan dan tantangan siswa</li>
+                                <li>• Menginspirasi murid untuk meraih potensi maksimal mereka</li>
+                                <li>• Menunjukkan empati mendalam terhadap kebutuhan dan tantangan murid</li>
                                 <li>• Memimpin dengan contoh dalam hal disiplin, dedikasi, dan passion untuk pendidikan</li>
                                 <li>• Menciptakan lingkungan kelas yang aman, inklusif, dan mendorong kolaborasi</li>
                             </ul>
@@ -816,7 +846,7 @@
                         <div class="relative group">
                             <span class="absolute -left-[31px] top-1 bg-blue-300 w-5 h-5 rounded-full border-4 border-white shadow-sm group-hover:scale-125 group-hover:bg-blue-600 transition-all duration-300"></span>
                             <div class="bg-white p-4 rounded-xl border border-slate-200 hover:shadow-md transition-all">
-                                <h4 class="text-sm font-bold text-slate-900">2030-2035: Kepemimpinan Akademik</h4>
+                                <h4 class="text-sm font-bold text-slate-900">2030-2035: Kepemimpinan Academic</h4>
                                 <p class="text-xs text-slate-600 mt-1">Mencapai status Master Teacher, memimpin komunitas guru vokasi nasional, berkontribusi dalam kebijakan pendidikan vokasi digital, dan mentransfer pengetahuan kepada generasi guru berikutnya.</p>
                             </div>
                         </div>
@@ -831,16 +861,136 @@
                             Visi saya bukan sekadar personal, tetapi kolektif. Saya mengundang guru vokasi, stakeholder industri, dan pembuat kebijakan untuk berkolaborasi membangun ekosistem pembelajaran yang responsif, inovatif, dan berkelanjutan. Bersama kita ciptakan generasi profesional yang tidak hanya teknis ahli, tetapi juga pemimpin yang etis dan bertanggung jawab sosial.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-3 pt-4">
-                            <button class="px-6 py-2 bg-white text-indigo-700 rounded-lg text-sm font-bold hover:bg-slate-100 transition-colors">
-                                <i class="fa-solid fa-envelope mr-2"></i> Hubungi Saya
-                            </button>
-                            <button class="px-6 py-2 border-2 border-white text-white rounded-lg text-sm font-bold hover:bg-white/10 transition-colors">
-                                <i class="fa-solid fa-share-nodes mr-2"></i> Bagikan Visi
-                            </button>
+                            <a href="#" class="inline-flex items-center px-6 py-2 bg-white text-indigo-700 rounded-lg text-sm font-bold hover:bg-slate-100 transition-colors">
+                              <i class="fa-solid fa-envelope mr-2"></i> Hubungi Saya
+                            </a>
+                            <a href="#" class="inline-flex items-center px-6 py-2 border-2 border-white text-white rounded-lg text-sm font-bold hover:bg-white/10 transition-colors">
+                              <i class="fa-solid fa-share-nodes mr-2"></i> Bagikan Visi
+                            </a>
                         </div>
                     </div>
                 </div>
 
+            </div>
+
+            <!-- ========================================== -->
+            <!-- TUGAS AKHIR TAB 6: REFLEKSI AKHIR PPL TERBIMBING -->
+            <!-- ========================================== -->
+            <div x-show="currentTab === 'reflection-ppl'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100" class="space-y-6 animate-slide-in">
+                
+                <div class="border-b border-slate-200 pb-4">
+                    <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-comments-dollar text-blue-600"></i> Refleksi Akhir PPL Terbimbing
+                    </h2>
+                    <p class="text-xs text-slate-500 mt-1">Analisis dan Refleksi Hasil Praktik Klinis Pengalaman Lapangan Terbimbing di SMKN 1 Surabaya</p>
+                </div>
+
+                <div class="grid grid-cols-1 gap-6">
+                    
+                    <!-- Aspek A: Apa yang dipelajari -->
+                    <div :class="auditMode ? 'border-emerald-500 bg-emerald-50/10' : 'border-slate-200 bg-white'" class="p-6 rounded-2xl border shadow-xs space-y-3 transition-all duration-300">
+                        <div class="flex items-center gap-2 text-blue-600">
+                            <div class="w-7 h-7 rounded-lg bg-blue-50 flex items-center justify-center text-xs font-bold code-font">A</div>
+                            <h3 class="text-sm font-bold uppercase tracking-wide">Transformasi Kognitif & Pedagogik Calon Guru</h3>
+                        </div>
+                        <p class="text-xs font-semibold text-slate-500 italic">Pertanyaan Pemantik, "Apa yang telah dipelajari sebagai peserta PPG calon guru selama tahapan PPL Terbimbing?"</p>
+                        <hr class="border-slate-100 my-2">
+                        <p class="text-xs text-slate-700 leading-relaxed text-justify">
+                            Selama fase PPL Terbimbing dari awal hingga akhir di SMKN 1 Surabaya, saya mengalami pergeseran paradigma total (<em>paradigm shift</em>) dari seorang praktisi industri/R&D kedirgantaraan menjadi pendidik klinis. Saya belajar bahwa mentransfer pengetahuan tentang "Administrasi Infrastruktur Jaringan Enterprise" tidak sekadar menyajikan instruksi sintaksis baris kode perintah (command-line interface), melainkan membangun struktur berpikir logis siswa. 
+                        </p>
+                        <p class="text-xs text-slate-700 leading-relaxed text-justify">
+                            Saya mendalami implementasi metode Backward Design (Understanding by Design) dengan menetapkan hasil akhir berupa kemampuan analisis pemecahan masalah jaringan (troubleshooting) sebelum merancang instrumen evaluasi. Selain itu, saya belajar menerapkan teknik pemberian bantuan yang dinamis (Scaffolding) berbasis teori Zone of Proximal Development (ZPD) milik Vygotsky, guna memetakan dan menjembatani siswa yang mengalami hambatan matematis ketika menghitung segmentasi Variable Length Subnet Mask (VLSM).
+                        </p>
+                    </div>
+
+                    <!-- Aspek B: Pengalaman Menantang & Solusi -->
+                    <div :class="auditMode ? 'border-emerald-500 bg-emerald-50/10' : 'border-slate-200 bg-white'" class="p-6 rounded-2xl border shadow-xs space-y-3 transition-all duration-300">
+                        <div class="flex items-center gap-2 text-amber-600">
+                            <div class="w-7 h-7 rounded-lg bg-amber-50 flex items-center justify-center text-xs font-bold code-font">B</div>
+                            <h3 class="text-sm font-bold uppercase tracking-wide">Krisis Lab & Resolusi Pembelajaran Berdiferensiasi</h3>
+                        </div>
+                        <p class="text-xs font-semibold text-slate-500 italic">Pertanyaan Pemantik, "Apakah terdapat pengalaman yang menantang dan bagaimana solusi dari permasalahan tersebut?"</p>
+                        <hr class="border-slate-100 my-2">
+                        <p class="text-xs text-slate-700 leading-relaxed text-justify">
+                            Pengalaman paling menantang terjadi pada siklus praktik mengajar modul OSPF, di mana terjadi kesenjangan (gap) kognitif yang ekstrem antar-siswa di kelas Fase F TJKT. Kelompok siswa dengan kecerdasan kinestetik-logis menyelesaikan simulasi Cisco Packet Tracer dengan sangat cepat, sementara sepertiga kelas mengalami kebingungan akut (cognitive overload) saat melacak konvergensi routing dan kalkulasi matriks algoritma Dijkstra. 
+                        </p>
+                        <div class="bg-blue-50/50 border border-blue-100 rounded-xl p-3 text-xs text-blue-900 space-y-1.5">
+                            <span class="font-bold uppercase tracking-wider block text-[10px]"><i class="fa-solid fa-gears mr-1"></i> RESOLUSI REKAYASA PEDAGOGIK:</span>
+                            <p class="leading-relaxed text-justify">
+                                Sebagai solusi nyata, saya menerapkan Pembelajaran Berdiferensiasi (Proses dan Produk) secara instan di dalam laboratorium. Saya mengaktifkan sistem "Tutor Sebaya" yang terstruktur, di mana siswa yang telah mencapai indikator ketuntasan ditugaskan menjadi "Network Architect Consultants" untuk memandu rekannya yang kesulitan. Bagi siswa yang mengalami hambatan, saya memberikan bantuan media komplementer berupa video infografis interaktif buatan mandiri serta lembar kerja bergradasi kemudahan. Pendekatan ini berhasil menurunkan tingkat kegagalan konfigurasi lab dari 35% menjadi 0% pada akhir sesi bimbingan.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Aspek C: Umpan Balik Diskusi Akhir -->
+                    <div :class="auditMode ? 'border-emerald-500 bg-emerald-50/10' : 'border-slate-200 bg-white'" class="p-6 rounded-2xl border shadow-xs space-y-3 transition-all duration-300">
+                        <div class="flex items-center gap-2 text-indigo-600">
+                            <div class="w-7 h-7 rounded-lg bg-indigo-50 flex items-center justify-center text-xs font-bold code-font">C</div>
+                            <h3 class="text-sm font-bold uppercase tracking-wide">Rekomendasi Klinis untuk PPL Mandiri</h3>
+                        </div>
+                        <p class="text-xs font-semibold text-slate-500 italic">Pertanyaan Pemantik, "Apakah umpan balik atau saran konstruktif yang diberikan dalam diskusi refleksi akhir untuk tahap PPL Mandiri?"</p>
+                        <hr class="border-slate-100 my-2">
+                        <p class="text-xs text-slate-700 leading-relaxed text-justify">
+                            Dalam forum diskusi refleksi akhir, Guru Pamong (Bapak Wiyono, S.Pd, S.ST., MM.) dan DPL (Dr. Bambang Setyawan, M.Pd) memberikan catatan konstruktif yang berharga sebagai fondasi pijakan menuju fase PPL Mandiri. Kritik utama berfokus pada aspek "manajemen waktu pengalihan aktivitas" (dari pemahaman konsep berbasis proyektor ke aktivitas fisik perangkat keras praktikum), yang dinilai masih memakan durasi transisi cukup lama.
+                        </p>
+                        <p class="text-xs text-slate-700 leading-relaxed text-justify">
+                            Saran perbaikan konkret yang wajib saya implementasikan pada tahapan berikutnya adalah: (1) Mengintegrasikan "Asesmen Formatif Real-Time digital" (seperti Quizizz tersemat atau pengisian logbook otomatis cloud) di tengah-tengah demonstrasi praktikum untuk memantau pemahaman siswa secara simultan tanpa memutus alur instruksi; (2) Menyusun instruksi kerja laboratorium (*Jobsheet*) dengan standarisasi industri yang lebih ringkas sehingga siswa dapat bekerja secara mandiri dengan intervensi klasikal minimal.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- TUGAS AKHIR TAB 7: FILOSOFI MENGAJAR (MIN 3 PARAGRAF) -->
+            <!-- ========================================== -->
+            <div x-show="currentTab === 'teaching-philosophy'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100" class="space-y-6 animate-slide-in">
+                
+                <div class="border-b border-slate-200 pb-4">
+                    <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-brain text-blue-600"></i> Filosofi Mengajar Profesional
+                    </h2>
+                    <p class="text-xs text-slate-500 mt-1">Manifesto Ideologi dan Nilai Hakiki sebagai Agen Perubahan Pendidikan Vokasi Siber</p>
+                </div>
+
+                <div :class="auditMode ? 'border-emerald-500 bg-emerald-50/10' : 'border-slate-200 bg-white'" class="p-8 rounded-3xl border shadow-xs space-y-6 text-justify transition-all duration-300">
+                    
+                    <!-- Paragraf 1 -->
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold text-blue-600 tracking-widest uppercase block code-font">Entitas Kodrat Zaman & Pendidikan Humanis</span>
+                        <p class="text-xs text-slate-700 leading-relaxed">
+                            Filosofi mengajar saya berakar kuat pada sintesis antara kemajuan siber modern dengan pandangan humanis Ki Hadjar Dewantara mengenai hakikat esensial pendidikan. Saya meyakini bahwa mengajar bukan sekadar aktivitas mengisi tabula rasa murid dengan tumpukan kognitif yang kaku, melainkan sebuah proses "menuntun" segala kekuatan kodrat yang ada pada anak-anak agar mereka dapat mencapai keselamatan dan kebahagiaan yang setinggi-tingginya baik sebagai manusia maupun anggota masyarakat. Di era disrupsi digital ini, saya menerjemahkan pemikiran tersebut ke dalam konsep <strong>"Eco-Tech Pedagogy"</strong>, sebuah manifesto pembelajaran di mana penguasaan rekayasa teknologi informasi tingkat tinggi diselaraskan dengan pelestarian nilai kemanusiaan, keluhuran budi pekerti, dan kepedulian lingkungan. Murid SMK tidak boleh dididik menjadi peranti robotik sekunder yang bernalar mekanis; mereka harus dibimbing menjadi subjek berdaya yang menavigasi teknologi demi kemaslahatan ekosistem sosialnya.
+                        </p>
+                    </div>
+
+                    <!-- Paragraf 2 -->
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold text-blue-600 tracking-widest uppercase block code-font">Landasan Teoretis & Konstruksi TPACK-Cognitive Apprenticeship</span>
+                        <p class="text-xs text-slate-700 leading-relaxed">
+                            Secara metodologis, praktik pengajaran saya di laboratorium TJKT dipandu oleh kerangka kerja teoretis TPACK (Technological Pedagogical Content Knowledge) yang diintegrasikan secara mendalam dengan prinsip "Social Constructivism" dari Lev Vygotsky. Hubungan ini terwujud dalam pemanfaatan keahlian industri saya di bidang sistem otonom untuk merekayasa lingkungan belajar digital interaktif, kemudian mengonversinya menjadi stimulasi kognitif yang ramah bagi perkembangan mental murid melalui metode "Cognitive Apprenticeship". Dalam pandangan Collins et al., metode ini menuntut guru bertindak sebagai mentor ahli yang melakukan "modeling" pemecahan masalah rumit secara transparan, memberikan kesempatan murid untuk melakukan eksplorasi (scaffolding & articulation), hingga akhirnya murid mampu melakukan refleksi mandiri atas penalaran logikanya. Melalui tautan literatur akademik ini, setiap aktivitas konfigurasi infrastruktur jaringan (seperti routing dinamis maupun terminasi serat optik) beralih fungsi dari latihan motorik biasa menjadi arena konstruksi pengetahuan bermakna.
+                        </p>
+                    </div>
+
+                    <!-- Paragraf 3 -->
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold text-blue-600 tracking-widest uppercase block code-font">Visi Ideologi Profesional Guru Vokasi Indonesia</span>
+                        <p class="text-xs text-slate-700 leading-relaxed">
+                            Komitmen jangka panjang saya sebagai guru profesional lulusan LPTK Universitas Negeri Surabaya adalah menjadi jembatan hidup (living bridge) yang kokoh antara dinamika akselerasi industri global dengan ketahanan nasional pendidikan vokasi Indonesia. Ideologi keguruan saya menolak batasan tradisional ruang kelas; laboratorium sekolah harus ditransformasi menjadi miniatur ekosistem riset terapan yang melatih ketahanan kerja (work resilience), kemampuan adaptabilitas tinggi, serta nalar kritis abad 21. Saya bertekad mendedikasikan hidup saya untuk meruntuhkan stigma pendidikan vokasi kelas dua, membuktikannya melalui lahirnya talenta siber dari rahim SMKN 1 Surabaya yang tidak hanya unggul secara keahlian taktis (hard skills), melainkan kokoh dalam integritas moral, etika profesi, dan tanggung jawab sosial. Guru profesional adalah seorang arsitek masa depan, dan komitmen saya adalah mengarsiteki generasi emas yang berdaulat secara teknologi dan luhur secara kemanusiaan.
+                        </p>
+                    </div>
+
+                    <!-- PPL Contextual Quote Block -->
+                    <div class="bg-gradient-to-br from-slate-950 to-blue-950 border border-slate-800 rounded-2xl p-5 text-white space-y-2 mt-4 relative overflow-hidden">
+                        <div class="absolute inset-0 grid-bg-dark opacity-10 pointer-events-none"></div>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-blue-400 flex items-center gap-2">
+                            <i class="fa-solid fa-graduation-cap"></i> MANIFESTO GURU PROFESIONAL - NASHRUL BAHRI
+                        </h4>
+                        <blockquote class="text-xs italic text-slate-300 border-l-2 border-blue-500 pl-3 leading-relaxed">
+                            "Teknologi siber tanpa landasan pedagogik yang humanis hanya akan melahirkan operator yang dingin. Di bawah bimbingan klinis LPTK UNESA dan SMKN 1 Surabaya, saya memantapkan langkah bahwa filosofi mengajar saya adalah menyalakan api nalar kritis dan ketulusan hati murid untuk membangun kedaulatan digital Indonesia."
+                        </blockquote>
+                    </div>
+
+                </div>
             </div>
 
         </main>
