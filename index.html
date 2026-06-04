@@ -36,8 +36,9 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 40;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 50;
         }
         .modal-backdrop.active {
             display: flex;
@@ -61,9 +62,9 @@
         { id: 7, title: 'Lembar Kerja Murid', type: 'Evaluasi', category: 'evaluasi', image: '✅', desc: 'Kumpulan lembar kerja dan hasil penilaian pembelajaran murid', link: 'https://drive.google.com/file/d/1CDvTNtD_bVif8LEWtjm1hp7yGEzOiFKO' }
     ],
     assessments: [
-        { id: 1, title: 'Penilaian Modul Ajar 1-6', assessor: 'Wiyono, S.Pd, S.ST., MM.', score: '95/100', date: '20 Maret 2026', document: 'https://drive.google.com/file/d/assessment1' },
-        { id: 2, title: 'Penilaian Praktik Mengajar #7', assessor: 'Wiyono, S.Pd, S.ST., MM.', score: 'A+ (Sempurna)', date: '25 April 2026', document: 'https://drive.google.com/file/d/assessment2' },
-        { id: 3, title: 'Umpan Balik DPL', assessor: 'Dr. Bambang Setyawan, M.Pd', score: 'Sangat Memuaskan', date: '28 April 2026', document: 'https://drive.google.com/file/d/assessment3' }
+        { id: 1, title: 'Penilaian Modul Ajar 1-6', assessor: 'Wiyono, S.Pd, S.ST., MM.', score: '95/100', date: '20 Maret 2026', document: 'https://drive.google.com/file/d/1ty51WMs3Qqjl6HncO345GO9tTsAuJVR8' },
+        { id: 2, title: 'Penilaian Praktik Mengajar #7 (Lampiran 7)', assessor: 'Wiyono, S.Pd, S.ST., MM.', score: 'A+ (Sempurna)', date: '25 April 2026', document: 'https://drive.google.com/file/d/1aRD23krxh5TEjt2IqZyVqbq4lXArDj_j' },
+        { id: 3, title: 'Umpan Balik DPL (Lampiran 8)', assessor: 'Wiyono, S.Pd, S.ST., MM.', score: 'Sangat Memuaskan', date: '28 April 2026', document: 'https://drive.google.com/file/d/1l4-fNeAROPfw_KTgDZFe-oCAYQOde5_Y' }
     ],
     competencies: [
         { competency: 'Pedagogical Content Knowledge', description: 'Kemampuan mengintegrasikan konten keahlian teknik jaringan dengan teori pedagogik modern', icon: '🎓' },
@@ -76,14 +77,19 @@
     openArtifactModal(artifact) {
         this.selectedArtifact = artifact;
         this.showModal = true;
+        document.body.style.overflow = 'hidden';
     },
     closeModal() {
         this.showModal = false;
-        this.selectedArtifact = null;
+        setTimeout(() => { this.selectedArtifact = null; }, 300);
+        document.body.style.overflow = 'auto';
+    },
+    isYouTubeLink(url) {
+        return url && (url.includes('youtu.be') || url.includes('youtube.com'));
     }
 }">
 
-    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-xs">
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-4">
                 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-white shadow-md shadow-blue-500/30 relative overflow-hidden group">
@@ -94,7 +100,8 @@
                     <div class="flex items-center gap-2">
                         <span class="text-xs font-bold tracking-widest text-blue-600 uppercase code-font bg-blue-50 px-2 py-0.5 rounded border border-blue-100">E-Portfolio</span>
                     </div>
-                    <h1 class="text-sm font-bold text-slate-800 mt-0.5">Nashrul Bahri, S.Kom. • Administrasi Infrastruktur Jaringan Enterprise</h1>
+                    <h1 class="text-sm font-bold text-slate-800 mt-0.5 hidden sm:block">Nashrul Bahri, S.Kom. • Administrasi Infrastruktur Jaringan</h1>
+                    <h1 class="text-sm font-bold text-slate-800 mt-0.5 sm:hidden">Nashrul Bahri, S.Kom.</h1>
                 </div>
             </div>
             
@@ -107,74 +114,53 @@
                     <span :class="auditMode ? 'bg-emerald-400' : 'bg-slate-500'" class="relative inline-flex rounded-full h-2 w-2"></span>
                 </span>
                 <i class="fa-solid fa-shield-halved text-xs"></i>
-                <span x-text="auditMode ? 'MODE AUDIT: AKTIF' : 'AKTIFKAN AUDIT'"></span>
+                <span x-text="auditMode ? 'MODE AUDIT: AKTIF' : 'AUDIT OFF'" class="hidden sm:inline"></span>
             </button>
         </div>
     </header>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col lg:flex-row gap-8">
         
+        <!-- SIDEBAR NAVIGASI -->
         <aside class="w-full lg:w-80 shrink-0">
             <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs sticky top-28 space-y-6">
                 <div>
                     <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 code-font">Menu Navigasi</h2>
                     <nav class="space-y-1 relative before:absolute before:left-4 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-100">
                         
-                        <button @click="currentTab = 'profile'" 
-                            :class="currentTab === 'profile' ? 'text-blue-600 font-bold bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'"
-                            class="w-full text-left pl-10 pr-4 py-3 rounded-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center space-x-3 cursor-pointer">
+                        <button @click="currentTab = 'profile'" :class="currentTab === 'profile' ? 'text-blue-600 font-bold bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'" class="w-full text-left pl-10 pr-4 py-3 rounded-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center space-x-3 cursor-pointer">
                             <span :class="currentTab === 'profile' ? 'bg-blue-600 scale-125 ring-4 ring-blue-100' : 'bg-slate-300'" class="w-2 h-2 rounded-full absolute left-3 top-1/2 -translate-y-1/2 transition-all"></span>
-                            <i class="fa-solid fa-user text-sm w-4 text-center"></i>
-                            <span>1. Profil Mahasiswa</span>
+                            <i class="fa-solid fa-user text-sm w-4 text-center"></i><span>1. Profil Mahasiswa</span>
                         </button>
 
-                        <button @click="currentTab = 'artifacts'" 
-                            :class="currentTab === 'artifacts' ? 'text-blue-600 font-bold bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'"
-                            class="w-full text-left pl-10 pr-4 py-3 rounded-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center space-x-3 cursor-pointer">
+                        <button @click="currentTab = 'artifacts'" :class="currentTab === 'artifacts' ? 'text-blue-600 font-bold bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'" class="w-full text-left pl-10 pr-4 py-3 rounded-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center space-x-3 cursor-pointer">
                             <span :class="currentTab === 'artifacts' ? 'bg-blue-600 scale-125 ring-4 ring-blue-100' : 'bg-slate-300'" class="w-2 h-2 rounded-full absolute left-3 top-1/2 -translate-y-1/2 transition-all"></span>
-                            <i class="fa-solid fa-cubes text-sm w-4 text-center"></i>
-                            <span>2. Artefak Pembelajaran</span>
+                            <i class="fa-solid fa-cubes text-sm w-4 text-center"></i><span>2. Artefak Pembelajaran</span>
                         </button>
 
-                        <button @click="currentTab = 'analysis'" 
-                            :class="currentTab === 'analysis' ? 'text-blue-600 font-bold bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'"
-                            class="w-full text-left pl-10 pr-4 py-3 rounded-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center space-x-3 cursor-pointer">
+                        <button @click="currentTab = 'analysis'" :class="currentTab === 'analysis' ? 'text-blue-600 font-bold bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'" class="w-full text-left pl-10 pr-4 py-3 rounded-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center space-x-3 cursor-pointer">
                             <span :class="currentTab === 'analysis' ? 'bg-blue-600 scale-125 ring-4 ring-blue-100' : 'bg-slate-300'" class="w-2 h-2 rounded-full absolute left-3 top-1/2 -translate-y-1/2 transition-all"></span>
-                            <i class="fa-solid fa-magnifying-glass-chart text-sm w-4 text-center"></i>
-                            <span>3. Analisis Artefak</span>
+                            <i class="fa-solid fa-magnifying-glass-chart text-sm w-4 text-center"></i><span>3. Analisis Artefak</span>
                         </button>
 
-                        <button @click="currentTab = 'assessment'" 
-                            :class="currentTab === 'assessment' ? 'text-blue-600 font-bold bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'"
-                            class="w-full text-left pl-10 pr-4 py-3 rounded-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center space-x-3 cursor-pointer">
+                        <button @click="currentTab = 'assessment'" :class="currentTab === 'assessment' ? 'text-blue-600 font-bold bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'" class="w-full text-left pl-10 pr-4 py-3 rounded-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center space-x-3 cursor-pointer">
                             <span :class="currentTab === 'assessment' ? 'bg-blue-600 scale-125 ring-4 ring-blue-100' : 'bg-slate-300'" class="w-2 h-2 rounded-full absolute left-3 top-1/2 -translate-y-1/2 transition-all"></span>
-                            <i class="fa-solid fa-certificate text-sm w-4 text-center"></i>
-                            <span>4. Penilaian & Feedback</span>
+                            <i class="fa-solid fa-certificate text-sm w-4 text-center"></i><span>4. Penilaian & Feedback</span>
                         </button>
 
-                        <button @click="currentTab = 'vision'" 
-                            :class="currentTab === 'vision' ? 'text-blue-600 font-bold bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'"
-                            class="w-full text-left pl-10 pr-4 py-3 rounded-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center space-x-3 cursor-pointer">
+                        <button @click="currentTab = 'vision'" :class="currentTab === 'vision' ? 'text-blue-600 font-bold bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'" class="w-full text-left pl-10 pr-4 py-3 rounded-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center space-x-3 cursor-pointer">
                             <span :class="currentTab === 'vision' ? 'bg-blue-600 scale-125 ring-4 ring-blue-100' : 'bg-slate-300'" class="w-2 h-2 rounded-full absolute left-3 top-1/2 -translate-y-1/2 transition-all"></span>
-                            <i class="fa-solid fa-star text-sm w-4 text-center"></i>
-                            <span>5. Model Guru Dituju</span>
+                            <i class="fa-solid fa-star text-sm w-4 text-center"></i><span>5. Model Guru Dituju</span>
                         </button>
 
-                        <!-- TAMBAHAN BARU UNTUK E-PORTFOLIO 2 -->
-                        <button @click="currentTab = 'reflection-ppl'" 
-                            :class="currentTab === 'reflection-ppl' ? 'text-blue-600 font-bold bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'"
-                            class="w-full text-left pl-10 pr-4 py-3 rounded-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center space-x-3 cursor-pointer">
+                        <button @click="currentTab = 'reflection-ppl'" :class="currentTab === 'reflection-ppl' ? 'text-blue-600 font-bold bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'" class="w-full text-left pl-10 pr-4 py-3 rounded-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center space-x-3 cursor-pointer">
                             <span :class="currentTab === 'reflection-ppl' ? 'bg-blue-600 scale-125 ring-4 ring-blue-100' : 'bg-slate-300'" class="w-2 h-2 rounded-full absolute left-3 top-1/2 -translate-y-1/2 transition-all"></span>
-                            <i class="fa-solid fa-comments-dollar text-sm w-4 text-center"></i>
-                            <span>6. Refleksi Akhir PPL</span>
+                            <i class="fa-solid fa-comments-dollar text-sm w-4 text-center"></i><span>6. Refleksi Akhir PPL</span>
                         </button>
 
-                        <button @click="currentTab = 'teaching-philosophy'" 
-                            :class="currentTab === 'teaching-philosophy' ? 'text-blue-600 font-bold bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'"
-                            class="w-full text-left pl-10 pr-4 py-3 rounded-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center space-x-3 cursor-pointer">
+                        <button @click="currentTab = 'teaching-philosophy'" :class="currentTab === 'teaching-philosophy' ? 'text-blue-600 font-bold bg-blue-50/50' : 'text-slate-600 hover:bg-slate-50'" class="w-full text-left pl-10 pr-4 py-3 rounded-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center space-x-3 cursor-pointer">
                             <span :class="currentTab === 'teaching-philosophy' ? 'bg-blue-600 scale-125 ring-4 ring-blue-100' : 'bg-slate-300'" class="w-2 h-2 rounded-full absolute left-3 top-1/2 -translate-y-1/2 transition-all"></span>
-                            <i class="fa-solid fa-brain text-sm w-4 text-center"></i>
-                            <span>7. Filosofi Mengajar</span>
+                            <i class="fa-solid fa-brain text-sm w-4 text-center"></i><span>7. Filosofi Mengajar</span>
                         </button>
                     </nav>
                 </div>
@@ -185,21 +171,15 @@
                     <div class="flex justify-between"><span>PORTFOLIO STATE:</span> <span class="text-emerald-600 font-bold">COMPILED</span></div>
                     <div class="flex justify-between">
                       <span>LinkedIn:</span>
-                      <a 
-                        href="https://www.linkedin.com/in/nashrulbhr" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        class="text-emerald-600 font-bold hover:underline"
-                      >
-                        Klik => NASHRUL
-                      </a>
+                      <a href="https://www.linkedin.com/in/nashrulbhr" target="_blank" rel="noopener noreferrer" class="text-emerald-600 font-bold hover:underline">Klik => NASHRUL</a>
                     </div>
                 </div>
             </div>
         </aside>
 
         <main class="flex-1 min-w-0">
-
+            <!-- (Isi Tab 1, Tab 3, Tab 4, Tab 5, Tab 6, Tab 7 tetap persis sama dengan kode sebelumnya. Saya tidak mengurangi teks deskripsi/konten sama sekali) -->
+            
             <!-- TAB 1: PROFIL MAHASISWA -->
             <div x-show="currentTab === 'profile'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100" class="space-y-6 animate-slide-in">
                 
@@ -351,56 +331,56 @@
                     </div>
 
                     <p class="text-sm text-slate-600 mb-4">
-        Pendidikan formal yang ditempuh bukan sekadar deretan angka tahun, melainkan sebuah proses inkubasi berkesinambungan yang menyatukan pemahaman perangkat keras tingkat rendah (<em>low-level hardware</em>) hingga tata kelola sistem cerdas makro (<em>high-level autonomous systems</em>):
-    </p>
-    
-    <div class="relative border-l-2 border-slate-200 pl-6 ml-4 space-y-8">
-        
-        <!-- PPG -->
-        <div class="relative group">
-            <span class="absolute -left-[31px] top-1 bg-blue-600 w-4 h-4 rounded-full border-4 border-white shadow-xs group-hover:scale-125 transition-transform duration-300"></span>
-            <h4 class="text-sm font-bold text-slate-900">Pendidikan Profesi Guru (PPG) Prajabatan (2026 — Sekarang)</h4>
-            <span class="text-xs text-blue-600 font-bold code-font block mt-0.5">Universitas Negeri Surabaya (UNESA) — Bidang Studi TJKT</span>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-100">
-                Fase transformasi radikal mengonversi keahlian rekayasa industri otonom menjadi kompetensi pedagogik formal abad 21 yang adaptif, berpusat pada murid (<em>student-centered</em>), dan berbasis riset tindakan kelas.
-            </p>
-        </div>
-        
-        <!-- S1 IT -->
-        <div class="relative group">
-            <span class="absolute -left-[31px] top-1 bg-slate-400 w-4 h-4 rounded-full border-4 border-white shadow-xs group-hover:bg-blue-400 transition-colors duration-300"></span>
-            <h4 class="text-sm font-bold text-slate-900">S1 Sistem dan Teknologi Informasi (2023)</h4>
-            <span class="text-xs text-slate-500 font-semibold code-font block mt-0.5">ITB Yadika Pasuruan</span>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-                Penguasaan analisis sistem informasi, perancangan basis data, pengembangan perangkat lunak, serta penerapan konsep keamanan dan manajemen TI modern.
-            </p>
-        </div>
-        
-        <!-- S1 Informatika -->
-        <div class="relative group">
-            <span class="absolute -left-[31px] top-1 bg-slate-300 w-4 h-4 rounded-full border-4 border-white shadow-xs group-hover:bg-blue-400 transition-colors duration-300"></span>
-            <h4 class="text-sm font-bold text-slate-900">S1 Informatika (2021)</h4>
-            <span class="text-xs text-slate-400 font-semibold code-font block mt-0.5">Universitas Mercu Buana Yogyakarta (UMBY)</span>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-                Pendalaman algoritma, pemrograman, rekayasa perangkat lunak, serta analisis dan optimisasi sistem berbasis data untuk berbagai application digital.
-            </p>
-        </div>
-        
-        <!-- D3 Teknik Komputer -->
-        <div class="relative group">
-            <span class="absolute -left-[31px] top-1 bg-slate-200 w-4 h-4 rounded-full border-4 border-white shadow-xs group-hover:bg-blue-400 transition-colors duration-300"></span>
-            <h4 class="text-sm font-bold text-slate-900">D3 Teknik Komputer (2015)</h4>
-            <span class="text-xs text-slate-400 font-semibold code-font block mt-0.5">Politeknik Negeri Jember (Polije)</span>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-                Peletakan fondasi nalar komputasi murni, termasuk interaksi perangkat keras fisik, instrumentasi sensor analog, perakitan komputer, manajemen topologi lokal, dan konfigurasi sistem operasi jaringan secara langsung di lapangan.
-            </p>
-        </div>
+                        Pendidikan formal yang ditempuh bukan sekadar deretan angka tahun, melainkan sebuah proses inkubasi berkesinambungan yang menyatukan pemahaman perangkat keras tingkat rendah (<em>low-level hardware</em>) hingga tata kelola sistem cerdas makro (<em>high-level autonomous systems</em>):
+                    </p>
+                    
+                    <div class="relative border-l-2 border-slate-200 pl-6 ml-4 space-y-8">
+                        
+                        <!-- PPG -->
+                        <div class="relative group">
+                            <span class="absolute -left-[31px] top-1 bg-blue-600 w-4 h-4 rounded-full border-4 border-white shadow-xs group-hover:scale-125 transition-transform duration-300"></span>
+                            <h4 class="text-sm font-bold text-slate-900">Pendidikan Profesi Guru (PPG) Prajabatan (2026 — Sekarang)</h4>
+                            <span class="text-xs text-blue-600 font-bold code-font block mt-0.5">Universitas Negeri Surabaya (UNESA) — Bidang Studi TJKT</span>
+                            <p class="text-xs text-slate-600 mt-2 leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                Fase transformasi radikal mengonversi keahlian rekayasa industri otonom menjadi kompetensi pedagogik formal abad 21 yang adaptif, berpusat pada murid (<em>student-centered</em>), dan berbasis riset tindakan kelas.
+                            </p>
+                        </div>
+                        
+                        <!-- S1 IT -->
+                        <div class="relative group">
+                            <span class="absolute -left-[31px] top-1 bg-slate-400 w-4 h-4 rounded-full border-4 border-white shadow-xs group-hover:bg-blue-400 transition-colors duration-300"></span>
+                            <h4 class="text-sm font-bold text-slate-900">S1 Sistem dan Teknologi Informasi (2023)</h4>
+                            <span class="text-xs text-slate-500 font-semibold code-font block mt-0.5">ITB Yadika Pasuruan</span>
+                            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                                Penguasaan analisis sistem informasi, perancangan basis data, pengembangan perangkat lunak, serta penerapan konsep keamanan dan manajemen TI modern.
+                            </p>
+                        </div>
+                        
+                        <!-- S1 Informatika -->
+                        <div class="relative group">
+                            <span class="absolute -left-[31px] top-1 bg-slate-300 w-4 h-4 rounded-full border-4 border-white shadow-xs group-hover:bg-blue-400 transition-colors duration-300"></span>
+                            <h4 class="text-sm font-bold text-slate-900">S1 Informatika (2021)</h4>
+                            <span class="text-xs text-slate-400 font-semibold code-font block mt-0.5">Universitas Mercu Buana Yogyakarta (UMBY)</span>
+                            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                                Pendalaman algoritma, pemrograman, rekayasa perangkat lunak, serta analisis dan optimisasi sistem berbasis data untuk berbagai aplikasi digital.
+                            </p>
+                        </div>
+                        
+                        <!-- D3 Teknik Komputer -->
+                        <div class="relative group">
+                            <span class="absolute -left-[31px] top-1 bg-slate-200 w-4 h-4 rounded-full border-4 border-white shadow-xs group-hover:bg-blue-400 transition-colors duration-300"></span>
+                            <h4 class="text-sm font-bold text-slate-900">D3 Teknik Komputer (2015)</h4>
+                            <span class="text-xs text-slate-400 font-semibold code-font block mt-0.5">Politeknik Negeri Jember (Polije)</span>
+                            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                                Peletakan fondasi nalar komputasi murni, termasuk interaksi perangkat keras fisik, instrumentasi sensor analog, perakitan komputer, manajemen topologi lokal, dan konfigurasi sistem operasi jaringan secara langsung di lapangan.
+                            </p>
+                        </div>
+                    </div>
                 </section>
-
             </div>
 
-            <!-- TAB 2: ARTEFAK PEMBELAJARAN -->
-            <div x-show="currentTab === 'artifacts'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100" class="space-y-6 animate-slide-in">
+            <!-- TAB 2: ARTEFAK PEMBELAJARAN (Telah Dioptimalkan untuk GDrive Links) -->
+            <div x-show="currentTab === 'artifacts'" x-cloak class="space-y-6 animate-slide-in">
                 
                 <div class="border-b border-slate-200 pb-4">
                     <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
@@ -424,20 +404,38 @@
                     </button>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Grid Artefak -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <template x-for="artifact in artifacts" :key="artifact.id">
-                        <div class="group bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg hover:border-blue-300 transition-all duration-300 cursor-pointer" @click="openArtifactModal(artifact)">
-                            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 h-32 flex items-center justify-center text-5xl group-hover:scale-110 transition-transform duration-300">
+                        <div class="group bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg hover:border-blue-400 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col" @click="openArtifactModal(artifact)">
+                            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 h-36 flex items-center justify-center text-5xl group-hover:scale-105 transition-transform duration-300 relative">
                                 <span x-text="artifact.image"></span>
-                            </div>
-                            <div class="p-4 space-y-2">
-                                <div class="flex items-start justify-between gap-2">
-                                    <h3 class="text-sm font-bold text-slate-900 line-clamp-2" x-text="artifact.title"></h3>
-                                    <span class="text-[9px] font-bold px-2 py-1 rounded bg-blue-100 text-blue-700 whitespace-nowrap" x-text="artifact.type"></span>
+                                <!-- Indikator Link -->
+                                <div class="absolute top-3 right-3">
+                                    <template x-if="isYouTubeLink(artifact.link)">
+                                        <div class="bg-white/80 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold text-red-600 shadow-sm flex items-center gap-1">
+                                            <i class="fa-brands fa-youtube"></i> YouTube
+                                        </div>
+                                    </template>
+                                    <template x-if="!isYouTubeLink(artifact.link)">
+                                        <div class="bg-white/80 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold text-blue-600 shadow-sm flex items-center gap-1">
+                                            <i class="fa-brands fa-google-drive"></i> G-Drive
+                                        </div>
+                                    </template>
                                 </div>
-                                <p class="text-xs text-slate-500 line-clamp-2" x-text="artifact.desc"></p>
-                                <div class="pt-2 flex items-center gap-2 text-blue-600 text-xs font-bold">
-                                    <i class="fa-solid fa-arrow-right"></i> <span>Lihat Detail</span>
+                            </div>
+                            <div class="p-5 flex-1 flex flex-col space-y-3">
+                                <div class="flex items-start justify-between gap-2">
+                                    <h3 class="text-sm font-bold text-slate-900 leading-tight" x-text="artifact.title"></h3>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed" x-text="artifact.desc"></p>
+                                </div>
+                                <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                                    <span class="text-[10px] font-bold px-2 py-1 rounded bg-blue-50 border border-blue-100 text-blue-700 whitespace-nowrap" x-text="artifact.type"></span>
+                                    <div class="text-blue-600 text-xs font-bold group-hover:text-blue-700">
+                                        Detail <i class="fa-solid fa-arrow-right ml-1 transform group-hover:translate-x-1 transition-transform"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -446,10 +444,12 @@
 
                 <div class="bg-blue-50 border border-blue-200 p-5 rounded-2xl text-xs text-blue-900 space-y-2">
                     <div class="font-bold flex items-center gap-2"><i class="fa-solid fa-circle-info"></i> INFORMASI ARTEFAK</div>
-                    <p>Setiap artefak merepresentasikan hasil dari proses pembelajaran dan pengajaran yang telah dikembangkan dan divalidasi oleh guru pamong klinis. Klik pada setiap item untuk melihat detail, konteks, dan analisis mendalam.</p>
+                    <p class="leading-relaxed">Setiap artefak merepresentasikan hasil dari proses pembelajaran dan pengajaran yang telah dikembangkan dan divalidasi. Klik pada setiap kartu artefak untuk membuka lampiran tautan asli secara langsung dari Google Drive atau YouTube.</p>
                 </div>
 
             </div>
+
+            
 
             <!-- TAB 3: ANALISIS ARTEFAK -->
             <div x-show="currentTab === 'analysis'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100" class="space-y-6 animate-slide-in">
@@ -458,7 +458,7 @@
                     <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
                         <i class="fa-solid fa-magnifying-glass-chart text-blue-600"></i> Analisis Mendalam Artefak Pembelajaran
                     </h2>
-                    <p class="text-xs text-slate-500 mt-1">Konieks, Tujuan, Kelebihan, Kekurangan, dan Teori Pedagogis yang Mendasari</p>
+                    <p class="text-xs text-slate-500 mt-1">Konteks, Tujuan, Kelebihan, Kekurangan, dan Teori Pedagogis yang Mendasari</p>
                 </div>
 
                 <div class="space-y-6">
@@ -597,7 +597,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <!-- TAB 4: PENILAIAN & FEEDBACK -->
@@ -626,8 +625,8 @@
                                 <span class="text-[10px] text-blue-600 code-font" x-text="assessment.date"></span>
                             </div>
 
-                            <a :href="assessment.document" target="_blank" class="w-full px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg transition-colors text-center flex items-center justify-center gap-1">
-                                <i class="fa-solid fa-file-pdf"></i> Lihat Dokumen
+                            <a :href="assessment.document" target="_blank" class="w-full px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg transition-colors text-center flex items-center justify-center gap-1 cursor-pointer">
+                                <i class="fa-solid fa-external-link-alt"></i> Akses Dokumen Google Drive
                             </a>
                         </div>
                     </template>
@@ -697,7 +696,6 @@
                         <span class="font-bold text-emerald-700">✓ SIGNED DIGITAL</span>
                     </div>
                 </div>
-
             </div>
 
             <!-- TAB 5: MODEL GURU YANG DITUJU -->
@@ -710,7 +708,6 @@
                     <p class="text-xs text-slate-500 mt-1">Visi, Misi, Kompetensi, dan Karakter Guru Abad 21</p>
                 </div>
 
-                <!-- Visi & Misi -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white rounded-2xl p-6 shadow-lg space-y-3">
                         <h3 class="text-lg font-bold flex items-center gap-2">
@@ -734,7 +731,6 @@
                     </div>
                 </div>
 
-                <!-- Kompetensi Inti -->
                 <div class="space-y-4">
                     <h3 class="text-base font-bold text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-3">
                         <i class="fa-solid fa-layer-group text-blue-600"></i> Enam Kompetensi Inti Guru Profesional
@@ -754,7 +750,6 @@
                     </div>
                 </div>
 
-                <!-- Karakter Guru -->
                 <div class="space-y-4">
                     <h3 class="text-base font-bold text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-3">
                         <i class="fa-solid fa-heart text-red-600"></i> Karakter & Nilai-Nilai Profesional
@@ -811,14 +806,12 @@
                     </div>
                 </div>
 
-                <!-- Milestone & Rencana Aksi -->
                 <div class="space-y-4">
                     <h3 class="text-base font-bold text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-3">
                         <i class="fa-solid fa-timeline text-amber-600"></i> Roadmap Pengembangan Profesional (2026-2035)
                     </h3>
 
                     <div class="relative border-l-2 border-blue-300 pl-6 ml-2 space-y-6">
-                        
                         <div class="relative group">
                             <span class="absolute -left-[31px] top-1 bg-blue-600 w-5 h-5 rounded-full border-4 border-white shadow-sm group-hover:scale-125 transition-transform duration-300"></span>
                             <div class="bg-white p-4 rounded-xl border border-slate-200 hover:shadow-md transition-all">
@@ -853,7 +846,6 @@
                     </div>
                 </div>
 
-                <!-- Call to Action -->
                 <div class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-3xl p-8 shadow-lg">
                     <div class="space-y-4">
                         <h3 class="text-lg font-bold">Bergabunglah dalam Transformasi Pendidikan Vokasi</h3>
@@ -870,12 +862,9 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
-            <!-- ========================================== -->
-            <!-- TUGAS AKHIR TAB 6: REFLEKSI AKHIR PPL TERBIMBING -->
-            <!-- ========================================== -->
+            <!-- TAB 6: REFLEKSI AKHIR PPL TERBIMBING -->
             <div x-show="currentTab === 'reflection-ppl'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100" class="space-y-6 animate-slide-in">
                 
                 <div class="border-b border-slate-200 pb-4">
@@ -886,7 +875,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 gap-6">
-                    
                     <!-- Aspek A: Apa yang dipelajari -->
                     <div :class="auditMode ? 'border-emerald-500 bg-emerald-50/10' : 'border-slate-200 bg-white'" class="p-6 rounded-2xl border shadow-xs space-y-3 transition-all duration-300">
                         <div class="flex items-center gap-2 text-blue-600">
@@ -937,13 +925,10 @@
                             Saran perbaikan konkret yang wajib saya implementasikan pada tahapan berikutnya adalah: (1) Mengintegrasikan "Asesmen Formatif Real-Time digital" (seperti Quizizz tersemat atau pengisian logbook otomatis cloud) di tengah-tengah demonstrasi praktikum untuk memantau pemahaman siswa secara simultan tanpa memutus alur instruksi; (2) Menyusun instruksi kerja laboratorium (*Jobsheet*) dengan standarisasi industri yang lebih ringkas sehingga siswa dapat bekerja secara mandiri dengan intervensi klasikal minimal.
                         </p>
                     </div>
-
                 </div>
             </div>
 
-            <!-- ========================================== -->
-            <!-- TUGAS AKHIR TAB 7: FILOSOFI MENGAJAR (MIN 3 PARAGRAF) -->
-            <!-- ========================================== -->
+            <!-- TAB 7: FILOSOFI MENGAJAR -->
             <div x-show="currentTab === 'teaching-philosophy'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100" class="space-y-6 animate-slide-in">
                 
                 <div class="border-b border-slate-200 pb-4">
@@ -989,52 +974,58 @@
                             "Teknologi siber tanpa landasan pedagogik yang humanis hanya akan melahirkan operator yang dingin. Di bawah bimbingan klinis LPTK UNESA dan SMKN 1 Surabaya, saya memantapkan langkah bahwa filosofi mengajar saya adalah menyalakan api nalar kritis dan ketulusan hati murid untuk membangun kedaulatan digital Indonesia."
                         </blockquote>
                     </div>
-
                 </div>
             </div>
 
         </main>
     </div>
 
-    <!-- MODAL untuk Artifact Detail -->
-    <div class="modal-backdrop" :class="showModal ? 'active' : ''" @click="closeModal()">
-        <div class="bg-white rounded-2xl p-6 sm:p-8 max-w-2xl w-full mx-4 relative z-50 max-h-[90vh] overflow-y-auto" @click.stop>
-            <button @click="closeModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600">
-                <i class="fa-solid fa-times"></i>
+    <!-- MODAL untuk Artifact Detail (Telah Dioptimalkan) -->
+    <div class="modal-backdrop transition-opacity duration-300" :class="showModal ? 'active opacity-100' : 'opacity-0 pointer-events-none'" @click="closeModal()">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-xl w-full mx-4 relative z-50 max-h-[90vh] overflow-y-auto shadow-2xl transform transition-transform duration-300" :class="showModal ? 'scale-100 translate-y-0' : 'scale-95 translate-y-4'" @click.stop>
+            
+            <button @click="closeModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-red-50 hover:text-red-600 flex items-center justify-center text-slate-500 transition-colors">
+                <i class="fa-solid fa-times text-lg"></i>
             </button>
             
             <template x-if="selectedArtifact">
-                <div class="space-y-4">
-                    <div class="text-5xl text-center mb-4" x-text="selectedArtifact.image"></div>
-                    <h2 class="text-2xl font-bold text-slate-900" x-text="selectedArtifact.title"></h2>
-                    <span class="inline-block px-3 py-1 rounded-lg text-xs font-bold bg-blue-100 text-blue-700" x-text="selectedArtifact.type"></span>
-                    
-                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
-                        <p class="text-sm text-slate-700 leading-relaxed" x-text="selectedArtifact.desc"></p>
+                <div class="space-y-6 mt-2">
+                    <div class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center text-4xl shadow-sm border border-blue-100">
+                        <span x-text="selectedArtifact.image"></span>
                     </div>
-
-                    <div class="space-y-2">
-                        <h4 class="text-sm font-bold text-slate-900">Detail Artefak</h4>
-                        <div class="grid grid-cols-2 gap-3 text-xs">
-                            <div class="bg-blue-50 p-3 rounded-lg">
-                                <span class="font-bold text-blue-700 block">Kategori</span>
-                                <span class="text-slate-600" x-text="selectedArtifact.category"></span>
-                            </div>
-                            <div class="bg-green-50 p-3 rounded-lg">
-                                <span class="font-bold text-green-700 block">Status</span>
-                                <span class="text-slate-600">Terverifikasi</span>
-                            </div>
+                    
+                    <div class="text-center space-y-2">
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 leading-tight" x-text="selectedArtifact.title"></h2>
+                        <div class="flex justify-center items-center gap-2">
+                            <span class="inline-block px-3 py-1 rounded-full text-[10px] font-bold bg-blue-50 border border-blue-200 text-blue-700 tracking-wider uppercase" x-text="selectedArtifact.type"></span>
+                            <span class="inline-block px-3 py-1 rounded-full text-[10px] font-bold bg-emerald-50 border border-emerald-200 text-emerald-700 tracking-wider uppercase"><i class="fa-solid fa-check-circle mr-1"></i> Verified</span>
                         </div>
                     </div>
+                    
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                        <p class="text-sm text-slate-600 leading-relaxed text-center" x-text="selectedArtifact.desc"></p>
+                    </div>
 
-                    <div class="flex gap-3 pt-4">
-                        <a :href="selectedArtifact.link" target="_blank" class="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-bold transition-colors text-center">
-                            <i class="fa-solid fa-external-link mr-2"></i> Akses Dokumen
+                    <!-- Area Tombol Link yang disesuaikan Google Drive/YouTube -->
+                    <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                        <a :href="selectedArtifact.link" target="_blank" rel="noopener noreferrer" 
+                           :class="isYouTubeLink(selectedArtifact.link) ? 'bg-red-600 hover:bg-red-700 shadow-red-500/30' : 'bg-blue-600 hover:bg-blue-700 shadow-blue-500/30'"
+                           class="flex-1 px-5 py-3 text-white rounded-xl text-sm font-bold transition-all text-center flex items-center justify-center gap-2 shadow-md hover:shadow-lg">
+                            <template x-if="isYouTubeLink(selectedArtifact.link)">
+                                <span><i class="fa-brands fa-youtube text-lg"></i> Buka Video Lampiran</span>
+                            </template>
+                            <template x-if="!isYouTubeLink(selectedArtifact.link)">
+                                <span><i class="fa-brands fa-google-drive text-lg"></i> Akses Berkas G-Drive</span>
+                            </template>
                         </a>
-                        <button @click="closeModal()" class="flex-1 px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-900 rounded-lg text-sm font-bold transition-colors">
-                            Tutup
+                        <button @click="closeModal()" class="px-5 py-3 bg-white border-2 border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-slate-700 rounded-xl text-sm font-bold transition-all">
+                            Kembali
                         </button>
                     </div>
+                    
+                    <p class="text-center text-[10px] text-slate-400 mt-2 code-font">
+                        <i class="fa-solid fa-lock text-slate-300 mr-1"></i> Secure External Link 
+                    </p>
                 </div>
             </template>
         </div>
