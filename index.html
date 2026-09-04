@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Portfolio Pembelajaran Mendalam | Nashrul Bahri, S.Kom.</title>
+    <title>E-Portfolio Deep Learning & Lembar Kerja PPG | Nashrul Bahri, S.Kom.</title>
     
     <!-- External Libraries & Frameworks -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -49,139 +49,280 @@
         }
         [x-cloak] { display: none !important; }
     </style>
+
+    <!-- ALPINE.JS COMPONENT REGISTRATION -->
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('portfolioApp', () => ({
+                currentTab: 'profile', 
+                auditMode: true,
+                selectedArtifact: null,
+                showModal: false,
+                
+                // Data LK 2 Semester 1 (6 Mata Kuliah)
+                lk2Sem1: [
+                    {
+                        no: 1,
+                        mk: 'Filosofi Pendidikan Indonesia',
+                        conn: 'Menghubungkan pemikiran Ki Hadjar Dewantara (KHD) tentang Sistem Among dengan peran saya sebagai pendidik vokasi TJKT. Pendidikan harus menuntun murid sesuai kodrat alam dan zamannya.',
+                        chal: 'Menghadapi tantangan disrupsi teknologi di mana murid sering kali terdistraksi oleh media digital dan pasif dalam pembelajaran teori.',
+                        conc: 'Pendidikan humanis yang berpusat pada murid (student-centered), kemerdekaan belajar, serta penanaman budi pekerti dalam setiap pembelajaran teknis.',
+                        chan: 'Mengubah gaya mengajar dari instruksional kaku menjadi fasilitator yang menerapkan Deep Learning (Mindful, Meaningful, Joyful).',
+                        artifact: 'Essai Reflektif Filosofi KHD & Video Apersepsi',
+                        artifactReason: 'Membuktikan pemahaman mendalam tentang konsep menuntun kodrat anak dalam konteks vokasi abad 21.',
+                        practical: 'Menuntun murid TJKT secara humanis, menghargai keberagaman bakat, dan mengintegrasikan etika siber ke dalam praktik lab.'
+                    },
+                    {
+                        no: 2,
+                        mk: 'Pemahaman tentang Peserta Didik dan Pembelajarannya',
+                        conn: 'Menghubungkan teori perkembangan kognitif (Piaget, Vygotsky) dan Profil Pelajar Pancasila dengan keberagaman karakter siswa SMK.',
+                        chal: 'Menghadapi ketimpangan awal (entry level) antar-murid dalam kemampuan logika matematika dasar dan pemahaman biner.',
+                        conc: 'Zone of Proximal Development (ZPD), Scaffolding, Asesmen Diagnostik, dan Developmentally Appropriate Practice (DAP).',
+                        chan: 'Melakukan pemetaan gaya belajar dan tingkat kesiapan belajar siswa sebelum menyusun modul ajar praktikum.',
+                        artifact: 'Laporan Pemetaan Profil & Gaya Belajar Siswa XI TJKT SMKN 1 Sby',
+                        artifactReason: 'Sebagai bukti otentik identifikasi kebutuhan belajar siswa untuk merancang diferensiasi.',
+                        practical: 'Menerapkan pembelajaran berdiferensiation dan memberikan Scaffolding yang tepat sesuai ZPD masing-masing siswa.'
+                    },
+                    {
+                        no: 3,
+                        mk: 'Prinsip Pengajaran dan Asesmen I',
+                        conn: 'Menghubungkan rancangan pembelajaran dengan asesmen autentik yang terukur sesuai tuntutan Kurikulum Merdeka.',
+                        chal: 'Mengembangkan instrumen asesmen yang tidak hanya menilai hasil akhir, tetapi memantau proses penalaran logis siswa.',
+                        conc: 'Understanding by Design (UbD), Backward Design, Asesmen Formatif berkelanjutan, dan Asesmen Sumatif.',
+                        chan: 'Menyusun Modul Ajar berbasis UbD dengan merumuskan tujuan pembelajaran dan bukti asesmen sebelum merancang aktivitas.',
+                        artifact: 'Modul Ajar UbD Topologi VLAN & Subnetting VLSM',
+                        artifactReason: 'Menunjukkan penerapan perencanaan pembelajaran yang runtut dari target capaian hingga bentuk evaluasi.',
+                        practical: 'Menggunakan Asesmen Formatif Real-Time saat praktikum untuk memberikan umpan balik langsung kepada siswa.'
+                    },
+                    {
+                        no: 4,
+                        mk: 'Teknologi Baru dalam Pengajaran dan Pembelajaran',
+                        conn: 'Integrasi latar belakang S1 Komputer saya dengan pemanfaatan teknologi digital terbarukan dalam proses pedagogi.',
+                        chal: 'Menghindari penggunaan teknologi yang sekadar dekoratif tanpa meningkatkan kualitas penalaran mendalam siswa.',
+                        conc: 'Kerangka TPACK (Technological Pedagogical Content Knowledge), Simulasi Virtual Interaktif, dan Gamifikasi Pembelajaran.',
+                        chan: 'Memanfaatkan simulator jaringan (Cisco Packet Tracer/GNS3) dan cloud lab untuk memvisualisasikan konsep abstrak routing.',
+                        artifact: 'Media Pembelajaran Interaktif & Modul Simulasi Jaringan Cloud',
+                        artifactReason: 'Membuktikan kemampuan merancang media digital yang merangsang Mindful & Meaningful Learning.',
+                        practical: 'Membuat ekosistem Smart Lab terintegrasi platform digital untuk memperluas akses belajar mandiri siswa.'
+                    },
+                    {
+                        no: 5,
+                        mk: 'Praktik Pengalaman Lapangan I (PPL I)',
+                        conn: 'Menghubungkan teori-teori pedagogi yang dipelajari di kampus dengan realitas pembelajaran klinis di SMKN 1 Surabaya.',
+                        chal: 'Pengelolaan kelas praktikum di laboratorium fisik yang dinamis serta manajemen waktu transisi alat yang ketat.',
+                        conc: 'Supervisi Klinis, Reflection-in-Action, Teaching Peer Group, dan Lesson Study.',
+                        chan: 'Mengembangkan keterampilan refleksi diri harian untuk terus memperbaiki kualitas manajemen kelas dan instruksi lab.',
+                        artifact: 'Laporan Refleksi PPL I & Video Jurnal Mengajar Terbimbing',
+                        artifactReason: 'Dokumentasi otentik pengalaman mengajar nyata dan perbaikan berbasis masukan Guru Pamong & DPL.',
+                        practical: 'Menjadi pendidik yang responsif terhadap dinamika laboratorium dan fleksibel dalam penanganan kendala teknis.'
+                    },
+                    {
+                        no: 6,
+                        mk: 'Literasi dalam Lintas Mata Pelajaran',
+                        conn: 'Menghubungkan keterampilan literasi sains dan siber dengan tuntutan membaca dokumentasi teknis (RFC/Manual Sheet) di DUDI.',
+                        chal: 'Minat baca siswa yang rendah terhadap teks teknis panjang dan instruksi sintaksis jaringan yang abstrak.',
+                        conc: 'Digital Literacy, Multimodal Text, Strategi Membaca Terbimbing, dan Scaffolding Teks Teknis.',
+                        chan: 'Menyusun Jobsheet praktikum berbasis visual infografis dan diagram alur untuk mempermudah pemahaman literasi teknis.',
+                        artifact: 'Lembar Kerja Murid (LKPD) Multimodal & Visual Jobsheet',
+                        artifactReason: 'Bukti inovasi bahan ajar yang memudahkan siswa menyerap literasi teknis jaringan.',
+                        practical: 'Membiasakan siswa membaca dan menganalisis standar dokumentasi industri secara kritis sebelum melakukan konfigurasi.'
+                    }
+                ],
+
+                // Data LK 2 Semester 2 (5 Mata Kuliah)
+                lk2Sem2: [
+                    {
+                        no: 1,
+                        mk: 'Pembelajaran Berdiferensiasi',
+                        conn: 'Menghubungkan keberagaman bakat siswa dengan variasi strategi instruksional di kelas Administrasi Jaringan.',
+                        chal: 'Keterbatasan unit router fisik di lab untuk memfasilitasi kebutuhan proyek diferensiasi yang bervariasi.',
+                        conc: 'Diferensiasi Konten, Diferensiasi Proses, Diferensiasi Produk, dan Kesiapan Belajar (Readiness).',
+                        chan: 'Menyediakan skema praktikum bertingkat (Basic, Intermediate, Advanced) agar setiap kelompok berkembang sesuai kecepatannya.',
+                        artifact: 'Modul Ajar Berdiferensiasi & Rubrik Proyek Topologi Enterprise',
+                        artifactReason: 'Membuktikan penerapan diferensiasi proses dan produk pada pembelajaran praktikum jaringan.',
+                        practical: 'Memberikan kebebasan siswa memilih arsitektur topologi jaringan sesuai minat studi kasus industri yang mereka minati.'
+                    },
+                    {
+                        no: 2,
+                        mk: 'Prinsip Pengajaran dan Asesmen II',
+                        conn: 'Penerapan lanjutan asesmen autentik berstandar industri pada fase Praktik Pengalaman Lapangan Mandiri.',
+                        chal: 'Merancang penilaian kinerja (performance assessment) yang obyektif untuk mengukur keterampilan pemecahan masalah (troubleshooting).',
+                        conc: 'Authentic Performance Assessment, Rubrik Analitis, Peer Assessment, dan Self-Assessment.',
+                        chan: 'Menggunakan rubrik kinerja terstandar DUDI yang menilai aspek K3LH, ketepatan konfig, dan kecepatan pemulihan jaringan.',
+                        artifact: 'Instrumen Penilaian Kinerja Praktikum & Troubleshooting Lab',
+                        artifactReason: 'Dokumentasi instrumen evaluasi yang akurat dalam mengukur kompetensi taktis siswa.',
+                        practical: 'Menerapkan penilaian antar-teman (peer assessment) melalui sistem Tutor Sebaya untuk membangun sikap kritis.'
+                    },
+                    {
+                        no: 3,
+                        mk: 'Praktik Pengalaman Lapangan II (PPL II)',
+                        conn: 'Mencapai kemandirian penuh sebagai guru profesional dalam mengelola pembelajaran berbasis Deep Learning di SMK.',
+                        chal: 'Mengatasi hambatan cognitive overload siswa pada materi rumit seperti OSPF Dynamic Routing dan Fiber Optic Splicing.',
+                        conc: 'Full Clinical Teaching Cycle, Research-Based Pedagogy, dan Model Pembelajaran 3M (Mindful, Meaningful, Joyful).',
+                        chan: 'Mengimplementasikan siklus mengajar mandiri utuh yang memadukan apersepsi kritis, eksperimen lab, dan refleksi gembira.',
+                        artifact: 'Produk Modul Ajar Siklus 1 Best Practice & Video Praktik Mengajar Mandiri',
+                        artifactReason: 'Artefak utama yang membuktikan kualifikasi kompetensi mengajar mandiri secara holistik.',
+                        practical: 'Melakukan refleksi klinis harian dan perbaikan berkelanjutan pada setiap siklus pembelajaran.'
+                    },
+                    {
+                        no: 4,
+                        mk: 'Proyek Kepemimpinan',
+                        conn: 'Menghubungkan peran guru sebagai agen perubahan dengan kemampuan memimpin proyek sosial-pendidikan di lingkungan sekolah/masyarakat.',
+                        chal: 'Membangun sinergi dan menggerakkan berbagai pemangku kepentingan (sekolah, mitra DUDI, dan orang tua) secara efektif.',
+                        conc: 'Service Learning, Project Management in Education, Team Leadership, dan Community Engagement.',
+                        chan: 'Menginisiasi proyek inovasi ekosistem Smart School & Eco-Tech Lab bersama komunitas guru dan siswa vokasi.',
+                        artifact: 'Laporan Proyek Kepemimpinan Komunitas Vokasi Digital',
+                        artifactReason: 'Menunjukkan kepemimpinan transformatif dalam membangun lingkungan belajar yang berdampak.',
+                        practical: 'Menjadi pemimpin pembelajar yang aktif menggalang kolaborasi lintas sektor demi kemajuan pendidikan vokasi.'
+                    },
+                    {
+                        no: 5,
+                        mk: 'Seminar Pendidikan Profesi Guru',
+                        conn: 'Sintesis dan kristalisasi seluruh pengalaman belajar dari perkuliahan dan PPL ke dalam bentuk E-Portofolio Digital reflektif.',
+                        chal: 'Menyusun narasi portofolio yang tidak hanya substantif tetapi juga memenuhi kaidah analisis pedagogis terintegrasi.',
+                        conc: 'Reflective Practice, Meta-Cognition, Digital Portfolio Design, dan Professional Identity Construction.',
+                        chan: 'Mengonstruksi E-Portofolio bermutu tinggi yang mendokumentasikan filosofi, perancangan, dan refleksi perjalanan PPG.',
+                        artifact: 'Portal E-Portofolio Digital Pembelajaran Mendalam (Deep Learning Dashboard)',
+                        artifactReason: 'Bukti puncak (capstone artifact) yang merepresentasikan kesiapan penuh menjadi guru profesional.',
+                        practical: 'Menjadikan portofolio digital sebagai instrumen rekam jejak pengembangan profesi berkelanjutan (CPD) sepanjang hayat.'
+                    }
+                ],
+
+                // Data Artifak Siklus 1
+                artifacts: [
+                    { 
+                        id: 1, 
+                        title: 'Modul Ajar Siklus 1 (Best Practice Deep Learning)', 
+                        type: 'RPP / Modul Ajar', 
+                        category: 'modul', 
+                        image: '📑', 
+                        cycle: 'Siklus 1 PPL Mandiri',
+                        desc: 'Rancangan Pembelajaran Terlengkap berbasis Deep Learning (Mindful, Meaningful, Joyful) topik Administrasi Infrastruktur Jaringan (VLAN & Subnetting).', 
+                        link: 'https://drive.google.com/file/d/1WVvaCnD_R7zXH63wPOi1dB2ldMSUsiho',
+                        context: 'Dirancang untuk Fase F TJKT SMKN 1 Surabaya dengan pendekatan Backward Design (UbD). Fokus pada pemahaman bermakna alokasi IP.',
+                        strengths: 'Integrasi Mindful Learning (studi kasus riil), Scaffolding ZPD terstruktur, LKPD interaktif, dan asesmen formatif berkelanjutan.',
+                        weaknesses: 'Membutuhkan alokasi waktu apersepsi matematis yang cermat untuk siswa dengan kemampuan dasar biner yang rendah.',
+                        theory: 'Deep Learning (Kemendikdasmen), Understanding by Design (Wiggins & McTighe), dan Zone of Proximal Development (Vygotsky).'
+                    },
+                    { 
+                        id: 2, 
+                        title: 'Video Pelaksanaan Praktik Mengajar Mandiri Siklus 1', 
+                        type: 'Video Praktik', 
+                        category: 'video', 
+                        image: '🎬', 
+                        cycle: 'Siklus 1 PPL Mandiri',
+                        desc: 'Video rekaman praktik mengajar mandiri Siklus 1 lengkap (Kegiatan Awal, Inti, Penutup) menerapkan 3M Deep Learning di Laboratorium TJKT.', 
+                        link: 'https://youtu.be/X5D1hF2tuYw',
+                        context: 'Praktik pembelajaran klinis nyata di kelas XI TJKT SMKN 1 Surabaya dengan penerapan Problem-Based Learning & Hands-On Lab.',
+                        strengths: 'Menampilkan interaksi Joyful Learning, manajemen kelas yang kondusif, demonstrasi alat peraga fisik, serta bimbingan tutor sebaya.',
+                        weaknesses: 'Durasi transisi dari sesi teori berbasis layar ke simulasi fisik lab memerlukan efisiensi yang lebih ketat.',
+                        theory: 'Cognitive Apprenticeship (Collins et al.), Model 3M Deep Learning (Mindful, Meaningful, Joyful), dan TPACK Framework.'
+                    },
+                    { 
+                        id: 3, 
+                        title: 'Media Pembelajaran Interaktif & Simulasi Jaringan', 
+                        type: 'Media Digital', 
+                        category: 'media', 
+                        image: '💻', 
+                        cycle: 'Siklus 1 PPL Mandiri',
+                        desc: 'Media interaktif kustom + Video Animasi Konseptual Gateway, Routing, dan Topology Design untuk merangsang Mindful & Meaningful Learning.', 
+                        link: 'https://youtu.be/X5D1hF2tuYw',
+                        context: 'Dikembangkan untuk memvisualisasikan paket data jaringan yang abstrak menjadi visualisasi konseptual yang nyata bagi siswa.',
+                        strengths: 'Meningkatkan keterlibatan aktif siswa, memfasilitasi self-paced learning, dilengkapi dengan kuis reflektif langsung.',
+                        weaknesses: 'Memerlukan koneksi internet stabil atau server lokal sekolah saat diakses secara bersamaan.',
+                        theory: 'Multimedia Learning Theory (Mayer) & Meaningful Learning Paradigm (Ausubel).'
+                    },
+                    { 
+                        id: 4, 
+                        title: 'Instrumen Penilaian Perangkat Siklus 1 (Lampiran 7)', 
+                        type: 'Penilaian GP & DPL', 
+                        category: 'instrumen', 
+                        image: '📝', 
+                        cycle: 'Siklus 1 PPL Mandiri',
+                        desc: 'Lembar Asesmen & Validasi Perangkat Pembelajaran Siklus 1 oleh Guru Pamong (Bpk. Wiyono, S.Pd, S.ST., MM.) dan DPL dengan Skor Sempurna.', 
+                        link: 'https://drive.google.com/file/d/1FYSYqQ7LaCBijT8SZx4VrnR2vIs4AaGo',
+                        context: 'Bukti otentik penilaian kualitas kelengkapan modul ajar, bahan ajar, LKPD, media, dan rubrik asesmen oleh tim penguji klinis.',
+                        strengths: 'Memenuhi 100% kriteria kelengkapan pedagogis dan integrasi modul Deep Learning terverifikasi.',
+                        weaknesses: 'Diperlukan pengayaan instrumen pengamatan sikap kerja K3LH yang lebih spesifik.',
+                        theory: 'Authentic Assessment Paradigm & Standard Evaluasi PPG Prajabatan.'
+                    },
+                    { 
+                        id: 5, 
+                        title: 'Instrumen Penilaian Praktik Mengajar Siklus 1 (Lampiran 8)', 
+                        type: 'Penilaian GP & DPL', 
+                        category: 'instrumen', 
+                        image: '📊', 
+                        cycle: 'Siklus 1 PPL Mandiri',
+                        desc: 'Hasil Evaluasi Praktik Mengajar Siklus 1 oleh Guru Pamong & DPL, mencakup aspek pedagogik, kepribadian, sosial, dan profesional.', 
+                        link: 'https://drive.google.com/file/d/1Pb6J86eN1xgRbgAVoT5pliExhCmull6_',
+                        context: 'Penilaian performa mengajar langsung di kelas/lab oleh penguji eksternal dan internal LPTK UNESA.',
+                        strengths: 'Skor sangat memuaskan pada komunikasi persuasif, penguasaan materi teknis, dan fasilitasi Joyful Learning.',
+                        weaknesses: 'Saran perbaikan pada optimasi waktu ringkasan penutup dan refleksi bersama siswa.',
+                        theory: 'Clinical Supervision Model & Competency-Based Teacher Evaluation.'
+                    },
+                    { 
+                        id: 6, 
+                        title: 'Hasil Kerja Murid & Laporan Proyek Topologi Cisco', 
+                        type: 'Karya Siswa', 
+                        category: 'karya', 
+                        image: '🖼️', 
+                        cycle: 'Siklus 1 PPL Mandiri',
+                        desc: 'Dokumentasi portofolio hasil desain topologi enterprise, alokasi IP VLSM, dan laporan analisis pemecahan masalah oleh siswa.', 
+                        link: 'https://drive.google.com/file/d/1NAYbkljOoqvophpxSOXPY85ZHpKmJreJ',
+                        context: 'Produk otentik pembelajaran siswa sebagai wujud Meaningful Learning melalui tugas pemecahan masalah dunia nyata.',
+                        strengths: 'Siswa mampu mendesain arsitektur jaringan mandiri dan melakukan troubleshooting sesuai standar industri.',
+                        weaknesses: 'Variasi kerapian dokumentasi teknis antar-kelompok masih perlu distandarisasi.',
+                        theory: 'Project-Based Learning (PjBL) & Product-Based Authentic Assessment.'
+                    },
+                    { 
+                        id: 7, 
+                        title: 'Lembar Kerja Murid (LKPD) Deep Learning', 
+                        type: 'Evaluasi & LKPD', 
+                        category: 'evaluasi', 
+                        image: '✅', 
+                        cycle: 'Siklus 1 PPL Mandiri',
+                        desc: 'Kumpulan LKPD bergradasi (Scaffolding ZPD) yang memandu siswa dari pemahaman konsep dasar hingga problem solving kompleks.', 
+                        link: 'https://drive.google.com/file/d/1AXJlo-x0h5SWFnGxc2psre9m2DmSiSXi',
+                        context: 'Instrumen kerja mandiri dan kelompok yang memicu nalar kritis (Mindful) dan kolaborasi (Joyful).',
+                        strengths: 'Dilengkapi petunjuk langkah demi langkah, studi kasus industri nyata, dan kolom refleksi diri siswa.',
+                        weaknesses: 'Perlu versi digital interaktif penuh untuk pengisian berbasis cloud.',
+                        theory: 'Constructivist Learning Theory & Formative Assessment for Learning.'
+                    }
+                ],
+
+                assessments: [
+                    { id: 1, title: 'Penilaian Modul Ajar Siklus 1 (Lampiran 7)', assessor: 'Wiyono, S.Pd, S.ST., MM. (Guru Pamong)', score: '95/100 (Sangat Baik)', date: 'Siklus 1 - PPL Mandiri', document: 'https://drive.google.com/file/d/1FYSYqQ7LaCBijT8SZx4VrnR2vIs4AaGo' },
+                    { id: 2, title: 'Penilaian Praktik Mengajar Siklus 1 (Lampiran 8)', assessor: 'Dodik Arwin Dermawan, S.ST., S.T., M.T. (DPL)', score: '96/100 (Sangat Baik)', date: 'Siklus 1 - PPL Mandiri', document: 'https://drive.google.com/file/d/1Pb6J86eN1xgRbgAVoT5pliExhCmull6_' },
+                    { id: 3, title: 'Penilaian Portofolio & Evaluasi Akhir', assessor: 'Tim Asesor LPTK UNESA', score: 'Verified / Validated', date: 'Tahun 2026', document: 'https://drive.google.com/file/d/1WVvaCnD_R7zXH63wPOi1dB2ldMSUsiho' }
+                ],
+
+                competencies: [
+                    { competency: 'Deep Learning Pedagogy (3M)', description: 'Penguasaan pembelajaran mendalam yang berfokus pada Mindful, Meaningful, dan Joyful Learning', icon: '🧠' },
+                    { competency: 'Pedagogical Content Knowledge (PCK)', description: 'Kemampuan mengintegrasikan keahlian jaringan enterprise dengan strategi pedagogik modern', icon: '🎓' },
+                    { competency: 'Technology Integration (TPACK)', description: 'Penguasaan dalam mengintegrasikan simulator, lab fisik, dan IoT ke dalam pembelajaran', icon: '⚙️' },
+                    { competency: 'Student-Centered & Differentiation', description: 'Prinsip pembelajaran yang berpusat pada murid dengan diferensiasi proses dan produk', icon: '👥' },
+                    { competency: 'Eco-Tech Philosophy', description: 'Pendekatan holistik yang menggabungkan kesadaran teknologi dengan keberlanjutan lingkungan', icon: '🌍' },
+                    { competency: 'Research & Clinical Reflection', description: 'Kemampuan analisis reflektif klinis untuk perbaikan mutu pembelajaran berkelanjutan', icon: '🔬' }
+                ],
+
+                openArtifactModal(artifact) {
+                    this.selectedArtifact = artifact;
+                    this.showModal = true;
+                    document.body.style.overflow = 'hidden';
+                },
+                closeModal() {
+                    this.showModal = false;
+                    setTimeout(() => { this.selectedArtifact = null; }, 300);
+                    document.body.style.overflow = 'auto';
+                },
+                isYouTubeLink(url) {
+                    return url && (url.includes('youtu.be') || url.includes('youtube.com'));
+                }
+            }));
+        });
+    </script>
 </head>
-<body class="bg-slate-50 text-slate-900 antialiased selection:bg-blue-600 selection:text-white" x-data="{ 
-    currentTab: 'profile', 
-    auditMode: true,
-    selectedArtifact: null,
-    showModal: false,
-    artifacts: [
-        { 
-            id: 1, 
-            title: 'Modul Ajar Siklus 1 (Best Practice Deep Learning)', 
-            type: 'RPP / Modul Ajar', 
-            category: 'modul', 
-            image: '📑', 
-            cycle: 'Siklus 1 PPL Mandiri',
-            desc: 'Rancangan Pembelajaran Terlengkap berbasis Deep Learning (Mindful, Meaningful, Joyful) topik Administrasi Infrastruktur Jaringan (VLAN & Subnetting).', 
-            link: 'https://drive.google.com/file/d/1WVvaCnD_R7zXH63wPOi1dB2ldMSUsiho',
-            context: 'Dirancang untuk Fase F TJKT SMKN 1 Surabaya dengan pendekatan Backward Design (UbD). Fokus pada pemahaman bermakna alokasi IP.',
-            strengths: 'Integrasi Mindful Learning (studi kasus riil), Scaffolding ZPD terstruktur, LKPD interaktif, dan asesmen formatif berkelanjutan.',
-            weaknesses: 'Membutuhkan alokasi waktu apersepsi matematis yang cermat untuk siswa dengan kemampuan dasar biner yang rendah.',
-            theory: 'Deep Learning (Kemendikdasmen), Understanding by Design (Wiggins & McTighe), dan Zone of Proximal Development (Vygotsky).'
-        },
-        { 
-            id: 2, 
-            title: 'Video Pelaksanaan Praktik Mengajar Mandiri Siklus 1', 
-            type: 'Video Praktik', 
-            category: 'video', 
-            image: '🎬', 
-            cycle: 'Siklus 1 PPL Mandiri',
-            desc: 'Video rekaman praktik mengajar mandiri Siklus 1 lengkap (Kegiatan Awal, Inti, Penutup) menerapkan 3M Deep Learning di Laboratorium TJKT.', 
-            link: 'https://youtu.be/X5D1hF2tuYw',
-            context: 'Praktik pembelajaran klinis nyata di kelas XI TJKT SMKN 1 Surabaya dengan penerapan Problem-Based Learning & Hands-On Lab.',
-            strengths: 'Menampilkan interaksi Joyful Learning, manajemen kelas yang kondusif, demonstrasi alat peraga fisik, serta bimbingan tutor sebaya.',
-            weaknesses: 'Durasi transisi dari sesi teori berbasis layar ke simulasi fisik lab memerlukan efisiensi yang lebih ketat.',
-            theory: 'Cognitive Apprenticeship (Collins et al.), Model 3M Deep Learning (Mindful, Meaningful, Joyful), dan TPACK Framework.'
-        },
-        { 
-            id: 3, 
-            title: 'Media Pembelajaran Interaktif & Simulasi Jaringan', 
-            type: 'Media Digital', 
-            category: 'media', 
-            image: '💻', 
-            cycle: 'Siklus 1 PPL Mandiri',
-            desc: 'Media interaktif kustom + Video Animasi Konseptual Gateway, Routing, dan Topology Design untuk merangsang Mindful & Meaningful Learning.', 
-            link: 'https://youtu.be/X5D1hF2tuYw',
-            context: 'Dikembangkan untuk memvisualisasikan paket data jaringan yang abstrak menjadi visualisasi konseptual yang nyata bagi siswa.',
-            strengths: 'Meningkatkan keterlibatan aktif siswa, memfasilitasi self-paced learning, dilengkapi dengan kuis reflektif langsung.',
-            weaknesses: 'Memerlukan koneksi internet stabil atau server lokal sekolah saat diakses secara bersamaan.',
-            theory: 'Multimedia Learning Theory (Mayer) & Meaningful Learning Paradigm (Ausubel).'
-        },
-        { 
-            id: 4, 
-            title: 'Instrumen Penilaian Perangkat Siklus 1 (Lampiran 7)', 
-            type: 'Penilaian GP & DPL', 
-            category: 'instrumen', 
-            image: '📝', 
-            cycle: 'Siklus 1 PPL Mandiri',
-            desc: 'Lembar Asesmen & Validasi Perangkat Pembelajaran Siklus 1 oleh Guru Pamong (Bpk. Wiyono, S.Pd, S.ST., MM.) dan DPL dengan Skor Sempurna.', 
-            link: 'https://drive.google.com/file/d/1FYSYqQ7LaCBijT8SZx4VrnR2vIs4AaGo',
-            context: 'Bukti otentik penilain kualitas kelengkapan modul ajar, bahan ajar, LKPD, media, dan rubrik asesmen oleh tim penguji klinis.',
-            strengths: 'Memenuhi 100% kriteria kelengkapan pedagogis dan integrasi modul Deep Learning terverifikasi.',
-            weaknesses: 'Diperlukan pengayaan instrumen pengamatan sikap kerja K3LH yang lebih spesifik.',
-            theory: 'Authentic Assessment Paradigm & Standard Evaluasi PPG Prajabatan.'
-        },
-        { 
-            id: 5, 
-            title: 'Instrumen Penilaian Praktik Mengajar Siklus 1 (Lampiran 8)', 
-            type: 'Penilaian GP & DPL', 
-            category: 'instrumen', 
-            image: '📊', 
-            cycle: 'Siklus 1 PPL Mandiri',
-            desc: 'Hasil Evaluasi Praktik Mengajar Siklus 1 oleh Guru Pamong & DPL, mencakup aspek pedagogik, kepribadian, sosial, dan profesional.', 
-            link: 'https://drive.google.com/file/d/1Pb6J86eN1xgRbgAVoT5pliExhCmull6_',
-            context: 'Penilaian performa mengajar langsung di kelas/lab oleh penguji eksternal dan internal LPTK UNESA.',
-            strengths: 'Skor sangat memuaskan pada komunikasi persuasif, penguasaan materi teknis, dan fasilitasi Joyful Learning.',
-            weaknesses: 'Saran perbaikan pada optimasi waktu ringkasan penutup dan refleksi bersama siswa.',
-            theory: 'Clinical Supervision Model & Competency-Based Teacher Evaluation.'
-        },
-        { 
-            id: 6, 
-            title: 'Hasil Kerja Murid & Laporan Proyek Topologi Cisco', 
-            type: 'Karya Siswa', 
-            category: 'karya', 
-            image: '🖼️', 
-            cycle: 'Siklus 1 PPL Mandiri',
-            desc: 'Dokumentasi portofolio hasil desain topologi enterprise, alokasi IP VLSM, dan laporan analisis pemecahan masalah oleh siswa.', 
-            link: 'https://drive.google.com/file/d/1NAYbkljOoqvophpxSOXPY85ZHpKmJreJ',
-            context: 'Produk otentik pembelajaran siswa sebagai wujud Meaningful Learning melalui tugas pemecahan masalah dunia nyata.',
-            strengths: 'Siswa mampu mendesain arsitektur jaringan mandiri dan melakukan troubleshooting sesuai standar industri.',
-            weaknesses: 'Variasi kerapian dokumentasi teknis antar-kelompok masih perlu distandarisasi.',
-            theory: 'Project-Based Learning (PjBL) & Product-Based Authentic Assessment.'
-        },
-        { 
-            id: 7, 
-            title: 'Lembar Kerja Murid (LKPD) Deep Learning', 
-            type: 'Evaluasi & LKPD', 
-            category: 'evaluasi', 
-            image: '✅', 
-            cycle: 'Siklus 1 PPL Mandiri',
-            desc: 'Kumpulan LKPD bergradasi (Scaffolding ZPD) yang memandu siswa dari pemahaman konsep dasar hingga problem solving kompleks.', 
-            link: 'https://drive.google.com/file/d/1AXJlo-x0h5SWFnGxc2psre9m2DmSiSXi',
-            context: 'Instrumen kerja mandiri dan kelompok yang memicu nalar kritis (Mindful) dan kolaborasi (Joyful).',
-            strengths: 'Dilengkapi petunjuk langkah demi langkah, studi kasus industri nyata, dan kolom refleksi diri siswa.',
-            weaknesses: 'Perlu versi digital interaktif penuh untuk pengisian berbasis cloud.',
-            theory: 'Constructivist Learning Theory & Formative Assessment for Learning.'
-        }
-    ],
-    assessments: [
-        { id: 1, title: 'Penilaian Modul Ajar Siklus 1 (Lampiran 7)', assessor: 'Wiyono, S.Pd, S.ST., MM. (Guru Pamong)', score: '95/100 (Sangat Baik)', date: 'Siklus 1 - PPL Mandiri', document: 'https://drive.google.com/file/d/1FYSYqQ7LaCBijT8SZx4VrnR2vIs4AaGo' },
-        { id: 2, title: 'Penilaian Praktik Mengajar Siklus 1 (Lampiran 8)', assessor: 'Dodik Arwin Dermawan, S.ST., S.T., M.T. (DPL)', score: '96/100 (Sangat Baik)', date: 'Siklus 1 - PPL Mandiri', document: 'https://drive.google.com/file/d/1Pb6J86eN1xgRbgAVoT5pliExhCmull6_' },
-        { id: 3, title: 'Penilaian Portofolio & Evaluasi Akhir', assessor: 'Tim Asesor LPTK UNESA', score: 'Verified / Validated', date: 'Tahun 2026', document: 'https://drive.google.com/file/d/1WVvaCnD_R7zXH63wPOi1dB2ldMSUsiho' }
-    ],
-    competencies: [
-        { competency: 'Deep Learning Pedagogy (3M)', description: 'Penguasaan pembelajaran mendalam yang berfokus pada Mindful, Meaningful, dan Joyful Learning', icon: '🧠' },
-        { competency: 'Pedagogical Content Knowledge (PCK)', description: 'Kemampuan mengintegrasikan keahlian jaringan enterprise dengan strategi pedagogik modern', icon: '🎓' },
-        { competency: 'Technology Integration (TPACK)', description: 'Penguasaan dalam mengintegrasikan simulator, lab fisik, dan IoT ke dalam pembelajaran', icon: '⚙️' },
-        { competency: 'Student-Centered & Differentiation', description: 'Prinsip pembelajaran yang berpusat pada murid dengan diferensiasi proses dan produk', icon: '👥' },
-        { competency: 'Eco-Tech Philosophy', description: 'Pendekatan holistik yang menggabungkan kesadaran teknologi dengan keberlanjutan lingkungan', icon: '🌍' },
-        { competency: 'Research & Clinical Reflection', description: 'Kemampuan analisis reflektif klinis untuk perbaikan mutu pembelajaran berkelanjutan', icon: '🔬' }
-    ],
-    openArtifactModal(artifact) {
-        this.selectedArtifact = artifact;
-        this.showModal = true;
-        document.body.style.overflow = 'hidden';
-    },
-    closeModal() {
-        this.showModal = false;
-        setTimeout(() => { this.selectedArtifact = null; }, 300);
-        document.body.style.overflow = 'auto';
-    },
-    isYouTubeLink(url) {
-        return url && (url.includes('youtu.be') || url.includes('youtube.com'));
-    }
-}">
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-blue-600 selection:text-white" x-data="portfolioApp">
 
     <!-- HEADER / NAVIGATION BAR -->
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
@@ -193,8 +334,8 @@
                 </div>
                 <div>
                     <div class="flex items-center gap-2">
-                        <span class="text-xs font-bold tracking-widest text-blue-600 uppercase code-font bg-blue-50 px-2 py-0.5 rounded border border-blue-100">E-Portfolio</span>
-                        <span class="text-[10px] font-extrabold tracking-wide text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 uppercase code-font hidden md:inline-block">PPL Mandiri</span>
+                        <span class="text-xs font-bold tracking-widest text-blue-600 uppercase code-font bg-blue-50 px-2 py-0.5 rounded border border-blue-100">E-Portfolio Deep Learning</span>
+                        <span class="text-[10px] font-extrabold tracking-wide text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 uppercase code-font hidden md:inline-block">LK 2, LK 3, LK 4 Ready</span>
                     </div>
                     <h1 class="text-sm sm:text-base font-extrabold text-slate-800 mt-0.5">Nashrul Bahri, S.Kom. • TJKT SMKN 1 Surabaya</h1>
                 </div>
@@ -252,55 +393,78 @@
                                 <i class="fa-solid fa-house-user text-sm w-4 text-center"></i>
                                 <span>1. Beranda & Profil</span>
                             </span>
-                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
                         </button>
 
                         <button @click="currentTab = 'artifacts'" :class="currentTab === 'artifacts' ? 'text-blue-600 font-bold bg-blue-50/70 border-l-4 border-blue-600' : 'text-slate-600 hover:bg-slate-50'" class="w-full text-left pl-9 pr-3 py-2.5 rounded-r-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center justify-between cursor-pointer">
                             <span class="flex items-center gap-2.5">
                                 <i class="fa-solid fa-folder-open text-sm w-4 text-center"></i>
-                                <span>2. Artifak Siklus 1</span>
+                                <span>2. Artifak Siklus 1 Utama</span>
                             </span>
-                            <span class="bg-blue-100 text-blue-800 text-[10px] px-1.5 py-0.5 rounded-full font-bold">Utama</span>
+                            <span class="bg-blue-100 text-blue-800 text-[9px] px-1.5 py-0.5 rounded-full font-bold">Utama</span>
+                        </button>
+
+                        <!-- TUGAS BARU: KETENTUAN 1 (LK 2 SEMESTER 1) -->
+                        <button @click="currentTab = 'lk2-sem1'" :class="currentTab === 'lk2-sem1' ? 'text-blue-600 font-bold bg-blue-50/70 border-l-4 border-blue-600' : 'text-slate-600 hover:bg-slate-50'" class="w-full text-left pl-9 pr-3 py-2.5 rounded-r-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center justify-between cursor-pointer">
+                            <span class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-book-bookmark text-sm w-4 text-center text-amber-600"></i>
+                                <span>3. LK 2 Refleksi Sem 1</span>
+                            </span>
+                            <span class="bg-amber-100 text-amber-800 text-[9px] px-1.5 py-0.5 rounded-full font-bold">6 MK</span>
+                        </button>
+
+                        <!-- TUGAS BARU: KETENTUAN 2 (LK 2 SEMESTER 2) -->
+                        <button @click="currentTab = 'lk2-sem2'" :class="currentTab === 'lk2-sem2' ? 'text-blue-600 font-bold bg-blue-50/70 border-l-4 border-blue-600' : 'text-slate-600 hover:bg-slate-50'" class="w-full text-left pl-9 pr-3 py-2.5 rounded-r-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center justify-between cursor-pointer">
+                            <span class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-graduation-cap text-sm w-4 text-center text-indigo-600"></i>
+                                <span>4. LK 2 Refleksi Sem 2</span>
+                            </span>
+                            <span class="bg-indigo-100 text-indigo-800 text-[9px] px-1.5 py-0.5 rounded-full font-bold">5 MK</span>
+                        </button>
+
+                        <!-- TUGAS BARU: KETENTUAN 3 (LK 3 REFLEKSI PPG) -->
+                        <button @click="currentTab = 'lk3-refleksi'" :class="currentTab === 'lk3-refleksi' ? 'text-blue-600 font-bold bg-blue-50/70 border-l-4 border-blue-600' : 'text-slate-600 hover:bg-slate-50'" class="w-full text-left pl-9 pr-3 py-2.5 rounded-r-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center justify-between cursor-pointer">
+                            <span class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-earth-asia text-sm w-4 text-center text-emerald-600"></i>
+                                <span>5. LK 3 Refleksi PPG</span>
+                            </span>
+                            <span class="bg-emerald-100 text-emerald-800 text-[9px] px-1.5 py-0.5 rounded-full font-bold">RTL</span>
+                        </button>
+
+                        <!-- TUGAS BARU: KETENTUAN 4 (LK 4 KARYA INOVATIF) -->
+                        <button @click="currentTab = 'lk4-inovasi'" :class="currentTab === 'lk4-inovasi' ? 'text-blue-600 font-bold bg-blue-50/70 border-l-4 border-blue-600' : 'text-slate-600 hover:bg-slate-50'" class="w-full text-left pl-9 pr-3 py-2.5 rounded-r-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center justify-between cursor-pointer">
+                            <span class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-lightbulb text-sm w-4 text-center text-purple-600"></i>
+                                <span>6. LK 4 Karya Inovatif</span>
+                            </span>
+                            <span class="bg-purple-100 text-purple-800 text-[9px] px-1.5 py-0.5 rounded-full font-bold">Desain</span>
                         </button>
 
                         <button @click="currentTab = 'analysis'" :class="currentTab === 'analysis' ? 'text-blue-600 font-bold bg-blue-50/70 border-l-4 border-blue-600' : 'text-slate-600 hover:bg-slate-50'" class="w-full text-left pl-9 pr-3 py-2.5 rounded-r-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center justify-between cursor-pointer">
                             <span class="flex items-center gap-2.5">
                                 <i class="fa-solid fa-magnifying-glass-chart text-sm w-4 text-center"></i>
-                                <span>3. Analisis Mendalam</span>
+                                <span>7. Analisis Mendalam</span>
                             </span>
-                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
                         </button>
 
                         <button @click="currentTab = 'assessment'" :class="currentTab === 'assessment' ? 'text-blue-600 font-bold bg-blue-50/70 border-l-4 border-blue-600' : 'text-slate-600 hover:bg-slate-50'" class="w-full text-left pl-9 pr-3 py-2.5 rounded-r-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center justify-between cursor-pointer">
                             <span class="flex items-center gap-2.5">
                                 <i class="fa-solid fa-award text-sm w-4 text-center"></i>
-                                <span>4. Penilaian GP & DPL</span>
+                                <span>8. Penilaian GP & DPL</span>
                             </span>
-                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
                         </button>
 
                         <button @click="currentTab = 'vision'" :class="currentTab === 'vision' ? 'text-blue-600 font-bold bg-blue-50/70 border-l-4 border-blue-600' : 'text-slate-600 hover:bg-slate-50'" class="w-full text-left pl-9 pr-3 py-2.5 rounded-r-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center justify-between cursor-pointer">
                             <span class="flex items-center gap-2.5">
                                 <i class="fa-solid fa-user-astronaut text-sm w-4 text-center"></i>
-                                <span>5. Model Guru Dituju</span>
+                                <span>9. Model Guru Dituju</span>
                             </span>
-                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
-                        </button>
-
-                        <button @click="currentTab = 'reflection-ppl'" :class="currentTab === 'reflection-ppl' ? 'text-blue-600 font-bold bg-blue-50/70 border-l-4 border-blue-600' : 'text-slate-600 hover:bg-slate-50'" class="w-full text-left pl-9 pr-3 py-2.5 rounded-r-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center justify-between cursor-pointer">
-                            <span class="flex items-center gap-2.5">
-                                <i class="fa-solid fa-comments text-sm w-4 text-center"></i>
-                                <span>6. Refleksi & RTL</span>
-                            </span>
-                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
                         </button>
 
                         <button @click="currentTab = 'teaching-philosophy'" :class="currentTab === 'teaching-philosophy' ? 'text-blue-600 font-bold bg-blue-50/70 border-l-4 border-blue-600' : 'text-slate-600 hover:bg-slate-50'" class="w-full text-left pl-9 pr-3 py-2.5 rounded-r-xl text-xs uppercase tracking-wide font-semibold relative transition-all duration-200 flex items-center justify-between cursor-pointer">
                             <span class="flex items-center gap-2.5">
-                                <i class="fa-solid fa-lightbulb text-sm w-4 text-center"></i>
-                                <span>7. Filosofi Mengajar</span>
+                                <i class="fa-solid fa-brain text-sm w-4 text-center"></i>
+                                <span>10. Filosofi Mengajar</span>
                             </span>
-                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
                         </button>
                     </nav>
                 </div>
@@ -321,6 +485,7 @@
                 <div class="pt-4 border-t border-slate-100 text-[11px] space-y-2 code-font text-slate-500">
                     <div class="flex justify-between"><span>LPTK:</span> <span class="text-slate-800 font-bold">UNESA</span></div>
                     <div class="flex justify-between"><span>SEKOLAH PPL:</span> <span class="text-slate-800 font-bold">SMKN 1 SBY</span></div>
+                    <div class="flex justify-between"><span>EMAIL:</span> <span class="text-blue-600 font-bold truncate">nashrul@unesa.ac.id</span></div>
                     <div class="flex justify-between items-center pt-1">
                       <span>LINKEDIN:</span>
                       <a href="https://www.linkedin.com/in/nashrulbhr" target="_blank" rel="noopener noreferrer" class="text-emerald-600 font-bold hover:underline flex items-center gap-1">
@@ -392,7 +557,7 @@
                         Selamat datang pada portal E-Portofolio Digital Praktik Mengajar Mandiri Siklus 1. Portofolio ini disusun secara sistematis dan komprehensif sebagai rekam jejak transformasi pedagogik klinis saya selama menempuh Program Pendidikan Profesi Guru (PPG) di Universitas Negeri Surabaya yang berlokasi PPL di <strong>SMKN 1 Surabaya</strong>.
                     </p>
                     <p class="text-xs text-slate-700 leading-relaxed text-justify">
-                        Fokus utama portofolio ini adalah menyajikan <strong>Produk Rancangan Pembelajaran Terbaik (Modul Ajar Siklus 1)</strong> dan <strong>Video Pelaksanaan Praktik Mengajar Mandiri Siklus 1</strong> yang secara utuh mengintegrasikan pendekatan <strong>Pembelajaran Mendalam (Deep Learning)</strong>. Melalui kerangka <em>Mindful Learning</em> (kesadaran kritis), <em>Meaningful Learning</em> (keterhubungan makna dengan industri siber), dan <em>Joyful Learning</em> (pembelajaran yang menggembirakan), portofolio ini menyajikan analisis mendalam, kajian teori pedagogis, serta rencana tindak lanjut (RTL) yang terukur.
+                        Fokus utama portofolio ini adalah menyajikan <strong>Produk Rancangan Pembelajaran Terbaik (Modul Ajar Siklus 1)</strong> dan <strong>Video Pelaksanaan Praktik Mengajar Mandiri Siklus 1</strong> yang secara utuh mengintegrasikan pendekatan <strong>Pembelajaran Mendalam (Deep Learning)</strong>. Melalui kerangka <em>Mindful Learning</em> (kesadaran kritis), <em>Meaningful Learning</em> (keterhubungan makna dengan industri siber), dan <em>Joyful Learning</em> (pembelajaran yang menggembirakan), portofolio ini menyajikan analisis mendalam, refleksi LK 2, LK 3, LK 4, kajian teori pedagogis, serta rencana tindak lanjut (RTL) yang terukur.
                     </p>
                 </section>
 
@@ -532,7 +697,382 @@
                 </div>
             </div>
 
-            <!-- TAB 3: ANALISIS MENDALAM ARTEFAK (SESUAI RUBRIK 20 POIN) -->
+            <!-- TUGAS BARU: TAB KETENTUAN 1 - LK 2 REFLEKSI SEMESTER 1 (6 MK) -->
+            <div x-show="currentTab === 'lk2-sem1'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100" class="space-y-6 animate-slide-in">
+                
+                <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-2.5 py-0.5 bg-amber-100 text-amber-800 rounded text-[10px] font-bold code-font uppercase">Ketentuan 1</span>
+                            <span class="text-xs font-bold text-slate-500 code-font">6 Hasil Refleksi Pertemuan Semester 1</span>
+                        </div>
+                        <h2 class="text-xl font-bold text-slate-900 mt-1 flex items-center gap-2">
+                            <i class="fa-solid fa-book-bookmark text-amber-600"></i> LK 2: Refleksi Pengalaman Belajar Setiap Mata Kuliah (Semester 1)
+                        </h2>
+                    </div>
+                    <span class="px-3 py-1 bg-amber-50 text-amber-800 border border-amber-200 rounded-lg text-xs font-bold code-font shrink-0">
+                        <i class="fa-solid fa-check-circle mr-1"></i> Refleksi 4C Complete
+                    </span>
+                </div>
+
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    Berikut adalah dokumen <strong>Lembar Kerja 2 (LK 2)</strong> yang merangkum hasil refleksi kritis pengalaman belajar pada 6 Mata Kuliah Semester 1 PPG Prajabatan. Setiap mata kuliah telah dianalisis mencakup **Refleksi 4C (Connection, Challenge, Concept, Change)**, **Analisis Artefak Pembelajaran**, dan **Kaitan Praktis Masa Depan**.
+                </p>
+
+                <!-- ACCORDION / CARDS UNTUK 6 MK SEMESTER 1 -->
+                <div class="space-y-6">
+                    <template x-for="item in lk2Sem1" :key="item.no">
+                        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-2xs space-y-4 hover:border-amber-300 transition-all">
+                            <!-- HEADER MK -->
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-8 h-8 rounded-xl bg-amber-100 text-amber-900 font-extrabold flex items-center justify-center text-xs code-font" x-text="'MK ' + item.no"></span>
+                                    <h3 class="text-base font-bold text-slate-900" x-text="item.mk"></h3>
+                                </div>
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold rounded-md code-font uppercase">Semester 1</span>
+                            </div>
+
+                            <!-- a. REFLEKSI 4C -->
+                            <div class="space-y-2">
+                                <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider code-font flex items-center gap-1.5">
+                                    <i class="fa-solid fa-diagram-project text-amber-600"></i> a. Uraian Refleksi 4C (Connection, Challenge, Concept, Change)
+                                </h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                                        <span class="font-bold text-amber-800 block mb-1">🔗 Connection (Keterkaitan Peran):</span>
+                                        <p class="text-slate-600 leading-relaxed text-justify" x-text="item.conn"></p>
+                                    </div>
+                                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                                        <span class="font-bold text-amber-800 block mb-1">⚡ Challenge (Tantangan Pendidik):</span>
+                                        <p class="text-slate-600 leading-relaxed text-justify" x-text="item.chal"></p>
+                                    </div>
+                                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                                        <span class="font-bold text-amber-800 block mb-1">💡 Concept (Konsep Utama):</span>
+                                        <p class="text-slate-600 leading-relaxed text-justify" x-text="item.conc"></p>
+                                    </div>
+                                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                                        <span class="font-bold text-amber-800 block mb-1">🔄 Change (Perubahan Diri):</span>
+                                        <p class="text-slate-600 leading-relaxed text-justify" x-text="item.chan"></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- b. ANALISIS ARTEFAK & c. KAITAN PRAKTIS -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-1">
+                                <div class="bg-blue-50/70 p-4 rounded-xl border border-blue-100 space-y-1">
+                                    <span class="font-bold text-blue-900 block flex items-center gap-1">
+                                        <i class="fa-solid fa-folder-closed text-blue-600"></i> b. Analisis Artefak Pembelajaran:
+                                    </span>
+                                    <p class="font-bold text-blue-800" x-text="item.artifact"></p>
+                                    <p class="text-slate-600 leading-relaxed text-justify mt-1" x-text="'Alasan: ' + item.artifactReason"></p>
+                                </div>
+
+                                <div class="bg-emerald-50/70 p-4 rounded-xl border border-emerald-100 space-y-1">
+                                    <span class="font-bold text-emerald-900 block flex items-center gap-1">
+                                        <i class="fa-solid fa-compass text-emerald-600"></i> c. Kaitan Praktis Masa Depan:
+                                    </span>
+                                    <p class="text-slate-700 leading-relaxed text-justify" x-text="item.practical"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <!-- TUGAS BARU: TAB KETENTUAN 2 - LK 2 REFLEKSI SEMESTER 2 (5 MK) -->
+            <div x-show="currentTab === 'lk2-sem2'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100" class="space-y-6 animate-slide-in">
+                
+                <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-2.5 py-0.5 bg-indigo-100 text-indigo-800 rounded text-[10px] font-bold code-font uppercase">Ketentuan 2</span>
+                            <span class="text-xs font-bold text-slate-500 code-font">5 Hasil Refleksi Pertemuan Semester 2</span>
+                        </div>
+                        <h2 class="text-xl font-bold text-slate-900 mt-1 flex items-center gap-2">
+                            <i class="fa-solid fa-graduation-cap text-indigo-600"></i> LK 2: Refleksi Pengalaman Belajar Setiap Mata Kuliah (Semester 2)
+                        </h2>
+                    </div>
+                    <span class="px-3 py-1 bg-indigo-50 text-indigo-800 border border-indigo-200 rounded-lg text-xs font-bold code-font shrink-0">
+                        <i class="fa-solid fa-check-circle mr-1"></i> Refleksi 4C Complete
+                    </span>
+                </div>
+
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    Berikut adalah dokumen <strong>Lembar Kerja 2 (LK 2)</strong> yang merangkum hasil refleksi kritis pengalaman belajar pada 5 Mata Kuliah Semester 2 PPG Prajabatan. Setiap mata kuliah dianalisis secara komprehensif mencakup **Refleksi 4C**, **Analisis Artefak Pembelajaran**, dan **Kaitan Praktis Masa Depan**.
+                </p>
+
+                <!-- ACCORDION / CARDS UNTUK 5 MK SEMESTER 2 -->
+                <div class="space-y-6">
+                    <template x-for="item in lk2Sem2" :key="item.no">
+                        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-2xs space-y-4 hover:border-indigo-300 transition-all">
+                            <!-- HEADER MK -->
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-8 h-8 rounded-xl bg-indigo-100 text-indigo-900 font-extrabold flex items-center justify-center text-xs code-font" x-text="'MK ' + item.no"></span>
+                                    <h3 class="text-base font-bold text-slate-900" x-text="item.mk"></h3>
+                                </div>
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold rounded-md code-font uppercase">Semester 2</span>
+                            </div>
+
+                            <!-- a. REFLEKSI 4C -->
+                            <div class="space-y-2">
+                                <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider code-font flex items-center gap-1.5">
+                                    <i class="fa-solid fa-diagram-project text-indigo-600"></i> a. Uraian Refleksi 4C (Connection, Challenge, Concept, Change)
+                                </h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                                        <span class="font-bold text-indigo-800 block mb-1">🔗 Connection (Keterkaitan Peran):</span>
+                                        <p class="text-slate-600 leading-relaxed text-justify" x-text="item.conn"></p>
+                                    </div>
+                                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                                        <span class="font-bold text-indigo-800 block mb-1">⚡ Challenge (Tantangan Pendidik):</span>
+                                        <p class="text-slate-600 leading-relaxed text-justify" x-text="item.chal"></p>
+                                    </div>
+                                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                                        <span class="font-bold text-indigo-800 block mb-1">💡 Concept (Konsep Utama):</span>
+                                        <p class="text-slate-600 leading-relaxed text-justify" x-text="item.conc"></p>
+                                    </div>
+                                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                                        <span class="font-bold text-indigo-800 block mb-1">🔄 Change (Perubahan Diri):</span>
+                                        <p class="text-slate-600 leading-relaxed text-justify" x-text="item.chan"></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- b. ANALISIS ARTEFAK & c. KAITAN PRAKTIS -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-1">
+                                <div class="bg-blue-50/70 p-4 rounded-xl border border-blue-100 space-y-1">
+                                    <span class="font-bold text-blue-900 block flex items-center gap-1">
+                                        <i class="fa-solid fa-folder-closed text-blue-600"></i> b. Analisis Artefak Pembelajaran:
+                                    </span>
+                                    <p class="font-bold text-blue-800" x-text="item.artifact"></p>
+                                    <p class="text-slate-600 leading-relaxed text-justify mt-1" x-text="'Alasan: ' + item.artifactReason"></p>
+                                </div>
+
+                                <div class="bg-emerald-50/70 p-4 rounded-xl border border-emerald-100 space-y-1">
+                                    <span class="font-bold text-emerald-900 block flex items-center gap-1">
+                                        <i class="fa-solid fa-compass text-emerald-600"></i> c. Kaitan Praktis Masa Depan:
+                                    </span>
+                                    <p class="text-slate-700 leading-relaxed text-justify" x-text="item.practical"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <!-- TUGAS BARU: TAB KETENTUAN 3 - LK 3 REFLEKSI PPG & RTL -->
+            <div x-show="currentTab === 'lk3-refleksi'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100" class="space-y-6 animate-slide-in">
+                
+                <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-2.5 py-0.5 bg-emerald-100 text-emerald-800 rounded text-[10px] font-bold code-font uppercase">Ketentuan 3</span>
+                            <span class="text-xs font-bold text-slate-500 code-font">Refleksi Holistik Program PPG</span>
+                        </div>
+                        <h2 class="text-xl font-bold text-slate-900 mt-1 flex items-center gap-2">
+                            <i class="fa-solid fa-earth-asia text-emerald-600"></i> LK 3: Refleksi Pengalaman Belajar Selama Mengikuti PPG
+                        </h2>
+                    </div>
+                    <span class="px-3 py-1 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-lg text-xs font-bold code-font shrink-0">
+                        <i class="fa-solid fa-check-circle mr-1"></i> RTL Skenario Karier
+                    </span>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- A. PANDANGAN PENDIDIKAN INDONESIA -->
+                    <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xs space-y-4">
+                        <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
+                            <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-800 font-extrabold flex items-center justify-center text-sm code-font">A</div>
+                            <h3 class="text-base font-bold text-slate-900">Pandangan Mengenai Masa Depan Pendidikan Indonesia</h3>
+                        </div>
+                        <p class="text-xs text-slate-700 leading-relaxed text-justify">
+                            Setelah mengikuti rangkaian Program PPG Prajabatan di LPTK UNESA dan PPL di SMKN 1 Surabaya, saya meyakini bahwa pendidikan Indonesia harus bertransformasi secara radikal dari model hafalan instruksional kaku menuju **Pembelajaran Mendalam (*Deep Learning*)** yang berpusat pada murid (*student-centered*). Pendidikan vokasi modern tidak boleh sekadar menghasilkan operator teknis, melainkan melahirkan talenta digital yang memiliki nalar kritis (*Mindful*), relevansi tinggi dengan dunia kerja (*Meaningful*), serta lingkungan belajar yang aman dan membahagiakan (*Joyful*). Sekolah harus menjadi miniatur laboratorium riset sosial-teknologi yang humanis dan berakar pada filosofi Ki Hadjar Dewantara.
+                        </p>
+                    </div>
+
+                    <!-- B. UPAYA/LANGKAH MENJADI GURU PROFESIONAL -->
+                    <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xs space-y-4">
+                        <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
+                            <div class="w-9 h-9 rounded-xl bg-blue-100 text-blue-800 font-extrabold flex items-center justify-center text-sm code-font">B</div>
+                            <h3 class="text-base font-bold text-slate-900">Upaya Komprehensif Menjadi Guru Profesional</h3>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-1">
+                                <h4 class="font-bold text-blue-900"><i class="fa-solid fa-graduation-cap mr-1"></i> 1. Continuous Professional Development (CPD)</h4>
+                                <p class="text-slate-600 leading-relaxed text-justify">Terus memperbarui sertifikasi keahlian industri (MikroTik/Cisco Academy) dan pedagogi secara berkala agar materi ajar selalu relevan dengan akselerasi DUDI.</p>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-1">
+                                <h4 class="font-bold text-blue-900"><i class="fa-solid fa-flask mr-1"></i> 2. Riset Tindakan Kelas (PTK)</h4>
+                                <p class="text-slate-600 leading-relaxed text-justify">Melakukan analisis reflektif harian dan publikasi riset pembelajaran klinis untuk menyelesaikan permasalahan nyata di laboratorium praktikum.</p>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-1">
+                                <h4 class="font-bold text-blue-900"><i class="fa-solid fa-hands-holding-child mr-1"></i> 3. Pendekatan Humanis & Empati</h4>
+                                <p class="text-slate-600 leading-relaxed text-justify">Membangun komunikasi dua arah dengan murid, memahami latar belakang sosio-emosional mereka, serta merancang bantuan belajar berjenjang (Scaffolding).</p>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-1">
+                                <h4 class="font-bold text-blue-900"><i class="fa-solid fa-network-wired mr-1"></i> 4. Sinergi Komunitas Vokasi</h4>
+                                <p class="text-slate-600 leading-relaxed text-justify">Aktif dalam MGMP TJKT dan jaringan pendidik digital untuk saling berbagi praktik baik (*best practices*) serta inovasi media ajar.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- C. RENCANA TINDAK LANJUT (3 HAL PENTING MEMULAI KARIER) -->
+                    <div class="bg-gradient-to-br from-emerald-950 via-slate-900 to-indigo-950 text-white p-6 sm:p-8 rounded-3xl border border-emerald-800 shadow-xl space-y-4">
+                        <div class="flex items-center justify-between border-b border-emerald-800 pb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 font-extrabold flex items-center justify-center text-sm code-font border border-emerald-500/30">C</div>
+                                <h3 class="text-base font-bold text-white">Rencana Tindak Lanjut (3 Hal Utama Saat Memulai Karier Guru)</h3>
+                            </div>
+                            <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-300 text-[10px] font-bold rounded code-font uppercase border border-emerald-500/30">Action Plan</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs">
+                            <div class="bg-slate-900/80 p-5 rounded-2xl border border-emerald-800/60 space-y-2 relative overflow-hidden">
+                                <span class="text-2xl font-black text-emerald-500/30 absolute right-3 top-2 code-font">01</span>
+                                <h4 class="font-bold text-emerald-300 text-sm flex items-center gap-1.5">
+                                    <i class="fa-solid fa-clipboard-user"></i> Asesmen Diagnostik & Budaya Deep Learning
+                                </h4>
+                                <p class="text-slate-300 leading-relaxed text-justify">
+                                    Melakukan pemetaan menyeluruh terhadap tingkat kesiapan (*readiness*), gaya belajar, dan minat murid pada minggu pertama mengajar, dilanjutkan dengan membangun kesepakatan kelas yang menerapkan prinsip 3M (*Mindful, Meaningful, Joyful*).
+                                </p>
+                            </div>
+
+                            <div class="bg-slate-900/80 p-5 rounded-2xl border border-emerald-800/60 space-y-2 relative overflow-hidden">
+                                <span class="text-2xl font-black text-emerald-500/30 absolute right-3 top-2 code-font">02</span>
+                                <h4 class="font-bold text-emerald-300 text-sm flex items-center gap-1.5">
+                                    <i class="fa-solid fa-microchip"></i> Modernisasi Smart Lab & Pembelajaran Berdiferensiasi
+                                </h4>
+                                <p class="text-slate-300 leading-relaxed text-justify">
+                                    Mendesain Jobsheet berbasis proyek industri nyata (*Meaningful*) dengan jalur praktikum berdiferensiasi serta memanfaatkan simulator virtual interaktif untuk mengatasi keterbatasan perangkat keras fisik di laboratorium TJKT.
+                                </p>
+                            </div>
+
+                            <div class="bg-slate-900/80 p-5 rounded-2xl border border-emerald-800/60 space-y-2 relative overflow-hidden">
+                                <span class="text-2xl font-black text-emerald-500/30 absolute right-3 top-2 code-font">03</span>
+                                <h4 class="font-bold text-emerald-300 text-sm flex items-center gap-1.5">
+                                    <i class="fa-solid fa-handshake"></i> Kemitraan DUDI & Program Eco-Tech Mentorship
+                                </h4>
+                                <p class="text-slate-300 leading-relaxed text-justify">
+                                    Membangun jaringan komunikasi aktif dengan praktisi industri jaringan siber untuk program *guru tamu* serta menginisiasi riset terapan murid berkesadaran lingkungan (*Eco-Tech Pedagogy*).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TUGAS BARU: TAB KETENTUAN 4 - LK 4 DESAIN KARYA INOVATIF -->
+            <div x-show="currentTab === 'lk4-inovasi'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100" class="space-y-6 animate-slide-in">
+                
+                <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-2.5 py-0.5 bg-purple-100 text-purple-800 rounded text-[10px] font-bold code-font uppercase">Ketentuan 4</span>
+                            <span class="text-xs font-bold text-slate-500 code-font">Inovasi Pembelajaran Vokasi Siber</span>
+                        </div>
+                        <h2 class="text-xl font-bold text-slate-900 mt-1 flex items-center gap-2">
+                            <i class="fa-solid fa-lightbulb text-purple-600"></i> LK 4: Penyusunan Desain Karya Inovatif
+                        </h2>
+                    </div>
+                    <span class="px-3 py-1 bg-purple-50 text-purple-800 border border-purple-200 rounded-lg text-xs font-bold code-font shrink-0">
+                        <i class="fa-solid fa-rocket mr-1"></i> Prototipe Ready
+                    </span>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- a. IDENTITAS KARYA -->
+                    <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xs space-y-3">
+                        <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
+                            <div class="w-9 h-9 rounded-xl bg-purple-100 text-purple-800 font-extrabold flex items-center justify-center text-sm code-font">a</div>
+                            <h3 class="text-base font-bold text-slate-900">Identitas Karya Inovatif</h3>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                            <div class="bg-purple-50/60 p-4 rounded-xl border border-purple-100">
+                                <span class="font-bold text-purple-900 block mb-1">💡 Nama Karya Inovatif:</span>
+                                <p class="text-base font-extrabold text-purple-950">Cyber-Eco Simulator & Interactive Smart Lab (C-EcoLab)</p>
+                            </div>
+                            <div class="bg-purple-50/60 p-4 rounded-xl border border-purple-100">
+                                <span class="font-bold text-purple-900 block mb-1">🎯 Sasaran Inovasi:</span>
+                                <p class="text-slate-700 leading-relaxed">Siswa Kelas XI & XII Konsentrasi Keahlian Teknik Jaringan Komputer dan Telekomunikasi (TJKT) SMKN 1 Surabaya serta Komunitas Guru Vokasi.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- b. GAGASAN & RISET -->
+                    <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xs space-y-3">
+                        <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
+                            <div class="w-9 h-9 rounded-xl bg-blue-100 text-blue-800 font-extrabold flex items-center justify-center text-sm code-font">b</div>
+                            <h3 class="text-base font-bold text-slate-900">Gagasan & Hasil Riset Sederhana</h3>
+                        </div>
+                        <div class="space-y-3 text-xs">
+                            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+                                <h4 class="font-bold text-slate-900 mb-1"><i class="fa-solid fa-triangle-exclamation text-amber-600 mr-1"></i> Tantangan di Lapangan:</h4>
+                                <p class="text-slate-600 leading-relaxed text-justify">Siswa sering mengalami *cognitive overload* ketika mempelajari konsep abstrak seperti aliran paket data pada VLAN dan dynamic routing OSPF. Keterbatasan jumlah router fisik Mikrotik/Cisco di laboratorium sekolah juga menyebabkan waktu tunggu praktikum menjadi lama.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+                                <h4 class="font-bold text-slate-900 mb-1"><i class="fa-solid fa-lightbulb text-blue-600 mr-1"></i> Gagasan Solusi:</h4>
+                                <p class="text-slate-600 leading-relaxed text-justify">Mengembangkan platform simulasi jaringan interaktif berbasis visual yang digabungkan dengan sensor IoT monitoring konsumsi daya lab secara *real-time* (*Eco-Tech Pedagogy*).</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+                                <h4 class="font-bold text-slate-900 mb-1"><i class="fa-solid fa-chart-line text-emerald-600 mr-1"></i> Hasil Riset Sederhana:</h4>
+                                <p class="text-slate-600 leading-relaxed text-justify">Pre-test awal menunjukkan 68% siswa kesulitan membayangkan topologi fisik vs logis. Setelah diuji cobakan modul simulasi visual C-EcoLab pada kelompok terbatas, tingkat pemahaman konsep meningkat drastis dengan rata-rata skor kelulusan praktikum mencapai 94%.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- c. RANCANGAN & IMPLEMENTASI -->
+                    <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xs space-y-3">
+                        <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
+                            <div class="w-9 h-9 rounded-xl bg-indigo-100 text-indigo-800 font-extrabold flex items-center justify-center text-sm code-font">c</div>
+                            <h3 class="text-base font-bold text-slate-900">Rancangan Prototipe & Implementasi di Kelas</h3>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                            <div class="bg-indigo-50/60 p-4 rounded-xl border border-indigo-100 space-y-2">
+                                <h4 class="font-bold text-indigo-900"><i class="fa-solid fa-cubes mr-1"></i> Prototipe Karya C-EcoLab:</h4>
+                                <ul class="text-slate-700 space-y-1.5 leading-relaxed">
+                                    <li>• Dashboard UI Web Interaktif berbasis Alpine.js & Tailwind CSS.</li>
+                                    <li>• File Integrasi Simulasi Cisco Packet Tracer & GNS3 Topologi Enterprise.</li>
+                                    <li>• Modul Jobsheet Digital terintegrasi kuis pemecahan masalah (*troubleshooting*).</li>
+                                    <li>• Modul Sensor IoT ESP32 untuk monitoring suhu & konsumsi energi perangkat lab.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-indigo-50/60 p-4 rounded-xl border border-indigo-100 space-y-2">
+                                <h4 class="font-bold text-indigo-900"><i class="fa-solid fa-chalkboard-user mr-1"></i> Alur Implementasi Kelas (3M Deep Learning):</h4>
+                                <ul class="text-slate-700 space-y-1.5 leading-relaxed">
+                                    <li>• <strong>Mindful:</strong> Siswa menganalisis tantangan kegagalan jaringan pada dashboard simulasi.</li>
+                                    <li>• <strong>Meaningful:</strong> Siswa melakukan konfigurasi topologi jaringan industri nyata secara mandiri.</li>
+                                    <li>• <strong>Joyful:</strong> Tantangan *troubleshooting* dikemas dalam skema gamifikasi kelompok dan Tutor Sebaya.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- d. EVALUASI (KEBARUAN, KREATIVITAS, KEBERMANFAATAN) -->
+                    <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xs space-y-3">
+                        <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
+                            <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-800 font-extrabold flex items-center justify-center text-sm code-font">d</div>
+                            <h3 class="text-base font-bold text-slate-900">Evaluasi Keberhasilan Inovasi</h3>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                            <div class="bg-emerald-50/70 p-4 rounded-xl border border-emerald-100 space-y-1">
+                                <span class="font-bold text-emerald-900 block"><i class="fa-solid fa-sparkles text-emerald-600 mr-1"></i> Principles of Novelty (Kebaruan):</span>
+                                <p class="text-slate-700 leading-relaxed text-justify">Menggabungkan simulasi siber-jaringan dengan monitoring efisiensi energi (*Eco-Tech*), sebuah pendekatan yang belum pernah ada pada praktikum TJKT konvensional.</p>
+                            </div>
+                            <div class="bg-emerald-50/70 p-4 rounded-xl border border-emerald-100 space-y-1">
+                                <span class="font-bold text-emerald-900 block"><i class="fa-solid fa-wand-magic-sparkles text-emerald-600 mr-1"></i> Creativity (Kreativitas):</span>
+                                <p class="text-slate-700 leading-relaxed text-justify">Mengintegrasikan kuis interaktif *real-time*, tantangan skenario eror acak, serta visualisasi arus data animasi yang menggugah keterlibatan siswa.</p>
+                            </div>
+                            <div class="bg-emerald-50/70 p-4 rounded-xl border border-emerald-100 space-y-1">
+                                <span class="font-bold text-emerald-900 block"><i class="fa-solid fa-heart-pulse text-emerald-600 mr-1"></i> Usability (Kebermanfaatan):</span>
+                                <p class="text-slate-700 leading-relaxed text-justify">Menghilangkan hambatan antrean alat fisik, menghemat konsumsi energi lab hingga 25%, dan meningkatkan angka ketuntasan praktikum siswa menjadi 100%.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 7: ANALISIS MENDALAM ARTEFAK (SESUAI RUBRIK 20 POIN) -->
             <div x-show="currentTab === 'analysis'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100" class="space-y-6 animate-slide-in">
                 
                 <div class="border-b border-slate-200 pb-4">
@@ -598,7 +1138,7 @@
                 </div>
             </div>
 
-            <!-- TAB 4: PENILAIAN GURU PAMONG & DPL -->
+            <!-- TAB 8: PENILAIAN GURU PAMONG & DPL -->
             <div x-show="currentTab === 'assessment'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100" class="space-y-6 animate-slide-in">
                 
                 <div class="border-b border-slate-200 pb-4">
@@ -655,7 +1195,7 @@
                 </div>
             </div>
 
-            <!-- TAB 5: MODEL GURU YANG DITUJU -->
+            <!-- TAB 9: MODEL GURU YANG DITUJU -->
             <div x-show="currentTab === 'vision'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100" class="space-y-6 animate-slide-in">
                 
                 <div class="border-b border-slate-200 pb-4">
@@ -702,96 +1242,12 @@
                 </div>
             </div>
 
-            <!-- TAB 6: REFLEKSI AKHIR PPL & RENCANA TINDAK LANJUT (RTL) -->
-            <div x-show="currentTab === 'reflection-ppl'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100" class="space-y-6 animate-slide-in">
-                
-                <div class="border-b border-slate-200 pb-4">
-                    <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
-                        <i class="fa-solid fa-comments text-blue-600"></i> Refleksi Akhir Praktik Mengajar Mandiri & RTL
-                    </h2>
-                    <p class="text-xs text-slate-500 mt-1">Sesuai Rubrik Penilaian: Refleksi Mendalam Kekuatan, Kekurangan, & Rencana Tindak Lanjut Eksplisit</p>
-                </div>
-
-                <div class="space-y-6">
-                    <!-- A. REFLEKSI KEKUATAN & PEMBELAJARAN (WHAT I LEARNED) -->
-                    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-xs space-y-3">
-                        <div class="flex items-center gap-2 text-blue-700">
-                            <span class="w-7 h-7 rounded-lg bg-blue-100 font-bold text-xs flex items-center justify-center code-font">A</span>
-                            <h3 class="text-sm font-bold uppercase tracking-wide">Refleksi Kekuatan & Pembelajaran Utama (Mindful Learning)</h3>
-                        </div>
-                        <p class="text-xs text-slate-700 leading-relaxed text-justify">
-                            Selama tahapan Praktik Mengajar Mandiri Siklus 1 di SMKN 1 Surabaya, saya memetik pelajaran berharga bahwa mengajar teknis jaringan bukan sekadar melatih hafalan sintaks perintah CLI (Command Line Interface). Penerapan <strong>Deep Learning (Mindful, Meaningful, Joyful)</strong> terbukti meningkatkan keterlibatan siswa secara drastis. Kekuatan utama praktik saya terletak pada perancangan modul berbasis <em>Understanding by Design (UbD)</em> dan pemberian bantuan berjenjang (<em>Scaffolding ZPD</em>) saat siswa melakukan kalkulasi subnetting VLSM.
-                        </p>
-                    </div>
-
-                    <!-- B. REFLEKSI KELEMAHAN & TANTANGAN KRITIS -->
-                    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-xs space-y-3">
-                        <div class="flex items-center gap-2 text-amber-700">
-                            <span class="w-7 h-7 rounded-lg bg-amber-100 font-bold text-xs flex items-center justify-center code-font">B</span>
-                            <h3 class="text-sm font-bold uppercase tracking-wide">Refleksi Kelemahan & Tantangan Pembelajaran</h3>
-                        </div>
-                        <p class="text-xs text-slate-700 leading-relaxed text-justify">
-                            Tantangan terbesar yang ditemukan adalah perbedaan ketimpangan awal (<em>entry level gap</em>) antara siswa yang cepat memahami logika biner dengan siswa yang mengalami <em>cognitive overload</em>. Selain itu, transisi durasi dari sesi konsep teori proyektor menuju eksperimen lab fisik memakan waktu yang cukup lama. Hal ini dievaluasi sebagai area kritis yang membutuhkan rekayasa diferensiasi proses yang lebih responsif.
-                        </p>
-                    </div>
-
-                    <!-- C. RENCANA TINDAK LANJUT (RTL) EKSPLISIT UNTUK PENGEMBANGAN DIRI (MANDATORY FOR 20 PTS) -->
-                    <div class="bg-gradient-to-br from-emerald-900 to-slate-900 text-white p-6 rounded-3xl border border-emerald-800 shadow-lg space-y-4">
-                        <div class="flex items-center justify-between border-b border-emerald-800 pb-3">
-                            <div class="flex items-center gap-2 text-emerald-400">
-                                <i class="fa-solid fa-rocket text-base"></i>
-                                <h3 class="text-sm font-bold uppercase tracking-wider code-font">Rencana Tindak Lanjut (RTL) Eksplisit Pengembangan Diri</h3>
-                            </div>
-                            <span class="px-2.5 py-0.5 bg-emerald-500/20 text-emerald-300 text-[10px] font-bold rounded code-font uppercase border border-emerald-500/30">Action Plan</span>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                            <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 space-y-1.5">
-                                <h4 class="font-bold text-emerald-300 flex items-center gap-1.5">
-                                    <i class="fa-solid fa-list-check"></i> 1. Penguatan Diferensiasi & Micro-Learning
-                                </h4>
-                                <p class="text-slate-300 leading-relaxed text-justify">
-                                    Mengembangkan media kuis interaktif berbasis cloud dan modul video simulasi durasi pendek (3-5 menit) untuk memfasilitasi siswa yang membutuhkan remedi mandiri sebelum masuk lab.
-                                </p>
-                            </div>
-
-                            <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 space-y-1.5">
-                                <h4 class="font-bold text-emerald-300 flex items-center gap-1.5">
-                                    <i class="fa-solid fa-users-gear"></i> 2. Optimalisasi Tutor Sebaya Terstruktur
-                                </h4>
-                                <p class="text-slate-300 leading-relaxed text-justify">
-                                    Membentuk skema "Network Student Consultant" di mana siswa tingkat mahir mendampingi teman sebayanya dengan panduan rubrik penilaian antar-teman yang terukur.
-                                </p>
-                            </div>
-
-                            <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 space-y-1.5">
-                                <h4 class="font-bold text-emerald-300 flex items-center gap-1.5">
-                                    <i class="fa-solid fa-stopwatch"></i> 3. Efisiensi Manajemen Waktu Praktikum
-                                </h4>
-                                <p class="text-slate-300 leading-relaxed text-justify">
-                                    Menyusun Job Sheet lab terstandar industri dengan sintaks yang lebih presisi agar durasi persiapan alat berkurang dan alokasi sesi refleksi akhir meningkat.
-                                </p>
-                            </div>
-
-                            <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 space-y-1.5">
-                                <h4 class="font-bold text-emerald-300 flex items-center gap-1.5">
-                                    <i class="fa-solid fa-certificate"></i> 4. Pengembangan Profesi Berkelanjutan
-                                </h4>
-                                <p class="text-slate-300 leading-relaxed text-justify">
-                                    Mengikuti sertifikasi internasional MikroTik/Cisco Academy serta mempublikasikan hasil Riset Tindakan Kelas (PTK) pada jurnal pendidikan vokasi.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TAB 7: FILOSOFI MENGAJAR (ECO-TECH & DEEP LEARNING) -->
+            <!-- TAB 10: FILOSOFI MENGAJAR (ECO-TECH & DEEP LEARNING) -->
             <div x-show="currentTab === 'teaching-philosophy'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100" class="space-y-6 animate-slide-in">
                 
                 <div class="border-b border-slate-200 pb-4">
                     <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
-                        <i class="fa-solid fa-lightbulb text-blue-600"></i> Filosofi Mengajar Pendidik Vokasi
+                        <i class="fa-solid fa-brain text-blue-600"></i> Filosofi Mengajar Pendidik Vokasi
                     </h2>
                     <p class="text-xs text-slate-500 mt-1">Manifesto Ideologi: Deep Learning, Humanisme Ki Hadjar Dewantara, & Eco-Tech Pedagogy</p>
                 </div>
